@@ -2,7 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/PageHero";
 import { GraduationCap, FileText, CheckCircle, ArrowRight, Phone, MessageCircle } from "lucide-react";
+import heroClassroom from "@/assets/hero-classroom.jpg";
 
 const admissionSteps = [
   {
@@ -44,28 +46,13 @@ const Admission = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-growth/10 text-growth rounded-full text-sm font-semibold mb-6">
-              <span className="w-2 h-2 bg-growth rounded-full animate-pulse" />
-              Admissions Open 2026-27
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Join Our School Family
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Give your child the gift of quality education. Limited seats available for
-              Std 1 to 10 (Gujarati Board).
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Admissions Open 2026-27"
+        title="Join Our School Family"
+        description="Give your child the gift of quality education. Limited seats available for Std 1 to 10 (Gujarati Board)."
+        backgroundImage={heroClassroom}
+        icon={GraduationCap}
+      />
 
       {/* CTA Section */}
       <section className="py-12 bg-maroon text-white">
@@ -85,14 +72,14 @@ const Admission = () => {
             </div>
             <div className="flex flex-wrap gap-4">
               <Button variant="hero" size="lg" asChild>
-                <a href="tel:+919876543210">
+                <a href="tel:+919925941082">
                   <Phone className="h-5 w-5" />
                   Call Now
                 </a>
               </Button>
               <Button variant="whatsapp" size="lg" asChild>
                 <a
-                  href="https://wa.me/919876543210?text=Hello! I'm interested in admission enquiry for my child."
+                  href="https://wa.me/919925941082?text=Hello! I'm interested in admission enquiry for my child."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -212,8 +199,12 @@ const Admission = () => {
               Have Questions?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Visit our school or contact us for any queries about admission process,
-              fee structure, or curriculum.
+              For admission enquiries, please contact:<br />
+              <strong>Admission office,</strong><br />
+              Siddharth's Miracles School,<br />
+              Vavol-Uvarsad, Vavol, Gandhinagar, Gujarat-382016<br />
+              <strong>Contact:</strong> +91 99259 41082<br />
+              <strong>Email:</strong> siddharthsmiraclesvavol@yahoo.com
             </p>
             <Button variant="default" size="lg" asChild>
               <Link to="/contact">

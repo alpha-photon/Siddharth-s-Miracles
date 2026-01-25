@@ -1,6 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles } from "lucide-react";
+import { PageHero } from "@/components/ui/PageHero";
+import heroCultural from "@/assets/hero-cultural.jpg";
 
 const activities = [
   {
@@ -65,24 +67,13 @@ const Activities = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Activities & Development
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Holistic development through sports, arts, cultural activities, and
-              personality development programs.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Holistic Development"
+        title="Activities & Development"
+        description="Holistic development through sports, arts, cultural activities, and personality development programs."
+        backgroundImage={heroCultural}
+        icon={Trophy}
+      />
 
       {/* Activities Grid */}
       <section className="py-16 md:py-24">
@@ -113,7 +104,7 @@ const Activities = () => {
         </div>
       </section>
 
-      {/* Why Activities Matter */}
+      {/* Holistic Development */}
       <section className="py-16 md:py-24 bg-pattern-dots">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -125,8 +116,14 @@ const Activities = () => {
               className="text-center mb-12"
             >
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
-                Why Co-curricular Activities Matter
+                Holistic Development
               </h2>
+              <p className="text-muted-foreground">
+                Holistic development is a comprehensive approach to learning that focuses on nurturing 
+                various facts of human potential. Unlike traditional education system that prioritize 
+                intellectual growth, holistic development aims at fostering physical, emotional, social, 
+                and cognitive ability in individuals.
+              </p>
             </motion.div>
 
             <motion.div
@@ -134,25 +131,211 @@ const Activities = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 shadow-card border border-border/50 mb-8"
+            >
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                We believe that our role as a school extends to overall development. Our school is 
+                inclined to creating responsible global citizens and lifelong learners.
+              </p>
+              
+              <h3 className="font-heading text-xl font-bold text-maroon mb-4">Benefits of holistic development in education:</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Intellectual Growth:</strong> Encourages critical thinking, problem solving, creativity, and preparing students for real-world challenges.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Emotional well-being:</strong> Fosters self-awareness, empathy and resilience's, equipping students to manage emotions and build health relationship</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Physical Health:</strong> Promotes an active lifestyle, good nutrition and self-care habits, contributing to overall physical well-being.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Social skills:</strong> Develops communication, collaboration and teamwork skills, essential for success in personal and professional life.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Creative Expression:</strong> Cultivates imagination, innovation, and artistic talent, fostering a sense of identity and self-expression.</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Activities */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+              Holistic Development Activities
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Dance */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl p-8 shadow-card border border-border/50"
             >
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  At Siddharth's Miracles, we believe that education extends far beyond textbooks.
-                  Our comprehensive co-curricular program is designed to nurture well-rounded
-                  individuals who excel not just academically but in all aspects of life.
-                </p>
-                <p>
-                  Through sports, students learn teamwork, discipline, and physical fitness.
-                  Creative activities like drawing and music develop imagination and artistic expression.
-                  Cultural programs connect children to their heritage and build confidence in
-                  public performance.
-                </p>
-                <p>
-                  Our festival celebrations teach children about Indian traditions and values,
-                  while personality development programs prepare them to face challenges with
-                  confidence and grace.
-                </p>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center">
+                  <Palette className="h-8 w-8 text-maroon" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-maroon">Dance</h3>
+              </div>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Increases muscular strength, endurance and motor fitness</li>
+                <li>• Improved muscle tone and strength</li>
+                <li>• Better coordination, agility and flexibility</li>
+                <li>• Greater self-confidence and self-esteem</li>
+                <li>• Social skills</li>
+              </ul>
+            </motion.div>
+
+            {/* Life Skills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-card rounded-2xl p-8 shadow-card border border-border/50"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <Heart className="h-8 w-8 text-maroon" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-maroon">Life Skill Programme</h3>
+              </div>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li>• Self-awareness: The ability to look at oneself and one's activities being unbiased</li>
+                <li>• Communication skills: Enables individuals to convey things the way they want</li>
+                <li>• Empathy: Helps students connect with others and feel their feelings</li>
+                <li>• Thinking outside the box: Helps face issues head-on and find innovative solutions</li>
+                <li>• Critical Thinking: Allows people to make smart judgments</li>
+                <li>• Problem-solving skills: Helps achieve long-term and short-term goals</li>
+                <li>• Decision-making skill: Students make well-informed decisions</li>
+              </ul>
+            </motion.div>
+
+            {/* Visual Arts */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 shadow-card border border-border/50"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-xl bg-growth/20 flex items-center justify-center">
+                  <Palette className="h-8 w-8 text-maroon" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-maroon">Visual Arts</h3>
+              </div>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Increases creativity and innovation</li>
+                <li>• Develops the ability of observation</li>
+                <li>• Improves motor skills</li>
+                <li>• Develops the power of problem solving</li>
+                <li>• Builds confidence</li>
+                <li>• Builds the ability to be patient</li>
+                <li>• Increases focus</li>
+                <li>• Helps child to bond with others</li>
+                <li>• Develops determination</li>
+                <li>• Acquires a sense of style and beauty</li>
+              </ul>
+            </motion.div>
+
+            {/* Sports */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-card rounded-2xl p-8 shadow-card border border-border/50"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-xl bg-maroon/20 flex items-center justify-center">
+                  <Trophy className="h-8 w-8 text-maroon" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-maroon">Sports</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Character Building Traits:</h4>
+                  <ul className="space-y-1 text-muted-foreground text-sm">
+                    <li>• Manage emotions, Discipline, Social skill, Patience</li>
+                    <li>• Perseverance, Accept defeat, Team work</li>
+                    <li>• Respect authority, Leadership skills, Lifelong habits</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Physiological Benefits:</h4>
+                  <ul className="space-y-1 text-muted-foreground text-sm">
+                    <li>• Increased cardiovascular fitness, Healthy growth</li>
+                    <li>• Improves energy levels, Improves co-ordination and balance</li>
+                    <li>• Creates happiness</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Performance Enhancement:</h4>
+                  <ul className="space-y-1 text-muted-foreground text-sm">
+                    <li>• Academic performance, Find their passion, Stay on the right track</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Speech and Drama */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-card rounded-2xl p-8 shadow-card border border-border/50 md:col-span-2"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center">
+                  <Music className="h-8 w-8 text-maroon" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-maroon">Speech and Drama</h3>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Social and emotional development:</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Children learn to empathize with others and develop emotional intelligence by acting 
+                    out scenes and interacting with peers.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Cognitive Development:</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Children sharpen critical thinking and problem-solving skills as children analyze scripts, 
+                    create characters, and make artistic choice. Memorizing lines and following cues enhances 
+                    memory and concentration.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Language and communication skills:</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Participation in speech and drama hones verbal and non-verbal communication skills. 
+                    Children expand their vocabulary, improve articulation, and refine listening skills through 
+                    dialogue and feedback.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>

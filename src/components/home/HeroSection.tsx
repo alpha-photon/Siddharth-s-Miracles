@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle, GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from "lucide-react";
+import { GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -181,7 +181,7 @@ export function HeroSection() {
               Gujarati Board | Std 1–10 | Gandhinagar
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <motion.div
               variants={itemVariants}
               className="flex flex-wrap gap-4"
@@ -191,22 +191,6 @@ export function HeroSection() {
                   <GraduationCap className="h-5 w-5" />
                   Admission Enquiry
                 </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-white border-white/50 hover:bg-white/10 backdrop-blur-sm" asChild>
-                <a href="tel:+919876543210">
-                  <Phone className="h-5 w-5" />
-                  Call Now
-                </a>
-              </Button>
-              <Button variant="whatsapp" size="lg" className="shadow-lg" asChild>
-                <a
-                  href="https://wa.me/919876543210?text=Hello! I'm interested in admission enquiry."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </a>
               </Button>
             </motion.div>
           </motion.div>

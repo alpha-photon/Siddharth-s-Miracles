@@ -38,7 +38,7 @@ export function Footer() {
               "Where Each Day is a Miracle"
             </p>
             <p className="text-sm opacity-80 leading-relaxed">
-              Nurturing young minds with quality education, values, and care since establishment.
+              Nurturing young minds with quality education, values, and care since 2021.
             </p>
           </div>
 
@@ -89,19 +89,20 @@ export function Footer() {
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
                 <span className="opacity-80">
-                  Gandhinagar, Gujarat, India
+                  Vavol-Uvarsad Road, Vavol,<br />
+                  Gandhinagar, Gujarat - 382016
                 </span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone className="h-5 w-5 flex-shrink-0 text-secondary" />
-                <a href="tel:+919876543210" className="opacity-80 hover:opacity-100 hover:text-secondary transition-all">
-                  +91 98765 43210
+                <a href="tel:+919925941082" className="opacity-80 hover:opacity-100 hover:text-secondary transition-all">
+                  +91 99259 41082
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="h-5 w-5 flex-shrink-0 text-secondary" />
-                <a href="mailto:info@siddharthsmiracles.edu" className="opacity-80 hover:opacity-100 hover:text-secondary transition-all">
-                  info@siddharthsmiracles.edu
+                <a href="mailto:siddharthsmiraclesvavol@yahoo.com" className="opacity-80 hover:opacity-100 hover:text-secondary transition-all">
+                  siddharthsmiraclesvavol@yahoo.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm">

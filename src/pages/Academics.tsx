@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/PageHero";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
+import heroClassroom from "@/assets/hero-classroom.jpg";
 
 // Import academic images
 import academicsLab from "@/assets/academics-lab.jpg";
 import academicsLibrary from "@/assets/academics-library.jpg";
 import academicsComputer from "@/assets/academics-computer.jpg";
-import heroClassroom from "@/assets/hero-classroom.jpg";
 
 const academicImages = [
   { src: heroClassroom, title: "Interactive Classrooms", desc: "Modern learning environment" },
@@ -108,27 +109,13 @@ const Academics = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
-              Excellence in Education
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Academics
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Comprehensive Gujarati Board curriculum from Std 1 to 10 with focus on
-              strong foundations and holistic development.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Excellence in Education"
+        title="Academics"
+        description="To make learning a fun experience for every child, we make it interactive and innovative. We follow the Philosophy of constructive and innovative learning through inter-disciplinary curriculum."
+        backgroundImage={heroClassroom}
+        icon={BookOpen}
+      />
 
       {/* Academic Facilities Carousel */}
       <section className="py-16 md:py-20">
@@ -244,7 +231,7 @@ const Academics = () => {
         </div>
       </section>
 
-      {/* Teaching Methodology */}
+      {/* Early Year Programme */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-secondary/5 to-background">
         <div className="container">
           <motion.div
@@ -255,34 +242,142 @@ const Academics = () => {
             className="text-center mb-12"
           >
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
-              Our Teaching Methodology
+              Early Year Programme
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We combine traditional teaching with modern methods for effective learning
+              Nursery, Lower Kindergarten & Upper Kindergarten
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {methodology.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="card-hover bg-card rounded-2xl p-8 shadow-card border border-border/50 flex gap-6 items-start">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50"
+            >
+              <ul className="space-y-4 text-muted-foreground text-lg">
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span>Nurturing curiosity and conceptual learning in young minds.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span>Introducing the basics of literacy and numeracy through practical approach.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span>Development of comprehension skills, stamina, balance and rhythm.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span>Real-world learning experience through creative activities and field trips.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span>Unique curriculum for kinesthetic learning and motor skills development.</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Primary Class */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+              Primary Class
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Class I to VII
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50"
+            >
+              <ul className="space-y-4 text-muted-foreground text-lg">
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Literacy</strong> - various prose, poetry, drama and non-fiction</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Mathematics</strong> - Focus on Problem solving, Logical reasoning and Analytical skill.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Environmental science and social studies</strong> – exploring environment and progression to higher concepts.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Physical Education</strong> – Excellent Indoor and Outdoor games and Yoga.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold mt-1">•</span>
+                  <span><strong>Language skills</strong> – Honing creative writing and reading comprehension.</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Philosophy */}
+      <section className="py-16 md:py-20 bg-pattern-dots">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+              Academic Philosophy
+            </h2>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50 mb-8"
+            >
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                Since all children are unique and must have a stimulating educational environment where 
+                they can grow physically, mentally, emotionally, and socially. We have created an atmosphere 
+                where students can meet their full potential. We provide a safe environment where students 
+                are invited to share their ideas and take risks. We are building the leader of tomorrow 
+                through an all new academic Philosophy, exclusively designed with an aim of providing 360 
+                degree development to our students.
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-4">
+                {["Discipline", "Hard work", "Academic", "Physical fitness", "Exposure", "Reflective and independent thinking"].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <span className="text-secondary font-bold">•</span>
+                    <span className="text-foreground font-medium">{item}</span>
                   </div>
-                  <div>
-                    <h3 className="font-heading text-xl font-bold text-maroon mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

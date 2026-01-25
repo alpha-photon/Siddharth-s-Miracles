@@ -1,6 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/ui/PageHero";
 import { Images } from "lucide-react";
+import heroPlayground from "@/assets/hero-playground.jpg";
 
 const galleryCategories = [
   { name: "Classrooms", nameGuj: "વર્ગખંડો" },
@@ -14,24 +16,12 @@ const Gallery = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Photo Gallery
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Glimpses of life at Siddharth's Miracles School - classrooms, activities,
-              celebrations, and memorable moments.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Photo Gallery"
+        description="Glimpses of life at Siddharth's Miracles School - classrooms, activities, celebrations, and memorable moments."
+        backgroundImage={heroPlayground}
+        icon={Images}
+      />
 
       {/* Coming Soon Section */}
       <section className="py-16 md:py-24">
