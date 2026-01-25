@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Users, Building2, Heart, Shield } from "lucide-react";
+import { GraduationCap, Users, Building2, Heart, Shield, Award } from "lucide-react";
 
 const pillars = [
   {
@@ -32,6 +32,12 @@ const pillars = [
     description: "Ensuring the safety of every child on campus through comprehensive security measures",
     color: "from-primary/20 to-primary/10",
   },
+  {
+    icon: Award,
+    title: "Values & Character Building",
+    description: "Instilling strong moral values, ethics and character development in every student",
+    color: "from-secondary/20 to-accent/10",
+  },
 ];
 
 export function PillarsSection() {
@@ -52,7 +58,7 @@ export function PillarsSection() {
             Pillars of Siddharth's Miracles
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            The five core principles that guide everything we do
+            The six core principles that guide everything we do
           </p>
         </motion.div>
 
@@ -64,7 +70,6 @@ export function PillarsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={index === 4 ? 'md:col-span-2 lg:col-span-1 lg:mx-auto lg:max-w-md' : ''}
             >
               <div className="card-3d h-full bg-card rounded-2xl p-8 shadow-card border border-border/50 text-center relative overflow-hidden group">
                 <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

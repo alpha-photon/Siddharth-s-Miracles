@@ -19,6 +19,7 @@ const buttonVariants = cva(
         maroon: "bg-maroon text-maroon-foreground hover:bg-maroon/90 shadow-soft",
         whatsapp: "bg-[#25D366] text-white hover:bg-[#128C7E] shadow-card",
         outlineWarm: "border-2 border-secondary bg-transparent text-secondary-foreground hover:bg-secondary/10",
+        outlineMaroon: "border-2 border-maroon bg-transparent text-maroon hover:bg-maroon hover:text-maroon-foreground",
       },
       size: {
         default: "h-11 px-6 py-2",

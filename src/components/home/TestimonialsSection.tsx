@@ -23,9 +23,33 @@ const testimonials = [
     nameGuj: "મીના દેસાઈ",
     rating: 5,
   },
+  {
+    name: "Amit Kumar",
+    role: "Parent of Std 7 Student",
+    quote: "The holistic approach to education here is amazing. My child participates in sports, cultural activities, and academics with equal enthusiasm.",
+    nameGuj: "અમિત કુમાર",
+    rating: 5,
+  },
+  {
+    name: "Sunita Mehta",
+    role: "Parent of Std 4 Student",
+    quote: "The personal attention given to each child is remarkable. Teachers know every student individually and guide them accordingly.",
+    nameGuj: "સુનીતા મેહતા",
+    rating: 5,
+  },
+  {
+    name: "Vikram Joshi",
+    role: "Parent of Std 6 Student",
+    quote: "Best decision we made for our child's education. The infrastructure, teaching methods, and values all align perfectly with our expectations.",
+    nameGuj: "વિક્રમ જોશી",
+    rating: 5,
+  },
 ];
 
 export function TestimonialsSection() {
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-secondary/10 via-background to-background relative overflow-hidden">
       {/* Decorative elements */}
@@ -51,45 +75,79 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 40, rotateX: 10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group"
-            >
-              <div className="card-3d h-full bg-card rounded-2xl p-8 shadow-card border border-border/50 relative overflow-hidden">
-                {/* Decorative quote icon */}
-                <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
-                
-                {/* Star rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                  ))}
-                </div>
-                
-                <p className="text-foreground/80 leading-relaxed mb-6 italic text-lg">
-                  "{testimonial.quote}"
-                </p>
-                
-                <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {testimonial.name.charAt(0)}
+        {/* Continuous Moving Carousel */}
+        <div className="relative overflow-hidden group">
+          <div className="flex gap-6 animate-testimonial-scroll group-hover:[animation-play-state:paused]">
+            {/* First set */}
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div
+                key={`first-${index}`}
+                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
+                <div className="card-3d h-full bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 relative overflow-hidden hover:shadow-elevated transition-all duration-300 group">
+                  {/* Decorative quote icon */}
+                  <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
+                  
+                  {/* Star rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  
+                  <p className="text-foreground/80 leading-relaxed mb-6 italic text-base md:text-lg">
+                    "{testimonial.quote}"
+                  </p>
+                  
+                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+            {/* Second set for seamless loop */}
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
+                <div className="card-3d h-full bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 relative overflow-hidden hover:shadow-elevated transition-all duration-300 group">
+                  {/* Decorative quote icon */}
+                  <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
+                  
+                  {/* Star rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-foreground/80 leading-relaxed mb-6 italic text-base md:text-lg">
+                    "{testimonial.quote}"
+                  </p>
+                  
+                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
     </section>
   );
 }

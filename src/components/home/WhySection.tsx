@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FlaskConical, BookOpen, Laptop, Bus, Heart, Trophy, Music, GraduationCap } from "lucide-react";
+import { FlaskConical, BookOpen, Laptop, Bus, Heart, Trophy, Music, GraduationCap, Users, Sparkles } from "lucide-react";
 
 const whyFeatures = [
   {
@@ -36,6 +36,16 @@ const whyFeatures = [
     icon: GraduationCap,
     title: "Interdisciplinary Education",
     description: "Involving two or more different subjects or areas of knowledge",
+  },
+  {
+    icon: Users,
+    title: "Parent-Teacher Collaboration",
+    description: "Strong partnership with parents for holistic child development",
+  },
+  {
+    icon: Sparkles,
+    title: "Creative Learning Environment",
+    description: "Encouraging creativity and innovation in every aspect of learning",
   },
 ];
 
