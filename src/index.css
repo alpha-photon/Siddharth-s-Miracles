@@ -168,6 +168,25 @@
   .animation-delay-500 { animation-delay: 500ms; }
   .animation-delay-600 { animation-delay: 600ms; }
   
+  /* Continuous testimonial scroll */
+  @keyframes testimonial-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-testimonial-scroll {
+    animation: testimonial-scroll 40s linear infinite;
+    will-change: transform;
+  }
+  
+  .pause-animation:hover {
+    animation-play-state: paused;
+  }
+  
   /* Gradient text */
   .text-gradient-warm {
     @apply bg-clip-text text-transparent;

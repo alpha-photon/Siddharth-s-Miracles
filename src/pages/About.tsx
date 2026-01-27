@@ -1,7 +1,9 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Heart, Target, Eye, BookOpen, Users, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, Target, Eye, BookOpen, Users, Award, ChevronLeft, ChevronRight, Shield, GraduationCap, Sparkles } from "lucide-react";
+import { PageHero } from "@/components/ui/PageHero";
 import schoolLogo from "@/assets/school-logo.png";
+import heroSchool from "@/assets/hero-school.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
@@ -24,26 +26,74 @@ const studentImages = [
 const values = [
   {
     icon: Heart,
-    title: "સંસ્કાર (Values)",
-    description: "We instill traditional Indian values and discipline in every child.",
+    title: "Cleanliness",
+    description: "Maintaining a clean and hygienic environment for all.",
     color: "from-secondary/30 to-accent/20",
   },
   {
-    icon: BookOpen,
-    title: "શિક્ષણ (Education)",
-    description: "Quality education that builds strong academic foundations.",
+    icon: Target,
+    title: "Determination",
+    description: "Fostering strong will and commitment to achieve goals.",
     color: "from-primary/20 to-primary/10",
   },
   {
+    icon: Award,
+    title: "Hard Work",
+    description: "Encouraging dedication and perseverance in all endeavors.",
+    color: "from-growth/20 to-growth/10",
+  },
+  {
+    icon: BookOpen,
+    title: "Perseverance",
+    description: "Building resilience and persistence in facing challenges.",
+    color: "from-maroon/20 to-maroon/10",
+  },
+  {
+    icon: Shield,
+    title: "Self-Discipline",
+    description: "Instilling self-control and responsible behavior.",
+    color: "from-secondary/30 to-accent/20",
+  },
+  {
+    icon: Heart,
+    title: "Compassion",
+    description: "Teaching empathy and kindness towards others.",
+    color: "from-primary/20 to-primary/10",
+  },
+  {
+    icon: Shield,
+    title: "Honesty",
+    description: "Upholding truthfulness and integrity in all actions.",
+    color: "from-growth/20 to-growth/10",
+  },
+  {
     icon: Users,
-    title: "પરિવાર (Family)",
-    description: "Every child is treated as part of our extended family.",
+    title: "Respect",
+    description: "Valuing dignity and respect for all individuals.",
+    color: "from-maroon/20 to-maroon/10",
+  },
+  {
+    icon: Users,
+    title: "Team Work",
+    description: "Collaborating effectively to achieve common goals.",
+    color: "from-secondary/30 to-accent/20",
+  },
+  {
+    icon: Target,
+    title: "Commitment",
+    description: "Dedication to excellence in all school activities.",
+    color: "from-primary/20 to-primary/10",
+  },
+  {
+    icon: Shield,
+    title: "Integrity",
+    description: "Maintaining strong moral principles and ethics.",
     color: "from-growth/20 to-growth/10",
   },
   {
     icon: Award,
-    title: "ઉત્કૃષ્ટતા (Excellence)",
-    description: "We strive for excellence in everything we do.",
+    title: "Responsibility",
+    description: "Taking ownership and accountability for actions.",
     color: "from-maroon/20 to-maroon/10",
   },
 ];
@@ -101,27 +151,13 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
-              Our Story
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              About Our School
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Siddharth's Miracles School is dedicated to nurturing young minds with quality education,
-              traditional values, and personal care in the heart of Gandhinagar.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Our Story"
+        title="About Our School"
+        description="Siddharth's Miracles School is a co-educational Day school established in 2021, offering world-class educational opportunities in Gandhinagar, Gujarat with a vision to set a new benchmark of quality education through innovative teaching methods."
+        backgroundImage={heroSchool}
+        icon={BookOpen}
+      />
 
       {/* Student Life Gallery */}
       <section className="py-16 md:py-20">
@@ -185,25 +221,22 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-1 bg-secondary/20 text-maroon rounded-full text-sm font-semibold mb-4">
-                Established with Vision
+                Established 2021
               </span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-6">
-                Our Story
+                About The School
               </h2>
               <div className="space-y-4 text-muted-foreground text-lg">
                 <p>
-                  Siddharth's Miracles School was established with a vision to provide quality
-                  Gujarati medium education that combines academic excellence with traditional
-                  Indian values and sanskar.
+                  Siddharth's Miracles School is a co-educational Day school established in the year 2021, 
+                  with a view of offering world-class educational opportunities in the city of Gandhinagar, 
+                  Gujarat with a vision to set a new benchmark of quality education through innovative 
+                  teaching methods and a unique teaching philosophy.
                 </p>
                 <p>
-                  Located in the peaceful surroundings of Gandhinagar, our school offers a safe
-                  and nurturing environment where every child can discover their potential and
-                  grow into confident, responsible individuals.
-                </p>
-                <p>
-                  We believe that education is not just about books and exams – it's about
-                  building character, developing curiosity, and preparing children for life.
+                  Our infrastructure adds on to the overall development we provide in our creative and 
+                  unique academic curriculum. The school is affiliated to the GSEB (Gujarat Secondary and 
+                  Higher Secondary Education Board).
                 </p>
               </div>
             </motion.div>
@@ -230,8 +263,15 @@ const About = () => {
                   </div>
                   <h3 className="font-heading text-2xl font-bold text-maroon mb-4">Our Vision</h3>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    To be the leading Gujarati medium school that shapes tomorrow's leaders by
-                    providing holistic education rooted in Indian values and modern teaching methods.
+                    In this education arena, the vision of Siddharth's Miracles school takes the lead, 
+                    providing a special platform for students to follow their dreams. This initiative is 
+                    a trailblazer, moving away from usual methods to create an environment where each 
+                    student's unique talents are not just noticed but celebrated with focus on personalized 
+                    learning, modern technology, and a commitment to overall growth. "School Vision" aims 
+                    to shape individuals who not only do well academically but also become confident, 
+                    forward-thinking contributors to society. This effort is more than just an educational 
+                    approach; it's a transformative journey, setting the stage for a future where ambitions 
+                    become real accomplishment.
                   </p>
                 </div>
               </div>
@@ -252,8 +292,11 @@ const About = () => {
                   </div>
                   <h3 className="font-heading text-2xl font-bold text-maroon mb-4">Our Mission</h3>
                   <p className="text-muted-foreground text-lg leading-relaxed">
-                    To provide quality education that develops intellectual, emotional, and social
-                    skills while nurturing discipline, character, and a love for learning in every child.
+                    We are committed to providing a safe and inclusive environment where every student can 
+                    thrive academically, socially, and emotionally. We believe in fostering creativity, 
+                    critical thinking, and collaborating to prepare our students for success in an ever-changing 
+                    world. We are dedicated to equipping our students with the knowledge, skills and values 
+                    they need to become compassionate global citizens.
                   </p>
                 </div>
               </div>
@@ -279,11 +322,11 @@ const About = () => {
               Our Core Values
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do at Siddharth's Miracles
+              Our Motto: "Think it's possible…… Do the impossible."
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -309,31 +352,163 @@ const About = () => {
         </div>
       </section>
 
-      {/* Affiliation */}
-      <section className="py-16 md:py-24 bg-maroon text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
+      {/* Founder Message */}
+      <section className="py-16 md:py-24 bg-pattern-dots">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
+                Message from Founder
+              </span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-6">
+                "Education is not about going to school and getting a degree. 
+                It's about widening your knowledge and absorbing the truth about life"
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50"
+            >
+              <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                <p>
+                  Education is the transmission of knowledge skills, and character traits and manifests 
+                  in various forms. Formal education occurs within a structured institutional framework, 
+                  such as schools, following a curriculum. Non-formal education also follows a structured 
+                  approach but occurs outside the formal schooling system, while informal education entails 
+                  unstructured learning through daily experiences.
+                </p>
+                <p>
+                  It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have 
+                  created an environment where students feel safe, valued and respected, and where they can 
+                  thrive academically, socially, physically, and emotionally. We believe that every child 
+                  is endowed with a unique set of attributes and abilities, which need to be nurtured so 
+                  that they bloom.
+                </p>
+                <p>
+                  At Siddharth's Miracles, we provide a learning environment that inspires and motivates 
+                  children, and encourages them to explore limitless possibilities, in their quest for 
+                  knowledge. Since, our goal is to make Siddharth's Miracles a happy school, WHERE EACH 
+                  DAY WILL BE A MIRACLE, where teaching is pleasure and learning is fun, where excelling 
+                  is passion, and culture and values have a pre-eminent place. Our caring and committed 
+                  teaching and non-teaching staff are our pillars of strength.
+                </p>
+                <p>
+                  We warmly invite you to explore Siddharth's Miracles. Where we aim to create an environment 
+                  where students can thrive and reach their full potential.
+                </p>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="text-center md:text-left">
+                  <p className="font-heading text-lg font-bold text-maroon">GEETHA SATISH PISHARODY</p>
+                </div>
+                <div className="text-center md:text-right">
+                  <p className="font-heading text-lg font-bold text-maroon">SURESH KESHAVLAL JAIN</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-        
-        <div className="container text-center relative z-10">
+      </section>
+
+      {/* Affiliation */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-white relative overflow-hidden">
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
           >
-            <span className="inline-block px-4 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-semibold mb-6">
-              Official Recognition
-            </span>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">
-              Gujarati Board Affiliated
-            </h2>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto">
-              We are proud to be affiliated with the Gujarat Secondary and Higher Secondary
-              Education Board, following the standard curriculum while adding our unique approach
-              to holistic development.
-            </p>
+            {/* Main Card Container */}
+            <div className="relative bg-white rounded-3xl shadow-elevated border border-border/50 overflow-hidden">
+              {/* Decorative Top Border */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-secondary" />
+              
+              {/* Subtle Pattern Background */}
+              <div className="absolute inset-0 bg-pattern-dots opacity-30" />
+              
+              {/* Content */}
+              <div className="relative z-10 px-8 py-12 md:px-12 md:py-16">
+                <div className="text-center">
+                  {/* Badge with Icon */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-secondary/10 to-accent/10 border border-secondary/20 rounded-full mb-8"
+                  >
+                    <Shield className="w-4 h-4 text-secondary" />
+                    <span className="text-sm font-semibold text-secondary">
+                      Official Recognition
+                    </span>
+                  </motion.div>
+
+                  {/* Main Heading with Icon */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="mb-8"
+                  >
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                        <GraduationCap className="w-8 h-8 text-primary" />
+                      </div>
+                    </div>
+                    <h2 className="font-heading text-3xl md:text-5xl font-bold text-maroon mb-4">
+                      Gujarati Board Affiliated
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto" />
+                  </motion.div>
+
+                  {/* Description */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto"
+                  >
+                    We are proud to be affiliated with the Gujarat Secondary and Higher Secondary
+                    Education Board, following the standard curriculum while adding our unique approach
+                    to holistic development.
+                  </motion.p>
+
+                  {/* Decorative Bottom Elements */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex items-center justify-center gap-2 mt-10"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-secondary/40" />
+                    <div className="w-1 h-1 rounded-full bg-secondary/30" />
+                    <Award className="w-5 h-5 text-secondary/50" />
+                    <div className="w-1 h-1 rounded-full bg-secondary/30" />
+                    <div className="w-2 h-2 rounded-full bg-secondary/40" />
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Corner Accents */}
+              <div className="absolute top-4 right-4 w-20 h-20 bg-secondary/5 rounded-full blur-2xl" />
+              <div className="absolute bottom-4 left-4 w-16 h-16 bg-primary/5 rounded-full blur-2xl" />
+            </div>
           </motion.div>
         </div>
       </section>

@@ -1,43 +1,51 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Building2, Droplets, Shield, TreePine, Bus, Camera, BookOpen, UtensilsCrossed } from "lucide-react";
+import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical } from "lucide-react";
+import { PageHero } from "@/components/ui/PageHero";
+import heroSchool from "@/assets/hero-school.jpg";
 
 const facilities = [
   {
     icon: Building2,
-    title: "સુરક્ષિત વર્ગખંડો",
-    titleEn: "Safe Classrooms",
-    description: "Well-ventilated, spacious classrooms with proper lighting and comfortable seating.",
-  },
-  {
-    icon: TreePine,
-    title: "સ્વચ્છ કેમ્પસ",
-    titleEn: "Clean Campus",
-    description: "Clean, green campus environment that promotes health and wellbeing.",
-  },
-  {
-    icon: Droplets,
-    title: "પીવાનું પાણી",
-    titleEn: "Drinking Water",
-    description: "Safe and clean drinking water facility with RO purification system.",
+    title: "વર્ગખંડો",
+    titleEn: "Classrooms",
+    description: "Spacious and comfortable classrooms designed for effective learning.",
   },
   {
     icon: TreePine,
     title: "રમતનું મેદાન",
-    titleEn: "Play Area",
+    titleEn: "Playground",
     description: "Dedicated outdoor play area for sports, games, and physical activities.",
   },
   {
-    icon: Camera,
-    title: "CCTV સર્વેલન્સ",
-    titleEn: "CCTV Surveillance",
-    description: "Campus monitored by CCTV cameras for enhanced security and safety.",
+    icon: FlaskConical,
+    title: "વિજ્ઞાન પ્રયોગશાળા",
+    titleEn: "Science Lab",
+    description: "Well-equipped science laboratory for hands-on experiments and learning.",
   },
   {
-    icon: Bus,
-    title: "વાહનવ્યવહાર",
-    titleEn: "Transport",
-    description: "Safe and reliable school transport service covering major areas.",
+    icon: BookOpen,
+    title: "કમ્પ્યુટર લેબ",
+    titleEn: "Computer Lab",
+    description: "Modern computer lab with latest technology for digital learning.",
+  },
+  {
+    icon: Palette,
+    title: "કલા અને હસ્તકલા રૂમ",
+    titleEn: "Art and Craft Room",
+    description: "Dedicated space for creative expression through art and craft activities.",
+  },
+  {
+    icon: Building2,
+    title: "ઇન્ડોર ગેમ્સ હોલ",
+    titleEn: "Indoor Games Hall",
+    description: "Indoor sports facility for various games and activities.",
+  },
+  {
+    icon: Building2,
+    title: "પ્રવૃત્તિ રૂમ",
+    titleEn: "Activity Room",
+    description: "Multi-purpose activity room for various co-curricular activities.",
   },
   {
     icon: BookOpen,
@@ -45,36 +53,19 @@ const facilities = [
     titleEn: "Library",
     description: "Well-stocked library with books, magazines, and educational resources.",
   },
-  {
-    icon: UtensilsCrossed,
-    title: "સ્વચ્છ સુવિધાઓ",
-    titleEn: "Clean Washrooms",
-    description: "Hygienic and regularly maintained washroom facilities.",
-  },
 ];
 
 const Facilities = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Our Facilities
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Modern infrastructure and amenities designed for safe, comfortable, and
-              effective learning environment.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="World-Class Infrastructure"
+        title="Our Facilities"
+        description="We, at SIDDHARTH'S MIRACLES SCHOOL, believe in nurturing the idea of school being the 'Second Home' to our students. It is essential to provide them with a spacious and comfortable environment. We aim at giving an enriching classroom experience to our children with our world-class infrastructure."
+        backgroundImage={heroSchool}
+        icon={Building2}
+      />
 
       {/* Facilities Grid */}
       <section className="py-16 md:py-24">
@@ -120,19 +111,50 @@ const Facilities = () => {
                 <Shield className="h-8 w-8 text-secondary" />
               </div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold">
-                Safety First
+                Safe Campus
               </h2>
             </div>
             <div className="space-y-4 text-lg opacity-90">
               <p>
-                The safety and security of our students is our top priority. Our campus is
-                designed with child safety in mind, with secure entry points, constant supervision,
-                and emergency protocols in place.
+                Siddharth's Miracles School offers a space where every child's comfort, safety and 
+                security are an utmost priority. We want our children to learn with love and enthusiasm, 
+                hence ensure a safe and sound learning environment for the child, where he can broaden 
+                his mind, expand his imagination and master his skills without any stress or fear.
               </p>
-              <p>
-                Parents can be assured that their children are in a safe, nurturing environment
-                where they can focus on learning and growing without any concerns.
-              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mt-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Male and Female staff</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Classroom doors without lock</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>360 degree surveillance through CCTV cameras</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Security controlled entry and exit</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Fire compliance</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Periodic emergency drill</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Background check on every staff</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">•</span>
+                  <span>Medical room</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

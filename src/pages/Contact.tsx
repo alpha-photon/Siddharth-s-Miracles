@@ -1,30 +1,20 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/PageHero";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import heroSchool from "@/assets/hero-school.jpg";
 
 const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-maroon mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              We'd love to hear from you. Reach out for any queries about admission,
-              curriculum, or to schedule a school visit.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Contact Us"
+        description="We'd love to hear from you. Reach out for any queries about admission, curriculum, or to schedule a school visit."
+        backgroundImage={heroSchool}
+        icon={MapPin}
+      />
 
       {/* Contact Info & Form */}
       <section className="py-16 md:py-24">
@@ -50,7 +40,8 @@ const Contact = () => {
                     <h3 className="font-semibold text-foreground mb-1">Address</h3>
                     <p className="text-muted-foreground">
                       Siddharth's Miracles School<br />
-                      Gandhinagar, Gujarat, India
+                      Vavol-Uvarsad Road, Vavol,<br />
+                      Gandhinagar, Gujarat - 382016
                     </p>
                   </div>
                 </div>
@@ -62,10 +53,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+919925941082"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      +91 98765 43210
+                      +91 99259 41082
                     </a>
                   </div>
                 </div>
@@ -77,10 +68,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
                     <a
-                      href="mailto:info@siddharthsmiracles.edu"
+                      href="mailto:siddharthsmiraclesvavol@yahoo.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      info@siddharthsmiracles.edu
+                      siddharthsmiraclesvavol@yahoo.com
                     </a>
                   </div>
                 </div>
@@ -102,14 +93,14 @@ const Contact = () => {
               {/* Quick Contact Buttons */}
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button variant="default" size="lg" asChild>
-                  <a href="tel:+919876543210">
+                  <a href="tel:+919925941082">
                     <Phone className="h-5 w-5" />
                     Call Now
                   </a>
                 </Button>
                 <Button variant="whatsapp" size="lg" asChild>
                   <a
-                    href="https://wa.me/919876543210?text=Hello! I'd like to know more about Siddharth's Miracles School."
+                    href="https://wa.me/919925941082?text=Hello! I'd like to know more about Siddharth's Miracles School."
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -156,7 +147,7 @@ const Contact = () => {
                         name="phone"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 99259 41082"
                       />
                     </div>
                   </div>
@@ -239,7 +230,7 @@ const Contact = () => {
             className="rounded-2xl overflow-hidden shadow-card"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117442.66483175564!2d72.5549865!3d23.2156354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a3c0c422e35%3A0x5cb7e5e6c5dc20c6!2sGandhinagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117442.66483175564!2d72.5549865!3d23.2156354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a3c0c422e35%3A0x5cb7e5e6c5dc20c6!2sVavol%2C%20Gandhinagar%2C%20Gujarat%20382016!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}
