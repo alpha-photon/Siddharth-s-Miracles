@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
 import { GraduationCap, FileText, CheckCircle, ArrowRight, Phone, MessageCircle } from "lucide-react";
-import heroClassroom from "@/assets/hero-classroom.jpg";
+import heroAdmission from "@/assets/herosection/IMG_3275.JPG";
 
 const admissionSteps = [
   {
@@ -50,13 +50,14 @@ const Admission = () => {
         title="ADMISSION OPENS FOR 2026-27"
         subtitle="Quality education, caring environment, and holistic growth"
         description=""
-        backgroundImage={heroClassroom}
+        backgroundImage={heroAdmission}
         overlayOpacity="light"
       />
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-pattern-dots">
-        <div className="container">
+      <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +65,7 @@ const Admission = () => {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-elevated border border-border/50">
+            <div className="card-premium card-elevated bg-card rounded-3xl p-8 md:p-12">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                 {/* Text Content */}
                 <div className="flex-1 text-center lg:text-left">
@@ -112,24 +113,29 @@ const Admission = () => {
       </section>
 
       {/* Admission Process */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+              How It Works
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Admission Process
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Simple and transparent admission process
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 md:gap-8">
             {admissionSteps.map((item, index) => (
               <motion.div
                 key={item.step}
@@ -137,15 +143,19 @@ const Admission = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
+                className="group relative"
               >
-                <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50 h-full">
+                <div className="card-3d card-premium bg-card rounded-2xl p-6 h-full relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/20 to-accent/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+                  <div className="relative z-10">
                   <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
                     <span className="text-lg font-bold text-secondary-foreground">{item.step}</span>
                   </div>
                   <h3 className="font-heading text-lg font-bold text-maroon mb-1">{item.titleEn}</h3>
                   <p className="text-sm font-medium text-primary mb-2">{item.title}</p>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
                 </div>
                 {index < admissionSteps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
@@ -159,51 +169,58 @@ const Admission = () => {
       </section>
 
       {/* Required Documents */}
-      <section className="py-16 md:py-24 bg-pattern-dots">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <motion.div
+      <section className="py-16 md:py-24 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
+          <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-14 md:mb-20"
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+              <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
+                Checklist
+              </span>
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
                 Required Documents
               </h2>
-              <p className="text-muted-foreground">
+              <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
                 Please prepare the following documents for admission
               </p>
-            </motion.div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-2xl p-8 shadow-card border border-border/50"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <FileText className="h-6 w-6 text-maroon" />
-                <h3 className="font-heading text-xl font-bold text-maroon">Document Checklist</h3>
-              </div>
-              <ul className="grid sm:grid-cols-2 gap-4">
-                {requiredDocs.map((doc) => (
-                  <li key={doc} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-growth flex-shrink-0" />
-                    <span className="text-foreground">{doc}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {requiredDocs.map((doc, index) => (
+                <motion.div
+                  key={doc}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="group"
+                >
+                  <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 relative overflow-hidden flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-growth/10 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-growth/20 to-secondary/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+                    <div className="relative z-10 flex flex-col flex-1">
+                      <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-growth/25 to-secondary/25 flex items-center justify-center ring-2 ring-growth/20 group-hover:ring-primary/30 transition-all shadow-md">
+                        <CheckCircle className="h-7 w-7 text-maroon" />
+                      </div>
+                      <h3 className="font-heading text-base font-bold text-maroon group-hover:text-primary transition-colors leading-tight">{doc}</h3>
+                    </div>
+                  </div>
+                </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

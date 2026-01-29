@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/ui/PageHero";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from "lucide-react";
-import heroPlayground from "@/assets/hero-playground.jpg";
+import heroGallery from "@/assets/herosection/IMG_3249.JPG";
 
 // Import all school images
 import img1 from "@/assets/school-image/IMG-20251217-WA0016.jpg";
@@ -291,13 +291,32 @@ const Gallery = () => {
         title="GALLERY"
         subtitle="Moments That Define Our School Life - Glimpses of Learning, Joy & Growth"
         description=""
-        backgroundImage={heroPlayground}
+        backgroundImage={heroGallery}
         overlayOpacity="light"
       />
 
       {/* Gallery Section */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14 md:mb-20"
+          >
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+              Photos
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
+              School Gallery
+            </h2>
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+              Moments that define our school life
+            </p>
+          </motion.div>
           {/* Category Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

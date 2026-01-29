@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
-import heroSchool from "@/assets/hero-school.jpg";
+import heroContact from "@/assets/herosection/IMG_3218.JPG";
 
 const Contact = () => {
   return (
@@ -13,13 +13,14 @@ const Contact = () => {
         title="CONTACT"
         subtitle="Reach Out, We're Happy to Help"
         description=""
-        backgroundImage={heroSchool}
+        backgroundImage={heroContact}
         overlayOpacity="light"
       />
 
       {/* Contact Info & Form */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div
@@ -28,6 +29,9 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
+              <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+                Reach Out
+              </span>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-maroon mb-8">
                 Get in Touch
               </h2>
@@ -119,7 +123,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-card rounded-2xl p-8 shadow-card border border-border/50">
+              <div className="card-premium bg-card rounded-2xl p-8">
                 <h2 className="font-heading text-2xl font-bold text-maroon mb-6">
                   Send us a Message
                 </h2>
@@ -206,19 +210,24 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container">
+      <section className="py-16 md:py-24 bg-muted relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
+              Location
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Find Us on Map
             </h2>
-            <p className="text-muted-foreground">
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Visit our school in Gandhinagar, Gujarat
             </p>
           </motion.div>

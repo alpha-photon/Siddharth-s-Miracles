@@ -36,7 +36,7 @@ export function CTASection() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-card rounded-3xl p-8 md:p-12 shadow-elevated border border-border/50">
+          <div className="card-premium card-elevated bg-card rounded-3xl p-8 md:p-12">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
               {/* Text Content */}
               <div className="flex-1 text-center lg:text-left">

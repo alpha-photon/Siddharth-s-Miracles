@@ -62,15 +62,16 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14 md:mb-20"
         >
-          <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
             Testimonials
           </span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-maroon mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
             What Parents Say
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
             Hear from the families who trust us with their children's education
           </p>
         </motion.div>
@@ -84,7 +85,7 @@ export function TestimonialsSection() {
                 key={`first-${index}`}
                 className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
-                <div className="card-3d h-full bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 relative overflow-hidden hover:shadow-elevated transition-all duration-300 group">
+                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-300 group">
                   {/* Decorative quote icon */}
                   <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
                   
@@ -117,7 +118,7 @@ export function TestimonialsSection() {
                 key={`second-${index}`}
                 className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
-                <div className="card-3d h-full bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 relative overflow-hidden hover:shadow-elevated transition-all duration-300 group">
+                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-300 group">
                   {/* Decorative quote icon */}
                   <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
                   
