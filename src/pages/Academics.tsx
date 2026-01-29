@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
@@ -105,16 +105,125 @@ function AcademicCarousel() {
   );
 }
 
+function ClassesCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  );
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const classCards = [
+    {
+      title: "Early Year Programme",
+      subtitle: "Nursery, Lower Kindergarten & Upper Kindergarten",
+      icon: BookOpen,
+      color: "from-secondary/5 to-accent/5",
+      iconBg: "from-secondary/20 to-accent/20",
+      bulletColor: "text-secondary",
+      features: [
+        "Nurturing curiosity and conceptual learning in young minds.",
+        "Introducing the basics of literacy and numeracy through practical approach.",
+        "Development of comprehension skills, stamina, balance and rhythm.",
+        "Real-world learning experience through creative activities and field trips.",
+        "Unique curriculum for kinesthetic learning and motor skills development.",
+      ],
+    },
+    {
+      title: "Primary Class",
+      subtitle: "Class I to VIII",
+      icon: BookOpen,
+      color: "from-primary/5 to-primary/10",
+      iconBg: "from-primary/20 to-primary/10",
+      bulletColor: "text-primary",
+      features: [
+        { text: "Literacy", description: " - various prose, poetry, drama and non-fiction" },
+        { text: "Mathematics", description: " - Focus on Problem solving, Logical reasoning and Analytical skill." },
+        { text: "Environmental science and social studies", description: " – exploring environment and progression to higher concepts." },
+        { text: "Physical Education", description: " – Excellent Indoor and Outdoor games and Yoga." },
+        { text: "Language skills", description: " – Honing creative writing and reading comprehension." },
+      ],
+    },
+    {
+      title: "Secondary Class",
+      subtitle: "Class IX & X",
+      icon: GraduationCap,
+      color: "from-maroon/5 to-maroon/10",
+      iconBg: "from-maroon/20 to-maroon/10",
+      bulletColor: "text-maroon",
+      features: [
+        "Intensive preparation for Gujarat Board examinations.",
+        "Regular practice tests and revision sessions.",
+        "Advanced curriculum covering all board subjects.",
+        "Expert guidance for achieving best results.",
+        "Focus on academic excellence and character building.",
+      ],
+    },
+  ];
+
+  return (
+    <div className="relative max-w-7xl mx-auto px-4">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4">
+          {classCards.map((card, index) => (
+            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_48%] lg:flex-[0_0_32%] min-w-0">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-card rounded-2xl p-8 md:p-10 shadow-card border border-border/50 relative overflow-hidden group h-full"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center`}>
+                      <card.icon className="h-8 w-8 text-maroon" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-2xl font-bold text-maroon">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {card.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ul className="space-y-3">
+                    {card.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className={`${card.bulletColor} font-bold mt-1`}>•</span>
+                        <span className="text-muted-foreground">
+                          {typeof feature === 'string' ? feature : (
+                            <>
+                              <strong>{feature.text}</strong>{feature.description}
+                            </>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const Academics = () => {
   return (
     <Layout>
       {/* Hero Section */}
       <PageHero
-        badge="Excellence in Education"
-        title="Academics"
-        description="To make learning a fun experience for every child, we make it interactive and innovative. We follow the Philosophy of constructive and innovative learning through inter-disciplinary curriculum."
+        title="ACADEMICS"
+        subtitle="Academic Excellence with a Modern Approach"
+        description=""
         backgroundImage={heroClassroom}
-        icon={BookOpen}
+        overlayOpacity="light"
       />
 
       {/* Academic Facilities Carousel */}
@@ -160,30 +269,11 @@ const Academics = () => {
               Classes Offered
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We offer education from Standard 1 to Standard 10 following the Gujarat Board curriculum
+              Comprehensive education from Early Years to Secondary Classes following the Gujarat Board curriculum
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((std, index) => (
-              <motion.div
-                key={std}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group"
-              >
-                <div className="card-3d bg-card rounded-2xl p-6 shadow-card border border-border/50 text-center">
-                  <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                    <span className="text-xl font-bold text-secondary-foreground">{std}</span>
-                  </div>
-                  <p className="font-semibold text-foreground">Std {std}</p>
-                  <p className="text-xs text-muted-foreground">ધોરણ {std}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ClassesCarousel />
         </div>
       </section>
 
@@ -221,118 +311,12 @@ const Academics = () => {
                     <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       <subject.icon className="h-8 w-8 text-maroon" />
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-maroon">{subject.name}</h3>
-                    <p className="text-sm text-muted-foreground">{subject.nameEn}</p>
+                    <h3 className="font-heading text-lg font-bold text-maroon">{subject.nameEn}</h3>
+                    <p className="text-sm text-muted-foreground">{subject.name}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Early Year Programme */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-secondary/5 to-background">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
-              Early Year Programme
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Nursery, Lower Kindergarten & Upper Kindergarten
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50"
-            >
-              <ul className="space-y-4 text-muted-foreground text-lg">
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span>Nurturing curiosity and conceptual learning in young minds.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span>Introducing the basics of literacy and numeracy through practical approach.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span>Development of comprehension skills, stamina, balance and rhythm.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span>Real-world learning experience through creative activities and field trips.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span>Unique curriculum for kinesthetic learning and motor skills development.</span>
-                </li>
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Primary Class */}
-      <section className="py-16 md:py-20">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
-              Primary Class
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Class I to VII
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50"
-            >
-              <ul className="space-y-4 text-muted-foreground text-lg">
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span><strong>Literacy</strong> - various prose, poetry, drama and non-fiction</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span><strong>Mathematics</strong> - Focus on Problem solving, Logical reasoning and Analytical skill.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span><strong>Environmental science and social studies</strong> – exploring environment and progression to higher concepts.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span><strong>Physical Education</strong> – Excellent Indoor and Outdoor games and Yoga.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span><strong>Language skills</strong> – Honing creative writing and reading comprehension.</span>
-                </li>
-              </ul>
-            </motion.div>
           </div>
         </div>
       </section>

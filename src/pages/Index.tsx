@@ -6,6 +6,7 @@ import { WhySection } from "@/components/home/WhySection";
 import { PillarsSection } from "@/components/home/PillarsSection";
 import { AcademicExcellenceSection } from "@/components/home/AcademicExcellenceSection";
 import { StatsSection } from "@/components/home/StatsSection";
+import { GalleryPreviewSection } from "@/components/home/GalleryPreviewSection";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <WhySection />
       <PillarsSection />
       <AcademicExcellenceSection />
+      <GalleryPreviewSection />
       <TestimonialsSection />
       <CTASection />
     </Layout>

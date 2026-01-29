@@ -68,11 +68,11 @@ const Activities = () => {
     <Layout>
       {/* Hero Section */}
       <PageHero
-        badge="Holistic Development"
-        title="Activities & Development"
-        description="Holistic development through sports, arts, cultural activities, and personality development programs."
+        title="ACTIVITIES & DEVELOPMENT"
+        subtitle="Beyond Books, Towards Holistic Growth"
+        description=""
         backgroundImage={heroCultural}
-        icon={Trophy}
+        overlayOpacity="light"
       />
 
       {/* Activities Grid */}
@@ -93,9 +93,9 @@ const Activities = () => {
                     <activity.icon className="h-7 w-7 text-maroon" />
                   </div>
                   <h3 className="font-heading text-lg font-bold text-maroon mb-1">
-                    {activity.title}
+                    {activity.titleEn}
                   </h3>
-                  <p className="text-sm font-medium text-primary mb-3">{activity.titleEn}</p>
+                  <p className="text-sm font-medium text-primary mb-3">{activity.title}</p>
                   <p className="text-sm text-muted-foreground">{activity.description}</p>
                 </div>
               </motion.div>

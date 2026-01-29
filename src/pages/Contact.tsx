@@ -10,10 +10,11 @@ const Contact = () => {
     <Layout>
       {/* Hero Section */}
       <PageHero
-        title="Contact Us"
-        description="We'd love to hear from you. Reach out for any queries about admission, curriculum, or to schedule a school visit."
+        title="CONTACT"
+        subtitle="Reach Out, We're Happy to Help"
+        description=""
         backgroundImage={heroSchool}
-        icon={MapPin}
+        overlayOpacity="light"
       />
 
       {/* Contact Info & Form */}
@@ -39,9 +40,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Address</h3>
                     <p className="text-muted-foreground">
-                      Siddharth's Miracles School<br />
-                      Vavol-Uvarsad Road, Vavol,<br />
-                      Gandhinagar, Gujarat - 382016
+                      SIDDHARTH'S MIRACLES SCHOOL<br />
+                      VAVOL-UVARSAD ROAD, VAVOL,<br />
+                      GANDHINAGAR, GUJARAT - 382016
                     </p>
                   </div>
                 </div>

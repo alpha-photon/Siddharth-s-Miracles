@@ -152,11 +152,11 @@ const About = () => {
     <Layout>
       {/* Hero Section */}
       <PageHero
-        badge="Our Story"
-        title="About Our School"
-        description="Siddharth's Miracles School is a co-educational Day school established in 2021, offering world-class educational opportunities in Gandhinagar, Gujarat with a vision to set a new benchmark of quality education through innovative teaching methods."
+        title="ABOUT SIDDHARTH'S MIRACLES"
+        subtitle="Where Each Day is a Miracle"
+        description=""
         backgroundImage={heroSchool}
-        icon={BookOpen}
+        overlayOpacity="light"
       />
 
       {/* Student Life Gallery */}
@@ -189,7 +189,7 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 md:py-20 bg-pattern-dots">
+      <section id="story" className="py-16 md:py-20 bg-pattern-dots">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -221,14 +221,14 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-1 bg-secondary/20 text-maroon rounded-full text-sm font-semibold mb-4">
-                Established 2021
+                Established 2021-22
               </span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-6">
                 About The School
               </h2>
               <div className="space-y-4 text-muted-foreground text-lg">
                 <p>
-                  Siddharth's Miracles School is a co-educational Day school established in the year 2021, 
+                  Siddharth's Miracles School is a co-educational Day school established in the year 2021-22, 
                   with a view of offering world-class educational opportunities in the city of Gandhinagar, 
                   Gujarat with a vision to set a new benchmark of quality education through innovative 
                   teaching methods and a unique teaching philosophy.
@@ -366,7 +366,7 @@ const About = () => {
               <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
                 Message from Founder
               </span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-6 italic">
                 "Education is not about going to school and getting a degree. 
                 It's about widening your knowledge and absorbing the truth about life"
               </h2>
@@ -429,7 +429,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
             {/* Main Card Container */}
             <div className="relative bg-white rounded-3xl shadow-elevated border border-border/50 overflow-hidden">

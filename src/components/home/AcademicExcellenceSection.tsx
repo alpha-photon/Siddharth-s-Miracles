@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { BookOpen, Sparkles, GraduationCap } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useCallback } from "react";
 
 const earlyYearFeatures = [
   "Nurturing curiosity and conceptual learning in young minds.",
@@ -16,6 +19,103 @@ const primaryClassFeatures = [
   "Physical Education – Excellent Indoor and Outdoor games and Yoga.",
   "Language skills – Honing creative writing and reading comprehension.",
 ];
+
+const secondaryClassFeatures = [
+  "Intensive preparation for Gujarat Board examinations.",
+  "Regular practice tests and revision sessions.",
+  "Advanced curriculum covering all board subjects.",
+  "Expert guidance for achieving best results.",
+  "Focus on academic excellence and character building.",
+];
+
+function AcademicExcellenceCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  );
+
+  const classCards = [
+    {
+      title: "Early Year Programme",
+      subtitle: "Nursery, Lower Kindergarten & Upper Kindergarten",
+      icon: Sparkles,
+      color: "from-secondary/5 to-accent/5",
+      iconBg: "from-secondary/20 to-accent/20",
+      bulletColor: "text-secondary",
+      features: earlyYearFeatures,
+    },
+    {
+      title: "Primary Class",
+      subtitle: "Class I to VII",
+      icon: GraduationCap,
+      color: "from-primary/5 to-primary/10",
+      iconBg: "from-primary/20 to-primary/10",
+      bulletColor: "text-primary",
+      features: primaryClassFeatures,
+    },
+    {
+      title: "Secondary Class",
+      subtitle: "Class IX & X",
+      icon: GraduationCap,
+      color: "from-maroon/5 to-maroon/10",
+      iconBg: "from-maroon/20 to-maroon/10",
+      bulletColor: "text-maroon",
+      features: secondaryClassFeatures,
+    },
+  ];
+
+  return (
+    <div className="relative max-w-6xl mx-auto">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-8">
+          {classCards.map((card, index) => (
+            <div key={index} className="flex-[0_0_100%] lg:flex-[0_0_48%] min-w-0">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-card rounded-2xl p-8 shadow-card border border-border/50 relative overflow-hidden group h-full"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center`}>
+                      <card.icon className="h-8 w-8 text-maroon" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-2xl font-bold text-maroon">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {card.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ul className="space-y-3">
+                    {card.features.map((feature, idx) => (
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <span className={`${card.bulletColor} font-bold mt-1`}>•</span>
+                        <span className="text-muted-foreground">{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function AcademicExcellenceSection() {
   return (
@@ -43,89 +143,7 @@ export function AcademicExcellenceSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Early Year Programme */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-2xl p-8 shadow-card border border-border/50 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center">
-                <Sparkles className="h-8 w-8 text-maroon" />
-              </div>
-              <div>
-                <h3 className="font-heading text-2xl font-bold text-maroon">
-                  Early Year Programme
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Nursery, Lower Kindergarten & Upper Kindergarten
-                </p>
-              </div>
-            </div>
-            <ul className="space-y-3">
-              {earlyYearFeatures.map((feature, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-secondary font-bold mt-1">•</span>
-                  <span className="text-muted-foreground">{feature}</span>
-                </motion.li>
-              ))}
-            </ul>
-            </div>
-          </motion.div>
-
-          {/* Primary Class */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-2xl p-8 shadow-card border border-border/50 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-                <GraduationCap className="h-8 w-8 text-maroon" />
-              </div>
-              <div>
-                <h3 className="font-heading text-2xl font-bold text-maroon">
-                  Primary Class
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Class I to VII
-                </p>
-              </div>
-            </div>
-            <ul className="space-y-3">
-              {primaryClassFeatures.map((feature, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-primary font-bold mt-1">•</span>
-                  <span className="text-muted-foreground">{feature}</span>
-                </motion.li>
-              ))}
-            </ul>
-            </div>
-          </motion.div>
-        </div>
+        <AcademicExcellenceCarousel />
       </div>
     </section>
   );

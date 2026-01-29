@@ -11,6 +11,7 @@ import heroImage1 from "@/assets/hero-school.jpg";
 import heroImage2 from "@/assets/hero-playground.jpg";
 import heroImage3 from "@/assets/hero-cultural.jpg";
 import heroImage4 from "@/assets/hero-classroom.jpg";
+import heroImage5 from "@/assets/school-image/image.png";
 
 const heroSlides = [
   {
@@ -36,6 +37,12 @@ const heroSlides = [
     title: "Quality",
     subtitle: "Education",
     tagline: "Nurturing minds with dedicated teachers",
+  },
+  {
+    image: heroImage5,
+    title: "Sports &",
+    subtitle: "Activities",
+    tagline: "Building strength, teamwork and character through sports",
   },
 ];
 
@@ -289,9 +296,9 @@ export function HighlightsSection() {
                     <item.icon className="h-10 w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300">
-                    {item.title}
+                    {item.titleEn}
                   </h3>
-                  <p className="text-sm font-semibold text-primary mb-3">{item.titleEn}</p>
+                  <p className="text-sm font-semibold text-primary mb-3">{item.title}</p>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
               </div>

@@ -38,7 +38,7 @@ export function Footer() {
               "Where Each Day is a Miracle"
             </p>
             <p className="text-sm opacity-80 leading-relaxed">
-              Nurturing young minds with quality education, values, and care since 2021.
+              Nurturing young minds with quality education, values, and care since 2021-22.
             </p>
           </div>
 
@@ -89,8 +89,8 @@ export function Footer() {
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
                 <span className="opacity-80">
-                  Vavol-Uvarsad Road, Vavol,<br />
-                  Gandhinagar, Gujarat - 382016
+                  VAVOL-UVARSAD ROAD, VAVOL,<br />
+                  GANDHINAGAR, GUJARAT - 382016
                 </span>
               </li>
               <li className="flex items-center gap-3 text-sm">

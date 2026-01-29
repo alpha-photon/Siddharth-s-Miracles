@@ -58,7 +58,7 @@ export function Header() {
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
           <Button variant="outlineMaroon" size="sm" asChild>
-            <a href="tel:+919876543210" className="gap-2">
+            <a href="tel:+919925941082" className="gap-2">
               <Phone className="h-4 w-4" />
               <span className="hidden xl:inline">Call Us</span>
             </a>
@@ -104,7 +104,7 @@ export function Header() {
               ))}
               <div className="flex gap-3 mt-4 pt-4 border-t border-border">
                 <Button variant="outlineMaroon" className="flex-1" asChild>
-                  <a href="tel:+919876543210">
+                  <a href="tel:+919925941082">
                     <Phone className="h-4 w-4 mr-2" />
                     Call Us
                   </a>

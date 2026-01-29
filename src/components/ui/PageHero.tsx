@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface PageHeroProps {
   badge?: string;
@@ -8,6 +10,10 @@ interface PageHeroProps {
   description: string;
   backgroundImage?: string;
   icon?: LucideIcon;
+  ctaText?: string;
+  ctaLink?: string;
+  iconSubtext?: string;
+  overlayOpacity?: "default" | "light";
 }
 
 export function PageHero({
@@ -17,9 +23,13 @@ export function PageHero({
   description,
   backgroundImage,
   icon: Icon,
+  ctaText,
+  ctaLink,
+  iconSubtext,
+  overlayOpacity = "default",
 }: PageHeroProps) {
   return (
-    <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Animation */}
       {backgroundImage && (
         <div className="absolute inset-0">
@@ -31,9 +41,18 @@ export function PageHero({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-maroon/85 via-maroon/70 to-maroon/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10" />
+          {overlayOpacity === "light" ? (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-b from-maroon/40 via-maroon/30 to-maroon/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon/35 via-transparent to-transparent" />
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-r from-maroon/85 via-maroon/70 to-maroon/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10" />
+            </>
+          )}
         </div>
       )}
 
@@ -133,41 +152,63 @@ export function PageHero({
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 200 }}
-              className="mb-6 flex justify-center"
+              className="mb-8 flex flex-col items-center"
             >
-              <div className={`w-20 h-20 rounded-2xl backdrop-blur-md border flex items-center justify-center shadow-xl ${
+              <div className={`w-24 h-24 rounded-2xl backdrop-blur-lg border-2 flex items-center justify-center shadow-2xl ${
                 backgroundImage 
-                  ? 'bg-white/20 border-white/30' 
-                  : 'bg-card/80 border-border/50'
+                  ? 'bg-white/30 border-white/40 shadow-white/20' 
+                  : 'bg-card/90 border-border/60 shadow-lg'
               }`}>
-                <Icon className={`w-10 h-10 ${backgroundImage ? 'text-white' : 'text-maroon'}`} />
+                <Icon className={`w-12 h-12 ${backgroundImage ? 'text-white' : 'text-maroon'}`} />
               </div>
+              {iconSubtext && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className={`mt-3 text-sm font-medium ${
+                    backgroundImage ? 'text-white/90' : 'text-muted-foreground'
+                  }`}
+                >
+                  {iconSubtext}
+                </motion.p>
+              )}
             </motion.div>
           )}
 
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
             className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
               backgroundImage ? "text-white" : "text-maroon"
-            } drop-shadow-lg`}
+            } drop-shadow-2xl tracking-tight leading-tight`}
+            style={{ 
+              textShadow: backgroundImage ? '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)' : 'none',
+              letterSpacing: '0.02em'
+            }}
           >
             {title}
-            {subtitle && (
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className={`block mt-2 ${
-                  backgroundImage ? "text-secondary" : "text-primary"
-                }`}
-              >
-                {subtitle}
-              </motion.span>
-            )}
           </motion.h1>
+
+          {/* Subtitle/Tagline */}
+          {subtitle && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className={`font-heading text-xl md:text-2xl lg:text-3xl font-medium italic mb-8 ${
+                backgroundImage ? "text-secondary" : "text-primary"
+              } drop-shadow-lg`}
+              style={{ 
+                textShadow: backgroundImage ? '0 2px 12px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2)' : 'none',
+                letterSpacing: '0.05em'
+              }}
+            >
+              &ldquo;{subtitle}&rdquo;
+            </motion.p>
+          )}
 
           {/* Decorative Line */}
           <motion.div
@@ -186,12 +227,34 @@ export function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className={`text-lg md:text-xl leading-relaxed max-w-3xl mx-auto ${
-              backgroundImage ? "text-white/90" : "text-muted-foreground"
+            className={`text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 ${
+              backgroundImage ? "text-white/95" : "text-muted-foreground"
             }`}
+            style={{ lineHeight: '1.8' }}
           >
             {description}
           </motion.p>
+
+          {/* CTA Button */}
+          {ctaText && ctaLink && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
+              <Button
+                variant="hero"
+                size="lg"
+                className="group shadow-elevated hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                asChild
+              >
+                <Link to={ctaLink}>
+                  {ctaText}
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 

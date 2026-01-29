@@ -47,11 +47,58 @@ import img38 from "@/assets/school-image/IMG_20260123_094126.jpg";
 import img39 from "@/assets/school-image/IMG_20260123_094200.jpg";
 import img40 from "@/assets/school-image/IMG_20260123_095812.jpg";
 
+// Image categories - Update categories based on actual image content
+// Categories: "classrooms", "activities", "celebrations", "events", "campus"
 const allImages = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
-  img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
+  // Classrooms - Images showing classroom interiors, students in classrooms, teaching
+  { src: img1, category: "classrooms" },   // IMG-20251217-WA0016
+  { src: img2, category: "classrooms" },   // IMG-20260102-WA0001
+  { src: img3, category: "classrooms" },   // IMG-20260102-WA0002
+  { src: img4, category: "classrooms" },   // IMG-20260105-WA0010
+  { src: img5, category: "classrooms" },   // IMG-20260106-WA0004
+  { src: img6, category: "classrooms" },   // IMG-20260106-WA0009
+  { src: img7, category: "classrooms" },   // IMG-20260106-WA0015
+  { src: img8, category: "classrooms" },   // IMG-20260108-WA0004
+  
+  // Activities - Sports, games, art, cultural activities, competitions
+  { src: img9, category: "activities" },    // IMG-20260108-WA0010
+  { src: img10, category: "activities" },   // IMG-20260108-WA0016
+  { src: img11, category: "activities" },   // IMG-20260108-WA0029
+  { src: img12, category: "activities" },   // IMG-20260108-WA0030
+  { src: img13, category: "activities" },   // IMG-20260108-WA0062
+  { src: img14, category: "activities" },   // IMG-20260108-WA0081
+  { src: img15, category: "activities" },   // IMG-20260108-WA0088
+  { src: img16, category: "activities" },   // IMG-20260108-WA0090
+  
+  // Celebrations - Festivals, special days, cultural celebrations
+  { src: img17, category: "celebrations" }, // IMG-20260120-WA0004
+  { src: img18, category: "celebrations" }, // IMG-20260120-WA0020
+  { src: img19, category: "celebrations" }, // IMG-20260120-WA0027
+  { src: img20, category: "celebrations" }, // IMG-20260120-WA0033
+  { src: img21, category: "celebrations" }, // IMG-20260120-WA0047
+  { src: img22, category: "celebrations" }, // IMG-20260120-WA0048
+  { src: img23, category: "celebrations" }, // IMG-20260120-WA0052
+  { src: img24, category: "celebrations" }, // IMG_20260101_104710
+  
+  // Events - Annual day, sports day, science fair, special programs
+  { src: img25, category: "events" },      // IMG_20260102_115833
+  { src: img26, category: "events" },       // IMG_20260105_104054
+  { src: img27, category: "events" },       // IMG_20260121_104925
+  { src: img28, category: "events" },       // IMG_20260121_110052
+  { src: img29, category: "events" },       // IMG_20260121_110056
+  { src: img30, category: "events" },       // IMG_20260121_112721
+  { src: img31, category: "events" },       // IMG_20260121_113304
+  { src: img32, category: "events" },       // IMG_20260121_113321
+  
+  // Campus - School building, playground, infrastructure, outdoor areas
+  { src: img33, category: "campus" },      // IMG_20260123_093527
+  { src: img34, category: "campus" },      // IMG_20260123_093831
+  { src: img35, category: "campus" },      // IMG_20260123_094046
+  { src: img36, category: "campus" },      // IMG_20260123_094053
+  { src: img37, category: "campus" },      // IMG_20260123_094113
+  { src: img38, category: "campus" },      // IMG_20260123_094126
+  { src: img39, category: "campus" },      // IMG_20260123_094200
+  { src: img40, category: "campus" },      // IMG_20260123_095812
 ];
 
 const galleryCategories = [
@@ -76,7 +123,9 @@ const Gallery = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const filteredImages = allImages; // For now, show all images
+  const filteredImages = selectedCategory === "all" 
+    ? allImages 
+    : allImages.filter(img => img.category === selectedCategory);
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -239,10 +288,11 @@ const Gallery = () => {
     <Layout>
       {/* Hero Section */}
       <PageHero
-        title="Photo Gallery"
-        description="Glimpses of life at Siddharth's Miracles School - classrooms, activities, celebrations, and memorable moments."
+        title="GALLERY"
+        subtitle="Moments That Define Our School Life - Glimpses of Learning, Joy & Growth"
+        description=""
         backgroundImage={heroPlayground}
-        icon={Images}
+        overlayOpacity="light"
       />
 
       {/* Gallery Section */}
@@ -267,7 +317,7 @@ const Gallery = () => {
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
-                  {category.nameGuj} ({category.name})
+                  {category.name} ({category.nameGuj})
                 </button>
               ))}
             </div>
@@ -294,7 +344,7 @@ const Gallery = () => {
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
-                    src={image}
+                    src={image.src}
                     alt={`School Image ${index + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -472,7 +522,7 @@ const Gallery = () => {
                   <motion.img
                     key={selectedImage}
                     ref={imageRef}
-                    src={filteredImages[selectedImage]}
+                    src={filteredImages[selectedImage].src}
                     alt={`School Image ${selectedImage + 1}`}
                     className={`max-w-full max-h-[95vh] object-contain rounded-lg select-none ${
                       zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default"

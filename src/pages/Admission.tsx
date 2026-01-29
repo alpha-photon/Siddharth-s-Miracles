@@ -47,46 +47,65 @@ const Admission = () => {
     <Layout>
       {/* Hero Section */}
       <PageHero
-        badge="Admissions Open 2026-27"
-        title="Join Our School Family"
-        description="Give your child the gift of quality education. Limited seats available for Std 1 to 10 (Gujarati Board)."
+        title="ADMISSION OPENS FOR 2026-27"
+        subtitle="Quality education, caring environment, and holistic growth"
+        description=""
         backgroundImage={heroClassroom}
-        icon={GraduationCap}
+        overlayOpacity="light"
       />
 
       {/* CTA Section */}
-      <section className="py-12 bg-maroon text-white">
+      <section className="py-16 md:py-20 bg-pattern-dots">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-between gap-6"
+            className="max-w-5xl mx-auto"
           >
-            <div>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold mb-2">
-                Ready to Enquire?
-              </h2>
-              <p className="opacity-90">Contact us now to begin your child's journey</p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" asChild>
-                <a href="tel:+919925941082">
-                  <Phone className="h-5 w-5" />
-                  Call Now
-                </a>
-              </Button>
-              <Button variant="whatsapp" size="lg" asChild>
-                <a
-                  href="https://wa.me/919925941082?text=Hello! I'm interested in admission enquiry for my child."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </a>
-              </Button>
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-elevated border border-border/50">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                {/* Text Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-4">
+                    Ready to Begin Your Child's Journey?
+                  </h2>
+                  <p className="text-lg md:text-xl text-muted-foreground">
+                    Admissions are open. We're here to guide you.
+                  </p>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    variant="hero"
+                    size="lg"
+                    asChild
+                    className="shadow-elevated group min-w-[160px]"
+                  >
+                    <a href="tel:+919925941082">
+                      <Phone className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                      Call Now
+                    </a>
+                  </Button>
+                  <Button
+                    variant="whatsapp"
+                    size="lg"
+                    asChild
+                    className="shadow-elevated group min-w-[160px]"
+                  >
+                    <a
+                      href="https://wa.me/919925941082?text=Hello! I'm interested in admission enquiry for my child."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+                      WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -124,8 +143,8 @@ const Admission = () => {
                   <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
                     <span className="text-lg font-bold text-secondary-foreground">{item.step}</span>
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-maroon mb-1">{item.title}</h3>
-                  <p className="text-sm font-medium text-primary mb-2">{item.titleEn}</p>
+                  <h3 className="font-heading text-lg font-bold text-maroon mb-1">{item.titleEn}</h3>
+                  <p className="text-sm font-medium text-primary mb-2">{item.title}</p>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
                 {index < admissionSteps.length - 1 && (
@@ -201,8 +220,8 @@ const Admission = () => {
             <p className="text-muted-foreground mb-8">
               For admission enquiries, please contact:<br />
               <strong>Admission office,</strong><br />
-              Siddharth's Miracles School,<br />
-              Vavol-Uvarsad, Vavol, Gandhinagar, Gujarat-382016<br />
+              SIDDHARTH'S MIRACLES SCHOOL,<br />
+              VAVOL-UVARSAD ROAD, VAVOL, GANDHINAGAR, GUJARAT - 382016<br />
               <strong>Contact:</strong> +91 99259 41082<br />
               <strong>Email:</strong> siddharthsmiraclesvavol@yahoo.com
             </p>
