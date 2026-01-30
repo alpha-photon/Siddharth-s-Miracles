@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon, ArrowRight, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -80,7 +80,26 @@ export function PageHero({
           transition={{ duration: 0.8 }}
           className={`max-w-2xl ${backgroundImage ? "text-white" : ""}`}
         >
-          {/* Badge - same style as homepage */}
+          {/* Admissions Open badge - same as homepage hero */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6"
+          >
+            <span
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow-lg ${
+                backgroundImage
+                  ? "bg-secondary/90 text-secondary-foreground border border-secondary/50"
+                  : "bg-secondary/20 text-secondary-foreground border border-secondary/30"
+              }`}
+            >
+              <span className="w-2 h-2 bg-growth rounded-full animate-pulse" />
+              Admissions Open 2026-27
+            </span>
+          </motion.div>
+
+          {/* Badge - same style as homepage (optional page-specific badge) */}
           {badge && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -159,28 +178,36 @@ export function PageHero({
           )}
 
           {/* Description - same spacing as homepage */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className={`text-lg leading-relaxed mb-8 ${backgroundImage ? "text-white/90 opacity-90" : "text-muted-foreground"}`}
-            style={{ lineHeight: "1.8" }}
-          >
-            {description}
-          </motion.p>
-
-          {/* CTA Button */}
-          {ctaText && ctaLink && (
-            <motion.div
+          {description && (
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className={`text-lg leading-relaxed mb-8 ${backgroundImage ? "text-white/90 opacity-90" : "text-muted-foreground"}`}
+              style={{ lineHeight: "1.8" }}
             >
+              {description}
+            </motion.p>
+          )}
+
+          {/* Admission Enquiry CTA - same as homepage hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className={`flex flex-wrap gap-4 ${!description ? "mt-8" : ""}`}
+          >
+            <Button variant="hero" size="lg" className="group shadow-elevated group/btn" asChild>
+              <Link to="/admission" className="inline-flex items-center">
+                <GraduationCap className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                Admission Enquiry
+              </Link>
+            </Button>
+            {ctaText && ctaLink && (
               <Button
-                variant="hero"
+                variant="outline"
                 size="lg"
-                className="group shadow-elevated hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className={`group border-2 ${backgroundImage ? "border-white/50 text-white hover:bg-white/10 hover:border-white/70" : "border-primary text-primary hover:bg-primary/10"}`}
                 asChild
               >
                 <Link to={ctaLink}>
@@ -188,8 +215,8 @@ export function PageHero({
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </motion.div>
-          )}
+            )}
+          </motion.div>
         </motion.div>
       </div>
 
