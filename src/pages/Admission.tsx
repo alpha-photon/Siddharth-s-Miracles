@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
 import { GraduationCap, FileText, CheckCircle, ArrowRight, Phone, MessageCircle } from "lucide-react";
-import heroAdmission from "@/assets/herosection/IMG_3275.JPG";
+import { heroAdmission } from "@/lib/cloudinary-images";
 
 const admissionSteps = [
   {

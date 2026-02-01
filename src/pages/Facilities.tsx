@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
-import heroFacilities from "@/assets/herosection/IMG_3237.JPG";
+import { heroFacilities } from "@/lib/cloudinary-images";
 
 const facilities = [
   {

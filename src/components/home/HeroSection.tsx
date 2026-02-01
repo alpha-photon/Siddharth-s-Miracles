@@ -6,11 +6,7 @@ import { GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// Import hero images from herosection
-import heroImage1 from "@/assets/herosection/IMG_3275.JPG";
-import heroImage2 from "@/assets/herosection/IMG_3249.JPG";
-import heroImage3 from "@/assets/herosection/IMG_3237.JPG";
-import heroImage4 from "@/assets/herosection/IMG_3218.JPG";
+import { heroImage1, heroImage2, heroImage3, heroImage4 } from "@/lib/cloudinary-images";
 
 const heroSlides = [
   {

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
-import heroContact from "@/assets/herosection/IMG_3218.JPG";
+import { heroContact } from "@/lib/cloudinary-images";
 
 const Contact = () => {
   return (
