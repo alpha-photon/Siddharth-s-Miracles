@@ -61,10 +61,11 @@
     --gradient-blue: linear-gradient(135deg, hsl(214 55% 38%) 0%, hsl(214 55% 48%) 100%);
     --gradient-saffron: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 85% 50%) 100%);
     
-    /* Shadows */
+    /* Shadows - richer, layered for premium cards */
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.1);
-    --shadow-elevated: 0 12px 40px -12px hsl(0 0% 0% / 0.15);
+    --shadow-card: 0 4px 6px -2px hsl(0 0% 0% / 0.05), 0 10px 25px -5px hsl(0 0% 0% / 0.08), 0 20px 45px -12px hsl(var(--maroon) / 0.08);
+    --shadow-elevated: 0 10px 15px -3px hsl(0 0% 0% / 0.06), 0 20px 40px -10px hsl(0 0% 0% / 0.1), 0 28px 55px -15px hsl(var(--maroon) / 0.12);
+    --shadow-card-hover: 0 20px 35px -10px hsl(var(--maroon) / 0.15), 0 12px 25px -8px hsl(var(--secondary) / 0.1);
     
     /* Sidebar */
     --sidebar-background: 36 100% 97%;
@@ -193,6 +194,48 @@
     background-image: linear-gradient(135deg, hsl(var(--maroon)) 0%, hsl(var(--secondary)) 100%);
   }
   
+  /* Premium card surface - use with bg-card rounded-2xl p-* */
+  .card-premium {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsl(var(--border) / 0.6);
+    box-shadow: 
+      0 4px 6px -2px hsl(0 0% 0% / 0.05),
+      0 10px 25px -5px hsl(0 0% 0% / 0.08),
+      0 20px 45px -12px hsl(var(--maroon) / 0.08),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.6);
+  }
+  
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--maroon)));
+    opacity: 0.85;
+    border-radius: calc(var(--radius) + 16px) calc(var(--radius) + 16px) 0 0;
+    z-index: 1;
+  }
+  
+  .dark .card-premium {
+    box-shadow: 
+      0 4px 6px -2px hsl(0 0% 0% / 0.2),
+      0 10px 25px -5px hsl(0 0% 0% / 0.15),
+      0 20px 45px -12px hsl(0 0% 0% / 0.2),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.05);
+  }
+  
+  /* Elevated variant for hero/CTA cards */
+  .card-premium.card-elevated {
+    box-shadow: 
+      0 10px 15px -3px hsl(0 0% 0% / 0.06),
+      0 20px 40px -10px hsl(0 0% 0% / 0.1),
+      0 28px 55px -15px hsl(var(--maroon) / 0.12),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.6);
+  }
+  
   /* Enhanced 3D Card hover effect */
   .card-hover {
     @apply transition-all duration-500 ease-out;
@@ -203,30 +246,45 @@
   .card-hover:hover {
     transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
     box-shadow: 
-      0 20px 40px -15px hsl(var(--maroon) / 0.2),
-      0 10px 20px -10px hsl(var(--secondary) / 0.15);
+      0 20px 35px -10px hsl(var(--maroon) / 0.15),
+      0 12px 25px -8px hsl(var(--secondary) / 0.1);
   }
   
-  /* 3D Card with depth */
+  .card-hover:hover .card-premium {
+    box-shadow: 
+      0 20px 35px -10px hsl(var(--maroon) / 0.15),
+      0 12px 25px -8px hsl(var(--secondary) / 0.1),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.6);
+  }
+  
+  /* 3D Card with depth and top accent */
   .card-3d {
-    @apply relative transition-all duration-500;
+    @apply relative transition-all duration-500 ease-out;
     transform-style: preserve-3d;
     perspective: 1000px;
   }
   
   .card-3d::before {
     content: '';
-    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500;
-    background: linear-gradient(135deg, hsl(var(--secondary) / 0.2), transparent);
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 pointer-events-none;
+    background: linear-gradient(135deg, hsl(var(--secondary) / 0.15), transparent 50%, hsl(var(--primary) / 0.08));
     transform: translateZ(-10px);
+    z-index: 0;
   }
   
   .card-3d:hover {
-    transform: translateY(-12px) rotateX(5deg);
+    transform: translateY(-10px) rotateX(3deg);
   }
   
   .card-3d:hover::before {
     @apply opacity-100;
+  }
+  
+  .card-3d:hover .card-premium {
+    box-shadow: 
+      0 20px 35px -10px hsl(var(--maroon) / 0.15),
+      0 12px 25px -8px hsl(var(--secondary) / 0.1),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.6);
   }
   
   /* Shimmer effect for premium elements */

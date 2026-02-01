@@ -81,12 +81,13 @@ export function GalleryPreviewSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-14 md:mb-20"
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
             Life at Siddharth's Miracles
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
             Glimpses of our vibrant school community
           </p>
         </motion.div>

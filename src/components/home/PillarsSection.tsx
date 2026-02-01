@@ -42,27 +42,29 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section className="py-20 md:py-28 bg-pattern-dots">
-      <div className="container">
+    <section className="py-20 md:py-28 bg-pattern-dots relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14 md:mb-20"
         >
-          <span className="inline-block px-4 py-1 bg-maroon/10 text-maroon rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
             Our Foundation
           </span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-maroon mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
             Pillars of Siddharth's Miracles
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
             The six core principles that guide everything we do
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
@@ -70,17 +72,19 @@ export function PillarsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
             >
-              <div className="card-3d h-full bg-card rounded-2xl p-8 shadow-card border border-border/50 text-center relative overflow-hidden group">
+              <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col">
                 <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className="relative z-10">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
-                    <pillar.icon className="h-10 w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
+                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${pillar.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
+                    <pillar.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold text-maroon mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
                     {pillar.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">{pillar.description}</p>
                 </div>
               </div>
             </motion.div>

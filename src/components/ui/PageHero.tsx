@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon, ArrowRight, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -29,8 +29,8 @@ export function PageHero({
   overlayOpacity = "default",
 }: PageHeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Animation */}
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background Image - same overlay as homepage hero */}
       {backgroundImage && (
         <div className="absolute inset-0">
           <motion.img
@@ -48,9 +48,8 @@ export function PageHero({
             </>
           ) : (
             <>
-              <div className="absolute inset-0 bg-gradient-to-r from-maroon/85 via-maroon/70 to-maroon/60" />
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent" />
             </>
           )}
         </div>
@@ -60,75 +59,47 @@ export function PageHero({
       {!backgroundImage && (
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/10">
           <div className="absolute inset-0 bg-pattern-dots opacity-30" />
-          {/* Animated gradient orbs */}
           <motion.div
-            animate={{
-              x: [0, 100, 0],
-              y: [0, 50, 0],
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            animate={{ x: [0, 100, 0], y: [0, 50, 0], scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
           />
           <motion.div
-            animate={{
-              x: [0, -80, 0],
-              y: [0, -60, 0],
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
+            animate={{ x: [0, -80, 0], y: [0, -60, 0], scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl"
           />
         </div>
       )}
 
-      {/* Floating Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 4 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
-            }}
-            className="absolute"
-            style={{
-              left: `${10 + i * 12}%`,
-              top: `${15 + (i % 4) * 25}%`,
-            }}
-          >
-            <div className={`w-3 h-3 rounded-full ${backgroundImage ? 'bg-white/30' : 'bg-secondary/40'} blur-sm`} />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="container relative z-10 py-16 md:py-24">
+      {/* Content - same dimensions & layout as homepage hero: py-20, left-aligned max-w-2xl */}
+      <div className="container relative z-10 py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
+          className={`max-w-2xl ${backgroundImage ? "text-white" : ""}`}
         >
-          {/* Badge */}
+          {/* Admissions Open badge - same as homepage hero */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6"
+          >
+            <span
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow-lg ${
+                backgroundImage
+                  ? "bg-secondary/90 text-secondary-foreground border border-secondary/50"
+                  : "bg-secondary/20 text-secondary-foreground border border-secondary/30"
+              }`}
+            >
+              <span className="w-2 h-2 bg-growth rounded-full animate-pulse" />
+              Admissions Open 2026-27
+            </span>
+          </motion.div>
+
+          {/* Badge - same style as homepage (optional page-specific badge) */}
           {badge && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -136,10 +107,10 @@ export function PageHero({
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6"
             >
-              <span className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border shadow-lg ${
-                backgroundImage 
-                  ? 'bg-white/20 backdrop-blur-md text-white border-white/30' 
-                  : 'bg-maroon/10 text-maroon border-maroon/20'
+              <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow-lg ${
+                backgroundImage
+                  ? "bg-secondary/90 text-secondary-foreground border border-secondary/50"
+                  : "bg-maroon/10 text-maroon border border-maroon/20"
               }`}>
                 {badge}
               </span>
@@ -152,23 +123,19 @@ export function PageHero({
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 200 }}
-              className="mb-8 flex flex-col items-center"
+              className="mb-6"
             >
-              <div className={`w-24 h-24 rounded-2xl backdrop-blur-lg border-2 flex items-center justify-center shadow-2xl ${
-                backgroundImage 
-                  ? 'bg-white/30 border-white/40 shadow-white/20' 
-                  : 'bg-card/90 border-border/60 shadow-lg'
+              <div className={`w-16 h-16 rounded-xl flex items-center justify-center shadow-lg ${
+                backgroundImage ? "bg-white/20 border border-white/30" : "bg-card/90 border border-border/60"
               }`}>
-                <Icon className={`w-12 h-12 ${backgroundImage ? 'text-white' : 'text-maroon'}`} />
+                <Icon className={`w-8 h-8 ${backgroundImage ? "text-white" : "text-maroon"}`} />
               </div>
               {iconSubtext && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className={`mt-3 text-sm font-medium ${
-                    backgroundImage ? 'text-white/90' : 'text-muted-foreground'
-                  }`}
+                  className={`mt-2 text-sm font-medium ${backgroundImage ? "text-white/90" : "text-muted-foreground"}`}
                 >
                   {iconSubtext}
                 </motion.p>
@@ -176,76 +143,71 @@ export function PageHero({
             </motion.div>
           )}
 
-          {/* Title */}
+          {/* Title - same as homepage: large serif, white, drop-shadow */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
-            className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${
+            className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 ${
               backgroundImage ? "text-white" : "text-maroon"
-            } drop-shadow-2xl tracking-tight leading-tight`}
-            style={{ 
-              textShadow: backgroundImage ? '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)' : 'none',
-              letterSpacing: '0.02em'
+            } drop-shadow-2xl tracking-tight`}
+            style={{
+              textShadow: backgroundImage ? "0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)" : "none",
+              letterSpacing: "0.02em",
             }}
           >
             {title}
           </motion.h1>
 
-          {/* Subtitle/Tagline */}
+          {/* Subtitle/Tagline - same as homepage: italic, text-secondary on image */}
           {subtitle && (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className={`font-heading text-xl md:text-2xl lg:text-3xl font-medium italic mb-8 ${
-                backgroundImage ? "text-secondary" : "text-primary"
-              } drop-shadow-lg`}
-              style={{ 
-                textShadow: backgroundImage ? '0 2px 12px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2)' : 'none',
-                letterSpacing: '0.05em'
+              className={`font-heading text-xl md:text-2xl font-medium italic opacity-90 mb-2 ${
+                backgroundImage ? "text-secondary drop-shadow-lg" : "text-primary"
+              }`}
+              style={{
+                textShadow: backgroundImage ? "0 2px 12px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2)" : "none",
+                letterSpacing: "0.05em",
               }}
             >
               &ldquo;{subtitle}&rdquo;
             </motion.p>
           )}
 
-          {/* Decorative Line */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "120px" }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className={`h-1 mx-auto mb-6 ${
-              backgroundImage
-                ? "bg-gradient-to-r from-transparent via-secondary to-transparent"
-                : "bg-gradient-to-r from-transparent via-primary to-transparent"
-            }`}
-          />
+          {/* Description - same spacing as homepage */}
+          {description && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className={`text-lg leading-relaxed mb-8 ${backgroundImage ? "text-white/90 opacity-90" : "text-muted-foreground"}`}
+              style={{ lineHeight: "1.8" }}
+            >
+              {description}
+            </motion.p>
+          )}
 
-          {/* Description */}
-          <motion.p
+          {/* Admission Enquiry CTA - same as homepage hero */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className={`text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 ${
-              backgroundImage ? "text-white/95" : "text-muted-foreground"
-            }`}
-            style={{ lineHeight: '1.8' }}
+            className={`flex flex-wrap gap-4 ${!description ? "mt-8" : ""}`}
           >
-            {description}
-          </motion.p>
-
-          {/* CTA Button */}
-          {ctaText && ctaLink && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
+            <Button variant="hero" size="lg" className="group shadow-elevated group/btn" asChild>
+              <Link to="/admission" className="inline-flex items-center">
+                <GraduationCap className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                Admission Enquiry
+              </Link>
+            </Button>
+            {ctaText && ctaLink && (
               <Button
-                variant="hero"
+                variant="outline"
                 size="lg"
-                className="group shadow-elevated hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className={`group border-2 ${backgroundImage ? "border-white/50 text-white hover:bg-white/10 hover:border-white/70" : "border-primary text-primary hover:bg-primary/10"}`}
                 asChild
               >
                 <Link to={ctaLink}>
@@ -253,8 +215,8 @@ export function PageHero({
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </motion.div>
-          )}
+            )}
+          </motion.div>
         </motion.div>
       </div>
 

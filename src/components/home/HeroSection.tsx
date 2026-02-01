@@ -6,12 +6,11 @@ import { GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// Import hero images
-import heroImage1 from "@/assets/hero-school.jpg";
-import heroImage2 from "@/assets/hero-playground.jpg";
-import heroImage3 from "@/assets/hero-cultural.jpg";
-import heroImage4 from "@/assets/hero-classroom.jpg";
-import heroImage5 from "@/assets/school-image/image.png";
+// Import hero images from herosection
+import heroImage1 from "@/assets/herosection/IMG_3275.JPG";
+import heroImage2 from "@/assets/herosection/IMG_3249.JPG";
+import heroImage3 from "@/assets/herosection/IMG_3237.JPG";
+import heroImage4 from "@/assets/herosection/IMG_3218.JPG";
 
 const heroSlides = [
   {
@@ -28,21 +27,15 @@ const heroSlides = [
   },
   {
     image: heroImage3,
-    title: "Cultural",
-    subtitle: "Excellence",
-    tagline: "Celebrating our rich Indian heritage",
-  },
-  {
-    image: heroImage4,
     title: "Quality",
     subtitle: "Education",
     tagline: "Nurturing minds with dedicated teachers",
   },
   {
-    image: heroImage5,
-    title: "Sports &",
-    subtitle: "Activities",
-    tagline: "Building strength, teamwork and character through sports",
+    image: heroImage4,
+    title: "Cultural",
+    subtitle: "Excellence",
+    tagline: "Celebrating our rich Indian heritage",
   },
 ];
 
@@ -242,27 +235,30 @@ const highlights = [
 
 export function HighlightsSection() {
   return (
-    <section className="py-20 md:py-28 bg-pattern-dots">
-      <div className="container">
+    <section className="py-20 md:py-28 bg-pattern-dots relative overflow-hidden">
+      {/* Subtle background accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14 md:mb-20"
         >
-          <span className="inline-block px-4 py-1 bg-secondary/20 text-maroon rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
             Why Choose Us
           </span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-maroon mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
             Where Excellence Meets Values
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
             We provide a nurturing environment where every child can discover their potential
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {highlights.map((item, index) => (
             <motion.div
               key={item.titleEn}
@@ -272,19 +268,23 @@ export function HighlightsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="card-3d h-full bg-card rounded-2xl p-8 shadow-card border border-border/50 text-center relative overflow-hidden">
+              <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col">
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
-                <div className="relative z-10">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
-                    <item.icon className="h-10 w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
+                {/* Subtle corner accent */}
+                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
+                    <item.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
                     {item.titleEn}
                   </h3>
-                  <p className="text-sm font-semibold text-primary mb-3">{item.title}</p>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-sm font-semibold text-primary mb-3 tracking-wide">{item.title}</p>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             </motion.div>

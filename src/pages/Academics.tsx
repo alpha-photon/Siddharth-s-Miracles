@@ -1,13 +1,13 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap, Dumbbell, Brain, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
-import heroClassroom from "@/assets/hero-classroom.jpg";
+import heroAcademics from "@/assets/herosection/IMG_3237.JPG";
 
 // Import academic images
 import academicsLab from "@/assets/academics-lab.jpg";
@@ -15,7 +15,7 @@ import academicsLibrary from "@/assets/academics-library.jpg";
 import academicsComputer from "@/assets/academics-computer.jpg";
 
 const academicImages = [
-  { src: heroClassroom, title: "Interactive Classrooms", desc: "Modern learning environment" },
+  { src: heroAcademics, title: "Interactive Classrooms", desc: "Modern learning environment" },
   { src: academicsLab, title: "Science Laboratory", desc: "Hands-on experiments" },
   { src: academicsLibrary, title: "Well-stocked Library", desc: "World of knowledge" },
   { src: academicsComputer, title: "Computer Lab", desc: "Digital literacy" },
@@ -173,7 +173,7 @@ function ClassesCarousel() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-card rounded-2xl p-8 md:p-10 shadow-card border border-border/50 relative overflow-hidden group h-full"
+                className="card-premium bg-card rounded-2xl p-8 md:p-10 relative overflow-hidden group h-full"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
@@ -222,24 +222,29 @@ const Academics = () => {
         title="ACADEMICS"
         subtitle="Academic Excellence with a Modern Approach"
         description=""
-        backgroundImage={heroClassroom}
+        backgroundImage={heroAcademics}
         overlayOpacity="light"
       />
 
-      {/* Academic Facilities Carousel */}
-      <section className="py-16 md:py-20">
-        <div className="container">
+      {/* Academic Facilities Carousel - aligned with Activities */}
+      <section className="py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+              Facilities
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Our Learning Spaces
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Modern facilities designed to enhance the learning experience
             </p>
           </motion.div>
@@ -255,20 +260,25 @@ const Academics = () => {
         </div>
       </section>
 
-      {/* Classes Section */}
-      <section className="py-16 md:py-20 bg-pattern-dots">
-        <div className="container">
+      {/* Classes Section - aligned with Activities */}
+      <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
+              Curriculum
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Classes Offered
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Comprehensive education from Early Years to Secondary Classes following the Gujarat Board curriculum
             </p>
           </motion.div>
@@ -277,25 +287,30 @@ const Academics = () => {
         </div>
       </section>
 
-      {/* Subjects Section */}
-      <section className="py-16 md:py-20">
-        <div className="container">
+      {/* Subjects Section - aligned with Activities */}
+      <section className="py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-secondary/20 text-maroon border border-secondary/30 shadow-sm tracking-wide">
+              Subjects
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Subjects Offered
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               Comprehensive curriculum covering all essential subjects
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8">
             {subjects.map((subject, index) => (
               <motion.div
                 key={subject.nameEn}
@@ -305,14 +320,15 @@ const Academics = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="card-3d bg-card rounded-2xl p-6 shadow-card border border-border/50 text-center relative overflow-hidden">
+                <div className="card-3d card-premium bg-card rounded-2xl p-6 text-center relative overflow-hidden flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br ${subject.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <subject.icon className="h-8 w-8 text-maroon" />
+                  <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${subject.color} opacity-20 rounded-bl-2xl pointer-events-none`} />
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
+                      <subject.icon className="h-7 w-7 md:h-8 md:w-8 text-maroon" />
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-maroon">{subject.nameEn}</h3>
-                    <p className="text-sm text-muted-foreground">{subject.name}</p>
+                    <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-1 leading-tight">{subject.nameEn}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{subject.name}</p>
                   </div>
                 </div>
               </motion.div>
@@ -322,46 +338,75 @@ const Academics = () => {
       </section>
 
       {/* Academic Philosophy */}
-      <section className="py-16 md:py-20 bg-pattern-dots">
-        <div className="container">
+      <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14 md:mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-maroon mb-4">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+              Our Approach
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Academic Philosophy
             </h2>
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+              A 360-degree approach to student development
+            </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50 mb-8"
-            >
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Since all children are unique and must have a stimulating educational environment where 
-                they can grow physically, mentally, emotionally, and socially. We have created an atmosphere 
-                where students can meet their full potential. We provide a safe environment where students 
-                are invited to share their ideas and take risks. We are building the leader of tomorrow 
-                through an all new academic Philosophy, exclusively designed with an aim of providing 360 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-10 md:mb-12"
+          >
+            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary max-w-3xl mx-auto">
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Since all children are unique and must have a stimulating educational environment where
+                they can grow physically, mentally, emotionally, and socially. We have created an atmosphere
+                where students can meet their full potential. We are building the leader of tomorrow
+                through an all new academic Philosophy, exclusively designed with an aim of providing 360
                 degree development to our students.
               </p>
-              
-              <div className="grid sm:grid-cols-2 gap-4">
-                {["Discipline", "Hard work", "Academic", "Physical fitness", "Exposure", "Reflective and independent thinking"].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <span className="text-secondary font-bold">•</span>
-                    <span className="text-foreground font-medium">{item}</span>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { icon: Award, title: "Discipline", color: "from-primary/20 to-primary/10" },
+              { icon: BookOpen, title: "Hard work", color: "from-secondary/20 to-accent/10" },
+              { icon: GraduationCap, title: "Academic", color: "from-maroon/20 to-maroon/10" },
+              { icon: Dumbbell, title: "Physical fitness", color: "from-growth/20 to-growth/10" },
+              { icon: Globe, title: "Exposure", color: "from-primary/20 to-primary/10" },
+              { icon: Brain, title: "Reflective and independent thinking", color: "from-secondary/20 to-accent/10" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group"
+              >
+                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden flex flex-col">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+                  <div className="relative z-10 flex flex-col flex-1 items-center text-center">
+                    <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all shadow-md">
+                      <item.icon className="h-7 w-7 text-maroon" />
+                    </div>
+                    <h3 className="font-heading text-lg font-bold text-maroon group-hover:text-primary transition-colors leading-tight">{item.title}</h3>
                   </div>
-                ))}
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -381,13 +426,14 @@ const Academics = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-block px-4 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-semibold mb-6">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-white/20 text-white border border-white/30 shadow-sm tracking-wide">
               Board Exam Excellence
             </span>
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-5 tracking-tight leading-tight">
               Board Exam Preparation
             </h2>
-            <p className="text-xl opacity-90 mb-8">
+            <div className="w-16 h-1 mx-auto mb-5 bg-white/50 rounded-full" />
+            <p className="text-xl opacity-90 mb-8 leading-relaxed">
               Special focus on Std 9 and 10 students with intensive preparation for
               Gujarat Board examinations. Regular practice tests, revision sessions,
               and guidance to help students achieve their best results.
