@@ -4,6 +4,7 @@ import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool,
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
@@ -173,13 +174,13 @@ function ClassesCarousel() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="card-premium bg-card rounded-2xl p-8 md:p-10 relative overflow-hidden group h-full"
+                className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <AnimatedCardBackground index={index} />
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center`}>
-                      <card.icon className="h-8 w-8 text-maroon" />
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center group-hover:ring-2 group-hover:ring-secondary/30 group-hover:scale-110 transition-all duration-500`}>
+                      <card.icon className="h-8 w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
                     <div>
                       <h3 className="font-heading text-2xl font-bold text-maroon">
@@ -320,14 +321,13 @@ const Academics = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="card-3d card-premium bg-card rounded-2xl p-6 text-center relative overflow-hidden flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${subject.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${subject.color} opacity-20 rounded-bl-2xl pointer-events-none`} />
+                <div className="h-full bg-card rounded-3xl p-6 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
                   <div className="relative z-10 flex flex-col flex-1">
-                    <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
-                      <subject.icon className="h-7 w-7 md:h-8 md:w-8 text-maroon" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-secondary/40 group-hover:scale-110 transition-all duration-500 shadow-md">
+                      <subject.icon className="h-7 w-7 md:h-8 md:w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
-                    <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-1 leading-tight">{subject.nameEn}</h3>
+                    <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-1 leading-tight group-hover:text-secondary transition-colors duration-300">{subject.nameEn}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed flex-1">{subject.name}</p>
                   </div>
                 </div>
@@ -386,7 +386,9 @@ const Academics = () => {
               { icon: Dumbbell, title: "Physical fitness", color: "from-growth/20 to-growth/10" },
               { icon: Globe, title: "Exposure", color: "from-primary/20 to-primary/10" },
               { icon: Brain, title: "Reflective and independent thinking", color: "from-secondary/20 to-accent/10" },
-            ].map((item, index) => (
+            ].map((item, index) => {
+              const IconComponent = item.icon;
+              return (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -395,18 +397,18 @@ const Academics = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+                <div className="h-full bg-card rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
                   <div className="relative z-10 flex flex-col flex-1 items-center text-center">
-                    <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all shadow-md">
-                      <item.icon className="h-7 w-7 text-maroon" />
+                    <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-secondary/40 group-hover:scale-110 transition-all shadow-md">
+                      <IconComponent className="h-8 w-8 text-maroon group-hover:text-secondary transition-colors" />
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-maroon group-hover:text-primary transition-colors leading-tight">{item.title}</h3>
+                    <h3 className="font-heading text-lg font-bold text-maroon group-hover:text-secondary transition-colors leading-tight">{item.title}</h3>
                   </div>
                 </div>
               </motion.div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>

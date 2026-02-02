@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Sparkles, GraduationCap } from "lucide-react";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
@@ -75,17 +76,16 @@ function AcademicExcellenceCarousel() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="card-3d card-premium bg-card rounded-2xl p-8 md:p-10 relative overflow-hidden group h-full"
+                className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${card.iconBg} opacity-30 rounded-bl-3xl pointer-events-none`} />
+                <AnimatedCardBackground index={index} />
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md`}>
-                      <card.icon className="h-8 w-8 text-maroon group-hover:text-primary transition-colors duration-300" />
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md`}>
+                      <card.icon className="h-8 w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
                     <div>
-                      <h3 className="font-heading text-2xl font-bold text-maroon group-hover:text-primary transition-colors duration-300">
+                      <h3 className="font-heading text-2xl font-bold text-maroon group-hover:text-secondary transition-colors duration-300">
                         {card.title}
                       </h3>
                       <p className="text-sm text-muted-foreground">

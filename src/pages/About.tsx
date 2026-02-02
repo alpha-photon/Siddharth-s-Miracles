@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Heart, Target, Eye, BookOpen, Users, Award, ChevronLeft, ChevronRight, Shield, GraduationCap, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import schoolLogo from "@/assets/school-logo.png";
 import heroAbout from "@/assets/herosection/IMG_3218.JPG";
 import useEmblaCarousel from "embla-carousel-react";
@@ -346,14 +347,13 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${value.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+                <div className="h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
                   <div className="relative z-10 flex flex-col flex-1">
-                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
-                      <value.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md">
+                      <value.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
-                    <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 leading-tight">{value.title}</h3>
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 leading-tight group-hover:text-secondary transition-colors duration-300">{value.title}</h3>
                     <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">{value.description}</p>
                   </div>
                 </div>

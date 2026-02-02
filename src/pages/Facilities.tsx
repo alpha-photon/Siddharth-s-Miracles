@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import heroFacilities from "@/assets/herosection/IMG_3237.JPG";
 
 const facilities = [
@@ -99,18 +100,17 @@ const Facilities = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="card-3d card-premium h-full bg-card rounded-2xl p-6 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/20 to-accent/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+                <div className="h-full bg-card rounded-3xl p-6 relative overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
                   <div className="relative z-10">
-                  <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center">
-                    <facility.icon className="h-7 w-7 text-maroon" />
-                  </div>
-                  <h3 className="font-heading text-lg font-bold text-maroon mb-1">
-                    {facility.titleEn}
-                  </h3>
-                  <p className="text-sm font-medium text-primary mb-3">{facility.title}</p>
-                  <p className="text-sm text-muted-foreground">{facility.description}</p>
+                    <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:ring-2 group-hover:ring-secondary/30 group-hover:scale-110 transition-all duration-500">
+                      <facility.icon className="h-7 w-7 text-maroon group-hover:text-secondary transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-heading text-lg font-bold text-maroon mb-1 group-hover:text-secondary transition-colors duration-300">
+                      {facility.titleEn}
+                    </h3>
+                    <p className="text-sm font-medium text-primary mb-3">{facility.title}</p>
+                    <p className="text-sm text-muted-foreground">{facility.description}</p>
                   </div>
                 </div>
               </motion.div>

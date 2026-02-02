@@ -268,23 +268,145 @@ export function HighlightsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col">
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                {/* Subtle corner accent */}
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
+              <div className="h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                {/* Permanent gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/8 via-accent/5 to-secondary/3" />
+                
+                {/* Permanent decorative corner elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-secondary/15 to-secondary/5 rounded-bl-[3rem] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-secondary/12 to-secondary/4 rounded-tr-[2rem] pointer-events-none" />
+                
+                {/* Animated gradient background on hover - mustard yellow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-secondary/15 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Animated background decorative elements - PERMANENT */}
+                {/* Stars */}
+                <motion.div
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1],
+                    opacity: [0.15, 0.35, 0.15]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "linear",
+                    delay: index * 0.5
+                  }}
+                  className="absolute top-4 right-6 w-2 h-2 text-secondary/25"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </motion.div>
+                
+                <motion.div
+                  animate={{ 
+                    rotate: [360, 0],
+                    scale: [1, 1.3, 1],
+                    opacity: [0.2, 0.4, 0.2]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "linear",
+                    delay: index * 0.7
+                  }}
+                  className="absolute bottom-8 left-4 w-3 h-3 text-secondary/20"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </motion.div>
+                
+                {/* Circles */}
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.5, 1],
+                    opacity: [0.15, 0.3, 0.15],
+                    x: [0, 10, 0],
+                    y: [0, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 7, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: index * 0.3
+                  }}
+                  className="absolute top-1/4 left-8 w-16 h-16 rounded-full border-2 border-secondary/15"
+                />
+                
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.3, 1],
+                    opacity: [0.12, 0.25, 0.12],
+                    x: [0, -8, 0],
+                    y: [0, 8, 0]
+                  }}
+                  transition={{ 
+                    duration: 9, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: index * 0.4
+                  }}
+                  className="absolute bottom-1/4 right-8 w-12 h-12 rounded-full border-2 border-secondary/12"
+                />
+                
+                {/* Rectangles */}
+                <motion.div
+                  animate={{ 
+                    rotate: [0, 90, 0],
+                    scale: [1, 1.2, 1],
+                    opacity: [0.18, 0.32, 0.18]
+                  }}
+                  transition={{ 
+                    duration: 10, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: index * 0.6
+                  }}
+                  className="absolute top-1/2 left-4 w-8 h-8 border-2 border-secondary/18 rounded-lg"
+                />
+                
+                <motion.div
+                  animate={{ 
+                    rotate: [90, 0, 90],
+                    scale: [1, 1.15, 1],
+                    opacity: [0.15, 0.28, 0.15]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: index * 0.5
+                  }}
+                  className="absolute bottom-1/3 right-4 w-6 h-6 border-2 border-secondary/15 rounded"
+                />
 
                 <div className="relative z-10 flex flex-col flex-1">
-                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
-                    <item.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
+                  {/* Icon container with enhanced design - mustard yellow hover */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-secondary/20 via-accent/15 to-secondary/10 flex items-center justify-center ring-4 ring-secondary/10 group-hover:ring-secondary/40 group-hover:bg-gradient-to-br group-hover:from-secondary/30 group-hover:via-secondary/25 group-hover:to-secondary/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl group-hover:shadow-2xl relative overflow-hidden">
+                    {/* Icon background glow - mustard yellow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-secondary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                    <item.icon className="h-10 w-10 md:h-12 md:w-12 text-maroon group-hover:text-secondary transition-all duration-300 relative z-10 group-hover:scale-110" />
                   </div>
-                  <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
+                  
+                  {/* Title with decorative underline - mustard yellow */}
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-3 group-hover:text-secondary transition-colors duration-300 leading-tight relative inline-block">
                     {item.titleEn}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-secondary/70 group-hover:w-full transition-all duration-500" />
                   </h3>
-                  <p className="text-sm font-semibold text-primary mb-3 tracking-wide">{item.title}</p>
-                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">
+                  
+                  {/* Gujarati subtitle */}
+                  <p className="text-sm font-semibold text-primary mb-4 tracking-wide">{item.title}</p>
+                  
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1 group-hover:text-foreground/80 transition-colors duration-300">
                     {item.description}
                   </p>
+                  
+                  {/* Decorative bottom accent - mustard yellow */}
+                  <div className="mt-4 h-1 w-12 mx-auto rounded-full bg-gradient-to-r from-secondary/50 to-secondary/30 opacity-50 group-hover:opacity-100 group-hover:w-16 group-hover:from-secondary/70 group-hover:to-secondary/50 transition-all duration-500" />
                 </div>
               </div>
             </motion.div>

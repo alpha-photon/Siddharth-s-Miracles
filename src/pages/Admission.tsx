@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { GraduationCap, FileText, CheckCircle, ArrowRight, Phone, MessageCircle } from "lucide-react";
 import heroAdmission from "@/assets/herosection/IMG_3275.JPG";
 
@@ -144,16 +145,15 @@ const Admission = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
               >
-                <div className="card-3d card-premium bg-card rounded-2xl p-6 h-full relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/20 to-accent/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+                <div className="h-full bg-card rounded-3xl p-6 relative overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
                   <div className="relative z-10">
-                  <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-                    <span className="text-lg font-bold text-secondary-foreground">{item.step}</span>
-                  </div>
-                  <h3 className="font-heading text-lg font-bold text-maroon mb-1">{item.titleEn}</h3>
-                  <p className="text-sm font-medium text-primary mb-2">{item.title}</p>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center group-hover:scale-110 transition-all duration-500">
+                      <span className="text-lg font-bold text-secondary-foreground">{item.step}</span>
+                    </div>
+                    <h3 className="font-heading text-lg font-bold text-maroon mb-1 group-hover:text-secondary transition-colors duration-300">{item.titleEn}</h3>
+                    <p className="text-sm font-medium text-primary mb-2">{item.title}</p>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
                 {index < admissionSteps.length - 1 && (
@@ -200,12 +200,11 @@ const Admission = () => {
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="group"
                 >
-                  <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 relative overflow-hidden flex flex-col">
-                    <div className="absolute inset-0 bg-gradient-to-br from-growth/10 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-growth/20 to-secondary/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+                  <div className="h-full bg-card rounded-3xl p-6 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                    <AnimatedCardBackground index={index} />
                     <div className="relative z-10 flex flex-col flex-1">
-                      <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-growth/25 to-secondary/25 flex items-center justify-center ring-2 ring-growth/20 group-hover:ring-primary/30 transition-all shadow-md">
-                        <CheckCircle className="h-7 w-7 text-maroon" />
+                      <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-growth/25 to-secondary/25 flex items-center justify-center ring-2 ring-growth/20 group-hover:ring-secondary/40 group-hover:scale-110 transition-all shadow-md">
+                        <CheckCircle className="h-7 w-7 text-maroon group-hover:text-secondary transition-colors duration-300" />
                       </div>
                       <h3 className="font-heading text-base font-bold text-maroon group-hover:text-primary transition-colors leading-tight">{doc}</h3>
                     </div>

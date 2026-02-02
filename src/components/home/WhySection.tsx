@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FlaskConical, BookOpen, Laptop, Bus, Heart, Trophy, Music, GraduationCap, Users, Sparkles } from "lucide-react";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 
 const whyFeatures = [
   {
@@ -85,14 +86,13 @@ export function WhySection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/20 to-accent/10 opacity-20 rounded-bl-3xl pointer-events-none" />
+              <div className="h-full bg-card rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+                <AnimatedCardBackground index={index} />
                 <div className="relative z-10 flex flex-col flex-1">
-                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-primary/30 transition-all duration-500 shadow-md">
-                    <feature.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-primary transition-colors duration-300" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md">
+                    <feature.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
                   </div>
-                  <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
+                  <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-secondary transition-colors duration-300 leading-tight">
                     {feature.title}
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">{feature.description}</p>
