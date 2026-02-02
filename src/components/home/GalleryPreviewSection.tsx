@@ -6,19 +6,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
 
-// Import gallery images
-import heroCultural from "@/assets/hero-cultural.jpg";
-import heroPlayground from "@/assets/hero-playground.jpg";
-import activitiesArt from "@/assets/activities-art.jpg";
-import activitiesSports from "@/assets/activities-sports.jpg";
-import activitiesAssembly from "@/assets/activities-assembly.jpg";
+// Actual school photos from gallery (img1–img40 are real school images)
+import { img1, img2, img3, img4, img5 } from "@/lib/cloudinary-images";
 
 const galleryImages = [
-  { src: heroCultural, title: "Annual Day Celebrations" },
-  { src: heroPlayground, title: "Sports & Games" },
-  { src: activitiesArt, title: "Art & Creativity" },
-  { src: activitiesSports, title: "Athletic Events" },
-  { src: activitiesAssembly, title: "Morning Assembly" },
+  { src: img1, title: "Annual Day Celebrations" },
+  { src: img2, title: "Sports & Games" },
+  { src: img3, title: "Art & Creativity" },
+  { src: img4, title: "Athletic Events" },
+  { src: img5, title: "Morning Assembly" },
 ];
 
 function GalleryPreviewCarousel() {

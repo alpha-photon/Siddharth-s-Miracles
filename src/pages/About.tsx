@@ -1,28 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Heart, Target, Eye, BookOpen, Users, Award, ChevronLeft, ChevronRight, Shield, GraduationCap, Sparkles } from "lucide-react";
+import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
-import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
-import schoolLogo from "@/assets/school-logo.png";
-import heroAbout from "@/assets/herosection/IMG_3218.JPG";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { useCallback } from "react";
-
-// Import activity images
-import heroCultural from "@/assets/hero-cultural.jpg";
-import heroPlayground from "@/assets/hero-playground.jpg";
-import activitiesArt from "@/assets/activities-art.jpg";
-import activitiesSports from "@/assets/activities-sports.jpg";
-import activitiesAssembly from "@/assets/activities-assembly.jpg";
-
-const studentImages = [
-  { src: heroCultural, title: "Annual Day Celebrations" },
-  { src: heroPlayground, title: "Sports & Games" },
-  { src: activitiesArt, title: "Art & Creativity" },
-  { src: activitiesSports, title: "Athletic Events" },
-  { src: activitiesAssembly, title: "Morning Assembly" },
-];
+import { schoolLogo, heroAbout } from "@/lib/cloudinary-images";
 
 const values = [
   {
@@ -99,55 +79,6 @@ const values = [
   },
 ];
 
-function StudentGalleryCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center" },
-    [Autoplay({ delay: 3500, stopOnInteraction: false })]
-  );
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  return (
-    <div className="relative">
-      <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-        <div className="flex">
-          {studentImages.map((image, index) => (
-            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_40%] min-w-0 px-3">
-              <div className="relative group overflow-hidden rounded-2xl shadow-elevated">
-                <div className="image-zoom aspect-[3/2]">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="font-heading text-xl font-bold drop-shadow-lg">{image.title}</h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      <button
-        onClick={scrollPrev}
-        className="absolute left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-elevated flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 hover:scale-110"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-elevated flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 hover:scale-110"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-    </div>
-  );
-}
-
 const About = () => {
   return (
     <Layout>
@@ -159,40 +90,6 @@ const About = () => {
         backgroundImage={heroAbout}
         overlayOpacity="light"
       />
-
-      {/* Student Life Gallery */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14 md:mb-20"
-          >
-            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
-              Gallery
-            </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
-              Life at Siddharth's Miracles
-            </h2>
-            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Glimpses of our vibrant school community
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <StudentGalleryCarousel />
-          </motion.div>
-        </div>
-      </section>
 
       {/* Story Section */}
       <section id="story" className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
@@ -447,8 +344,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Affiliation */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-white relative overflow-hidden">
+      {/* Affiliation - aligned with Vision & Mission / other sections */}
+      <section className="py-16 md:py-20 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10">
           <motion.div
@@ -456,85 +353,40 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
+            className="text-center mb-14 md:mb-20"
           >
-            {/* Main Card Container */}
-            <div className="relative card-premium card-elevated bg-white rounded-3xl overflow-hidden">
-              {/* Decorative Top Border */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary to-secondary" />
-              
-              {/* Subtle Pattern Background */}
-              <div className="absolute inset-0 bg-pattern-dots opacity-30" />
-              
-              {/* Content */}
-              <div className="relative z-10 px-8 py-12 md:px-12 md:py-16">
-                <div className="text-center">
-                  {/* Badge with Icon */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-secondary/10 to-accent/10 border border-secondary/20 rounded-full mb-8"
-                  >
-                    <Shield className="w-4 h-4 text-secondary" />
-                    <span className="text-sm font-semibold text-secondary">
-                      Official Recognition
-                    </span>
-                  </motion.div>
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
+              Board Affiliation
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
+              GSEB Affiliated
+            </h2>
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+              Recognised by Gujarat Secondary and Higher Secondary Education Board
+            </p>
+          </motion.div>
 
-                  {/* Main Heading with Icon */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-8"
-                  >
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                        <GraduationCap className="w-8 h-8 text-primary" />
-                      </div>
-                    </div>
-                    <h2 className="font-heading text-3xl md:text-5xl font-bold text-maroon mb-4">
-                      Gujarati Board Affiliated
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto" />
-                  </motion.div>
-
-                  {/* Description */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto"
-                  >
-                    We are proud to be affiliated with the Gujarat Secondary and Higher Secondary
-                    Education Board, following the standard curriculum while adding our unique approach
-                    to holistic development.
-                  </motion.p>
-
-                  {/* Decorative Bottom Elements */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="flex items-center justify-center gap-2 mt-10"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-secondary/40" />
-                    <div className="w-1 h-1 rounded-full bg-secondary/30" />
-                    <Award className="w-5 h-5 text-secondary/50" />
-                    <div className="w-1 h-1 rounded-full bg-secondary/30" />
-                    <div className="w-2 h-2 rounded-full bg-secondary/40" />
-                  </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="card-3d card-premium bg-card rounded-2xl p-10 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 flex flex-col sm:flex-row items-center gap-8 text-center sm:text-left">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <GraduationCap className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-3">Official Recognition</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    We are proud to be affiliated with the Gujarat Secondary and Higher Secondary Education Board, following the standard curriculum while adding our unique approach to holistic development.
+                  </p>
                 </div>
               </div>
-
-              {/* Corner Accents */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-secondary/5 rounded-full blur-2xl" />
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-primary/5 rounded-full blur-2xl" />
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import schoolLogo from "@/assets/school-logo.png";
+import { schoolLogo } from "@/lib/cloudinary-images";
 
 const quickLinks = [
   { name: "About Us", path: "/about" },

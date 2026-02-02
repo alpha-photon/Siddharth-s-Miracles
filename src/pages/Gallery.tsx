@@ -3,49 +3,13 @@ import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/ui/PageHero";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from "lucide-react";
-import heroGallery from "@/assets/herosection/IMG_3249.JPG";
-
-// Import all school images
-import img1 from "@/assets/school-image/IMG-20251217-WA0016.jpg";
-import img2 from "@/assets/school-image/IMG-20260102-WA0001.jpg";
-import img3 from "@/assets/school-image/IMG-20260102-WA0002.jpg";
-import img4 from "@/assets/school-image/IMG-20260105-WA0010.jpg";
-import img5 from "@/assets/school-image/IMG-20260106-WA0004.jpg";
-import img6 from "@/assets/school-image/IMG-20260106-WA0009.jpg";
-import img7 from "@/assets/school-image/IMG-20260106-WA0015.jpg";
-import img8 from "@/assets/school-image/IMG-20260108-WA0004.jpg";
-import img9 from "@/assets/school-image/IMG-20260108-WA0010.jpg";
-import img10 from "@/assets/school-image/IMG-20260108-WA0016.jpg";
-import img11 from "@/assets/school-image/IMG-20260108-WA0029.jpg";
-import img12 from "@/assets/school-image/IMG-20260108-WA0030.jpg";
-import img13 from "@/assets/school-image/IMG-20260108-WA0062.jpg";
-import img14 from "@/assets/school-image/IMG-20260108-WA0081.jpg";
-import img15 from "@/assets/school-image/IMG-20260108-WA0088.jpg";
-import img16 from "@/assets/school-image/IMG-20260108-WA0090.jpg";
-import img17 from "@/assets/school-image/IMG-20260120-WA0004.jpg";
-import img18 from "@/assets/school-image/IMG-20260120-WA0020.jpg";
-import img19 from "@/assets/school-image/IMG-20260120-WA0027.jpg";
-import img20 from "@/assets/school-image/IMG-20260120-WA0033.jpg";
-import img21 from "@/assets/school-image/IMG-20260120-WA0047.jpg";
-import img22 from "@/assets/school-image/IMG-20260120-WA0048.jpg";
-import img23 from "@/assets/school-image/IMG-20260120-WA0052.jpg";
-import img24 from "@/assets/school-image/IMG_20260101_104710.jpg";
-import img25 from "@/assets/school-image/IMG_20260102_115833.jpg";
-import img26 from "@/assets/school-image/IMG_20260105_104054.jpg";
-import img27 from "@/assets/school-image/IMG_20260121_104925.jpg";
-import img28 from "@/assets/school-image/IMG_20260121_110052.jpg";
-import img29 from "@/assets/school-image/IMG_20260121_110056.jpg";
-import img30 from "@/assets/school-image/IMG_20260121_112721.jpg";
-import img31 from "@/assets/school-image/IMG_20260121_113304.jpg";
-import img32 from "@/assets/school-image/IMG_20260121_113321.jpg";
-import img33 from "@/assets/school-image/IMG_20260123_093527.jpg";
-import img34 from "@/assets/school-image/IMG_20260123_093831.jpg";
-import img35 from "@/assets/school-image/IMG_20260123_094046.jpg";
-import img36 from "@/assets/school-image/IMG_20260123_094053.jpg";
-import img37 from "@/assets/school-image/IMG_20260123_094113.jpg";
-import img38 from "@/assets/school-image/IMG_20260123_094126.jpg";
-import img39 from "@/assets/school-image/IMG_20260123_094200.jpg";
-import img40 from "@/assets/school-image/IMG_20260123_095812.jpg";
+import {
+  heroGallery,
+  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
+  img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
+} from "@/lib/cloudinary-images";
 
 // Image categories - Update categories based on actual image content
 // Categories: "classrooms", "activities", "celebrations", "events", "campus"

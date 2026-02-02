@@ -8,12 +8,7 @@ import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
-import heroAcademics from "@/assets/herosection/IMG_3237.JPG";
-
-// Import academic images
-import academicsLab from "@/assets/academics-lab.jpg";
-import academicsLibrary from "@/assets/academics-library.jpg";
-import academicsComputer from "@/assets/academics-computer.jpg";
+import { heroAcademics, academicsLab, academicsLibrary, academicsComputer } from "@/lib/cloudinary-images";
 
 const academicImages = [
   { src: heroAcademics, title: "Interactive Classrooms", desc: "Modern learning environment" },
