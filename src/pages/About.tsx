@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { schoolLogo, heroAbout } from "@/lib/cloudinary-images";
 
 const values = [
