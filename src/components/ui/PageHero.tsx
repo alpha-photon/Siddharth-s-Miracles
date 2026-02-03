@@ -36,7 +36,7 @@ export function PageHero({
           <motion.img
             src={backgroundImage}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top sm:object-center"
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -72,8 +72,8 @@ export function PageHero({
         </div>
       )}
 
-      {/* Content - same dimensions & layout as homepage hero: py-20, left-aligned max-w-2xl */}
-      <div className="container relative z-10 py-20">
+      {/* Content - same dimensions & layout as homepage hero; responsive padding for mobile */}
+      <div className="container relative z-10 py-12 sm:py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
-            className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 ${
+            className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 sm:mb-4 ${
               backgroundImage ? "text-white" : "text-maroon"
             } drop-shadow-2xl tracking-tight`}
             style={{

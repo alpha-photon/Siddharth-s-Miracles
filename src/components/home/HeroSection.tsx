@@ -90,7 +90,7 @@ export function HeroSection() {
               <img
                 src={slide.image}
                 alt={`${slide.title} ${slide.subtitle}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top sm:object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent" />
@@ -101,7 +101,7 @@ export function HeroSection() {
 
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
@@ -116,8 +116,8 @@ export function HeroSection() {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 py-20">
+      {/* Content - responsive padding for mobile */}
+      <div className="container relative z-10 py-12 sm:py-16 md:py-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -138,7 +138,7 @@ export function HeroSection() {
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
+              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 sm:mb-4"
             >
               {heroSlides[currentSlide].title}
               <span className="block text-secondary mt-2 drop-shadow-lg">
