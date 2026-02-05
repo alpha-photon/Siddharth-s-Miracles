@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from "lucide-react";
+import { GraduationCap, Users, Award, Palette } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -62,9 +62,6 @@ export function HeroSection() {
     [Autoplay({ delay: 5000, stopOnInteraction: false })]
   );
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
   useEffect(() => {
     if (!emblaApi) return;
     
@@ -99,22 +96,6 @@ export function HeroSection() {
         </div>
       </div>
 
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => emblaApi?.scrollTo(index)}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              currentSlide === index 
-                ? "w-8 bg-secondary" 
-                : "w-2 bg-white/50 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
 
       {/* Content */}
       <div className="container relative z-10 py-20">
@@ -159,7 +140,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-lg opacity-80 mb-8"
             >
-              Gujarati Board | Std 1–10 | Gandhinagar
+              Gujarati Board | English Medium | Std 1–10 | Gandhinagar
             </motion.p>
 
             {/* CTA Button */}

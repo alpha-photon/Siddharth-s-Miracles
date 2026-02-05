@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { heroActivities } from "@/lib/cloudinary-images";
 
 const activities = [

@@ -2,12 +2,8 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
-<<<<<<< HEAD
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
-import heroFacilities from "@/assets/herosection/IMG_3237.JPG";
-=======
 import { heroFacilities } from "@/lib/cloudinary-images";
->>>>>>> 4544427f728db9e528813022768c6d2862ea9554
 
 const facilities = [
   {

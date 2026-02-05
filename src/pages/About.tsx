@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { schoolLogo, heroAbout } from "@/lib/cloudinary-images";
 
 const values = [
@@ -261,8 +262,7 @@ const About = () => {
       </section>
 
       {/* Founder Message */}
-      <section className="py-16 md:py-24 bg-pattern-dots relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -288,21 +288,23 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10 md:mb-12"
+            className="mb-14 md:mb-16 max-w-3xl mx-auto"
           >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary max-w-3xl mx-auto">
-              <p className="font-heading text-xl md:text-2xl font-bold text-maroon italic leading-relaxed">
-                "Education is not about going to school and getting a degree. It's about widening your knowledge and absorbing the truth about life"
+            <blockquote className="relative text-center">
+              <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-primary/20 font-serif leading-none select-none" aria-hidden="true">"</span>
+              <p className="font-heading text-xl md:text-2xl text-maroon italic leading-relaxed pt-8 pb-4 px-4">
+                "Education is not about going to school and getting a degree. It's about widening your knowledge and absorbing the truth about life."
               </p>
-            </div>
+              <footer className="text-sm text-muted-foreground font-medium not-italic">— Message from Founder</footer>
+            </blockquote>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {[
-              { icon: BookOpen, title: "Forms of Education", description: "Education is the transmission of knowledge, skills, and character traits and manifests in various forms. Formal education occurs within a structured institutional framework, such as schools, following a curriculum. Non-formal education also follows a structured approach but occurs outside the formal schooling system, while informal education entails unstructured learning through daily experiences.", color: "from-primary/20 to-primary/10" },
-              { icon: Heart, title: "Welcome", description: "It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have created an environment where students feel safe, valued and respected, and where they can thrive academically, socially, physically, and emotionally. We believe that every child is endowed with a unique set of attributes and abilities, which need to be nurtured so that they bloom.", color: "from-maroon/20 to-maroon/10" },
-              { icon: Sparkles, title: "Our Goal", description: "At Siddharth's Miracles, we provide a learning environment that inspires and motivates children, and encourages them to explore limitless possibilities in their quest for knowledge. Our goal is to make Siddharth's Miracles a happy school, WHERE EACH DAY WILL BE A MIRACLE, where teaching is pleasure and learning is fun. Our caring and committed teaching and non-teaching staff are our pillars of strength.", color: "from-secondary/20 to-accent/10" },
-              { icon: Users, title: "Invitation", description: "We warmly invite you to explore Siddharth's Miracles. We aim to create an environment where students can thrive and reach their full potential.", color: "from-primary/20 to-primary/10" },
+              { icon: BookOpen, title: "Forms of Education", description: "Education is the transmission of knowledge, skills, and character traits and manifests in various forms. Formal education occurs within a structured institutional framework, such as schools, following a curriculum. Non-formal education also follows a structured approach but occurs outside the formal schooling system, while informal education entails unstructured learning through daily experiences.", color: "from-primary/20 to-primary/10", author: "Geetha Satish Pisharody" },
+              { icon: Heart, title: "Welcome", description: "It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have created an environment where students feel safe, valued and respected, and where they can thrive academically, socially, physically, and emotionally. We believe that every child is endowed with a unique set of attributes and abilities, which need to be nurtured so that they bloom.", color: "from-maroon/20 to-maroon/10", author: "Suresh Keshavlal Jain" },
+              { icon: Sparkles, title: "Our Goal", description: "At Siddharth's Miracles, we provide a learning environment that inspires and motivates children, and encourages them to explore limitless possibilities in their quest for knowledge. Our goal is to make Siddharth's Miracles a happy school, WHERE EACH DAY WILL BE A MIRACLE, where teaching is pleasure and learning is fun. Our caring and committed teaching and non-teaching staff are our pillars of strength.", color: "from-secondary/20 to-accent/10", author: "Geetha Satish Pisharody" },
+              { icon: Users, title: "Invitation", description: "We warmly invite you to explore Siddharth's Miracles. We aim to create an environment where students can thrive and reach their full potential.", color: "from-primary/20 to-primary/10", author: "Suresh Keshavlal Jain" },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -321,26 +323,12 @@ const About = () => {
                     </div>
                     <h3 className="font-heading text-lg font-bold text-maroon mb-2 group-hover:text-primary transition-colors leading-tight">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed flex-1">{item.description}</p>
+                    <p className="text-xs text-muted-foreground mt-3 pt-2 border-t border-border/50">— {item.author}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 md:mt-12"
-          >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 bg-gradient-to-br from-secondary/5 to-accent/5 border border-secondary/20">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                <p className="font-heading text-lg font-bold text-maroon">GEETHA SATISH PISHARODY</p>
-                <p className="font-heading text-lg font-bold text-maroon">SURESH KESHAVLAL JAIN</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
