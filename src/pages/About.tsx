@@ -92,9 +92,9 @@ function ValuesCarousel() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <div className="relative px-2 md:px-4">
+    <div className="relative">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
           {values.map((value, index) => (
             <div
               key={value.title}
@@ -118,7 +118,7 @@ function ValuesCarousel() {
         type="button"
         onClick={scrollPrev}
         aria-label="Previous values"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -126,7 +126,7 @@ function ValuesCarousel() {
         type="button"
         onClick={scrollNext}
         aria-label="Next values"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -331,7 +331,7 @@ const About = () => {
             </blockquote>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { icon: BookOpen, title: "Forms of Education", description: "Education is the transmission of knowledge, skills, and character traits and manifests in various forms. Formal education occurs within a structured institutional framework, such as schools, following a curriculum. Non-formal education also follows a structured approach but occurs outside the formal schooling system, while informal education entails unstructured learning through daily experiences.", color: "from-primary/20 to-primary/10", author: "Geetha Satish Pisharody" },
               { icon: Heart, title: "Welcome", description: "It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have created an environment where students feel safe, valued and respected, and where they can thrive academically, socially, physically, and emotionally. We believe that every child is endowed with a unique set of attributes and abilities, which need to be nurtured so that they bloom.", color: "from-maroon/20 to-maroon/10", author: "Suresh Keshavlal Jain" },

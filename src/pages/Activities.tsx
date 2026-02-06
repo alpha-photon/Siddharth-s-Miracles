@@ -92,9 +92,9 @@ function BenefitsCarousel() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <div className="relative px-2 md:px-4">
+    <div className="relative">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
           {benefitsData.map((benefit, index) => {
             const IconComp = benefit.icon;
             return (
@@ -126,7 +126,7 @@ function BenefitsCarousel() {
         type="button"
         onClick={scrollPrev}
         aria-label="Previous benefits"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -134,7 +134,7 @@ function BenefitsCarousel() {
         type="button"
         onClick={scrollNext}
         aria-label="Next benefits"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -151,9 +151,9 @@ function ActivitiesCarousel() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <div className="relative px-2 md:px-4">
+    <div className="relative">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
           {activities.map((activity, index) => {
             const IconComp = activity.icon;
             return (
@@ -183,7 +183,7 @@ function ActivitiesCarousel() {
         type="button"
         onClick={scrollPrev}
         aria-label="Previous activities"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -191,7 +191,7 @@ function ActivitiesCarousel() {
         type="button"
         onClick={scrollNext}
         aria-label="Next activities"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
@@ -309,7 +309,7 @@ const Activities = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Dance */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

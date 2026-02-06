@@ -68,7 +68,7 @@ function AcademicExcellenceCarousel() {
   return (
     <div className="relative w-full">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-8">
+        <div className="flex gap-6">
           {classCards.map((card, index) => (
             <div key={index} className="flex-[0_0_100%] lg:flex-[0_0_48%] min-w-0">
               <motion.div
@@ -76,7 +76,7 @@ function AcademicExcellenceCarousel() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
+                className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 border-b-0 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
               >
                 <AnimatedCardBackground index={index} />
                 <div className="relative z-10">

@@ -53,8 +53,7 @@ const whyFeatures = [
 export function WhySection() {
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden">
-      {/* Decorative Background - aligned with Activities */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" aria-hidden />
 
       <div className="container relative z-10">
         <motion.div
@@ -76,7 +75,7 @@ export function WhySection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {whyFeatures.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -86,7 +85,7 @@ export function WhySection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="h-full bg-card rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
+              <div className="h-full bg-card rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col border-2 border-border/50 border-b-0 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
                 <AnimatedCardBackground index={index} />
                 <div className="relative z-10 flex flex-col flex-1">
                   <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md">

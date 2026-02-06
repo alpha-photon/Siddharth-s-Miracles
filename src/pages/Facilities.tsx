@@ -90,7 +90,7 @@ const Facilities = () => {
               Comfortable, secure and student-friendly environment
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {facilities.map((facility, index) => (
               <motion.div
                 key={facility.titleEn}
@@ -158,7 +158,7 @@ const Facilities = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Building2, label: "Classrooms", color: "from-primary/20 to-primary/10" },
               { icon: TreePine, label: "Playground", color: "from-growth/20 to-growth/10" },
@@ -232,7 +232,7 @@ const Facilities = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Target, title: "Individual Learning Plans", description: "We develop tailored learning plans for each student, taking into account their strengths, areas for improvement, and interest. This ensures that every student can learn at their own pace and achieve their fullest potential.", color: "from-primary/20 to-primary/10" },
               { icon: Users, title: "Small Class Sizes", description: "Our small class sizes allow teachers to give focused attention to each student, facilitating better understanding and retention of the material.", color: "from-secondary/20 to-accent/10" },
@@ -323,7 +323,7 @@ const Facilities = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Users, label: "Male and Female staff", color: "from-primary/20 to-primary/10" },
               { icon: DoorOpen, label: "Classroom doors without lock", color: "from-secondary/20 to-accent/10" },

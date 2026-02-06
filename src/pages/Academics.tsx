@@ -63,9 +63,9 @@ function AcademicCarousel() {
   return (
     <div className="relative">
       <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
           {academicImages.map((image, index) => (
-            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4">
+            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0">
               <div className="relative group overflow-hidden rounded-2xl shadow-card">
                 <div className="image-zoom aspect-[4/3]">
                   <img
@@ -87,13 +87,13 @@ function AcademicCarousel() {
       
       <button
         onClick={scrollPrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={scrollNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
@@ -306,7 +306,7 @@ const Academics = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {subjects.map((subject, index) => (
               <motion.div
                 key={subject.nameEn}
@@ -373,7 +373,7 @@ const Academics = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Award, title: "Discipline", color: "from-primary/20 to-primary/10" },
               { icon: BookOpen, title: "Hard work", color: "from-secondary/20 to-accent/10" },

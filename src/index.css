@@ -214,9 +214,9 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--maroon)));
-    opacity: 0.95;
+    opacity: 0.5;
     border-radius: calc(var(--radius) + 16px) calc(var(--radius) + 16px) 0 0;
     z-index: 1;
   }
