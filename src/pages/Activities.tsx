@@ -1,9 +1,12 @@
+import { useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell } from "lucide-react";
+import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { heroActivities } from "@/lib/cloudinary-images";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const activities = [
   {
@@ -72,6 +75,130 @@ const activities = [
   },
 ];
 
+const benefitsData = [
+  { icon: Brain, title: "Intellectual Growth", description: "Encourages critical thinking, problem solving, creativity, and prepares students for real-world challenges.", color: "from-primary/20 to-primary/10" },
+  { icon: Heart, title: "Emotional Well-being", description: "Fosters self-awareness, empathy and resilience, equipping students to manage emotions and build healthy relationships.", color: "from-maroon/20 to-maroon/10" },
+  { icon: Dumbbell, title: "Physical Health", description: "Promotes an active lifestyle, good nutrition and self-care habits, contributing to overall physical well-being.", color: "from-growth/20 to-growth/10" },
+  { icon: Users, title: "Social Skills", description: "Develops communication, collaboration and teamwork skills, essential for success in personal and professional life.", color: "from-secondary/20 to-accent/10" },
+  { icon: Sparkles, title: "Creative Expression", description: "Cultivates imagination, innovation, and artistic talent, fostering a sense of identity and self-expression.", color: "from-secondary/30 to-accent/20" },
+];
+
+function BenefitsCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
+    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+  );
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  return (
+    <div className="relative px-2 md:px-4">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4 md:gap-6">
+          {benefitsData.map((benefit, index) => {
+            const IconComp = benefit.icon;
+            return (
+            <div
+              key={benefit.title}
+              className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] min-w-0"
+            >
+              <div className="card-3d h-full card-premium bg-card rounded-2xl p-5 md:p-6 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 group hover:border-secondary/50">
+                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${benefit.color} opacity-20 rounded-bl-2xl pointer-events-none`} />
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all shadow-md`}>
+                    <IconComp className="h-7 w-7 text-maroon group-hover:text-primary transition-colors duration-300" />
+                  </div>
+                  <h4 className="font-heading text-base md:text-lg font-bold text-maroon mb-2 group-hover:text-primary transition-colors leading-tight">
+                    {benefit.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+          })}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={scrollPrev}
+        aria-label="Previous benefits"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+      <button
+        type="button"
+        onClick={scrollNext}
+        aria-label="Next benefits"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+    </div>
+  );
+}
+
+function ActivitiesCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
+    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+  );
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  return (
+    <div className="relative px-2 md:px-4">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4 md:gap-6">
+          {activities.map((activity, index) => {
+            const IconComp = activity.icon;
+            return (
+              <div
+                key={activity.titleEn}
+                className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] min-w-0"
+              >
+                <div className="group h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-secondary/50 hover:-translate-y-2">
+                  <AnimatedCardBackground index={index} />
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${activity.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md`}>
+                      <IconComp className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-secondary transition-colors duration-300 leading-tight">
+                      {activity.titleEn}
+                    </h3>
+                    <p className="text-sm font-semibold text-primary mb-3 tracking-wide">{activity.title}</p>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">{activity.description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={scrollPrev}
+        aria-label="Previous activities"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+      <button
+        type="button"
+        onClick={scrollNext}
+        aria-label="Next activities"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+    </div>
+  );
+}
+
 const Activities = () => {
   return (
     <Layout>
@@ -107,32 +234,7 @@ const Activities = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {activities.map((activity, index) => (
-              <motion.div
-                key={activity.titleEn}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="group"
-              >
-                <div className="h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
-                  <AnimatedCardBackground index={index} />
-                  <div className="relative z-10 flex flex-col flex-1">
-                    <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${activity.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md`}>
-                      <activity.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
-                    </div>
-                    <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-secondary transition-colors duration-300 leading-tight">
-                      {activity.titleEn}
-                    </h3>
-                    <p className="text-sm font-semibold text-primary mb-3 tracking-wide">{activity.title}</p>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">{activity.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ActivitiesCarousel />
         </div>
       </section>
 
@@ -162,60 +264,25 @@ const Activities = () => {
             </p>
           </motion.div>
 
-          {/* Intro card - full width like section above */}
+          {/* Quote - simple italic & bold with inverted commas */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-10 md:mb-12"
+            className="mb-10 md:mb-12 text-center"
           >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary">
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                We believe that our role as a school extends to overall development. Our school is 
-                inclined to creating responsible global citizens and lifelong learners.
-              </p>
-            </div>
+            <p className="text-maroon text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-bold italic">
+              &ldquo;We believe that our role as a school extends to overall development. Our school is
+              inclined to creating responsible global citizens and lifelong learners.&rdquo;
+            </p>
           </motion.div>
 
-          {/* Benefits - same grid as Activities & Co-curricular: 4 cols, same gap */}
+          {/* Benefits - moving carousel like gallery */}
           <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-6 text-center">
             Benefits of holistic development in education
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {[
-                { icon: Brain, title: "Intellectual Growth", description: "Encourages critical thinking, problem solving, creativity, and prepares students for real-world challenges.", color: "from-primary/20 to-primary/10" },
-                { icon: Heart, title: "Emotional Well-being", description: "Fosters self-awareness, empathy and resilience, equipping students to manage emotions and build healthy relationships.", color: "from-maroon/20 to-maroon/10" },
-                { icon: Dumbbell, title: "Physical Health", description: "Promotes an active lifestyle, good nutrition and self-care habits, contributing to overall physical well-being.", color: "from-growth/20 to-growth/10" },
-                { icon: Users, title: "Social Skills", description: "Develops communication, collaboration and teamwork skills, essential for success in personal and professional life.", color: "from-secondary/20 to-accent/10" },
-                { icon: Sparkles, title: "Creative Expression", description: "Cultivates imagination, innovation, and artistic talent, fostering a sense of identity and self-expression.", color: "from-secondary/30 to-accent/20" },
-              ].map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="group"
-                >
-                  <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden flex flex-col">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${benefit.color} opacity-20 rounded-bl-2xl pointer-events-none`} />
-                    <div className="relative z-10 flex flex-col flex-1">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all shadow-md`}>
-                        <benefit.icon className="h-7 w-7 text-maroon group-hover:text-primary transition-colors duration-300" />
-                      </div>
-                      <h4 className="font-heading text-lg font-bold text-maroon mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-          </div>
+          <BenefitsCarousel />
         </div>
       </section>
 

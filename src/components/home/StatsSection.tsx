@@ -20,7 +20,7 @@ const stats = [
     icon: Award,
     number: "GSEB",
     label: "Affiliated",
-    description: "Gujarat Board",
+    description: "GSEB",
     color: "from-growth/20 to-growth/10",
   },
   {

@@ -46,7 +46,7 @@ export function Header() {
               to={link.path}
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 location.pathname === link.path
-                  ? "bg-secondary/20 text-maroon font-semibold"
+                  ? "bg-secondary/35 text-maroon font-semibold hover:bg-secondary/50"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               }`}
             >
@@ -95,7 +95,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                     location.pathname === link.path
-                      ? "bg-secondary/20 text-maroon font-semibold"
+                      ? "bg-secondary/35 text-maroon font-semibold hover:bg-secondary/50"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >

@@ -11,6 +11,7 @@
 
 @layer base {
   :root {
+<<<<<<< HEAD
     /* Core – warm cream, more saturated so it doesn’t feel flat */
     --background: 38 72% 96%;
     --foreground: 0 45% 12%;
@@ -21,6 +22,18 @@
     
     --popover: 40 68% 98%;
     --popover-foreground: 0 45% 12%;
+=======
+    /* Core Colors - White background */
+    --background: 0 0% 100%;
+    --foreground: 0 50% 15%;
+    
+    /* White card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 0 50% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 50% 15%;
+>>>>>>> ba02505bfdbb40f5e045d666c19a7f426244a069
     
     /* Primary – richer blue, more presence */
     --primary: 214 72% 42%;
@@ -30,9 +43,15 @@
     --secondary: 38 92% 52%;
     --secondary-foreground: 0 40% 12%;
     
+<<<<<<< HEAD
     /* Muted – warmer, still soft */
     --muted: 38 55% 93%;
     --muted-foreground: 0 22% 38%;
+=======
+    /* Light gray for muted elements */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 20% 40%;
+>>>>>>> ba02505bfdbb40f5e045d666c19a7f426244a069
     
     /* Accent – bright saffron for highlights */
     --accent: 36 98% 58%;
@@ -49,6 +68,7 @@
     --destructive: 0 84% 58%;
     --destructive-foreground: 0 0% 100%;
     
+<<<<<<< HEAD
     --border: 38 38% 88%;
     --input: 38 38% 88%;
     --ring: 214 72% 42%;
@@ -60,6 +80,19 @@
     --gradient-warm: linear-gradient(180deg, hsl(38 92% 52% / 0.14) 0%, hsl(38 72% 96%) 100%);
     --gradient-blue: linear-gradient(135deg, hsl(214 72% 42%) 0%, hsl(214 72% 50%) 100%);
     --gradient-saffron: linear-gradient(135deg, hsl(38 92% 52%) 0%, hsl(34 95% 48%) 100%);
+=======
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 214 55% 38%;
+    
+    --radius: 1rem;
+    
+    /* Gradients - white */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 100%) 50%, hsl(0 0% 100%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(40 80% 55% / 0.1) 0%, hsl(0 0% 100%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(214 55% 38%) 0%, hsl(214 55% 48%) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 85% 50%) 100%);
+>>>>>>> ba02505bfdbb40f5e045d666c19a7f426244a069
     
     /* Shadows – slightly stronger for depth */
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
@@ -68,6 +101,7 @@
     --shadow-card-hover: 0 24px 40px -12px hsl(var(--maroon) / 0.18), 0 14px 28px -8px hsl(var(--secondary) / 0.12);
     
     /* Sidebar */
+<<<<<<< HEAD
     --sidebar-background: 38 72% 96%;
     --sidebar-foreground: 0 45% 12%;
     --sidebar-primary: 214 72% 42%;
@@ -76,6 +110,16 @@
     --sidebar-accent-foreground: 0 40% 12%;
     --sidebar-border: 38 38% 88%;
     --sidebar-ring: 214 72% 42%;
+=======
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 50% 15%;
+    --sidebar-primary: 214 55% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 80% 55%;
+    --sidebar-accent-foreground: 0 50% 15%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 214 55% 38%;
+>>>>>>> ba02505bfdbb40f5e045d666c19a7f426244a069
   }
 
   .dark {

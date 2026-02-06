@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Users, Award, Palette, ChevronLeft, ChevronRight } from "lucide-react";
+import { GraduationCap, Users, Award, Palette } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -61,9 +61,6 @@ export function HeroSection() {
     { loop: true, duration: 30 },
     [Autoplay({ delay: 5000, stopOnInteraction: false })]
   );
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -159,7 +156,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-lg opacity-80 mb-8"
             >
-              Gujarati Board | Std 1–10 | Gandhinagar
+              GSEB | English Medium | Std 1–10 | Gandhinagar
             </motion.p>
 
             {/* CTA Button */}

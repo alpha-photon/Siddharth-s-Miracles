@@ -123,7 +123,7 @@ export function Footer() {
             © {new Date().getFullYear()} Siddharth's Miracles School. All rights reserved.
           </p>
           <p className="text-sm opacity-70">
-            Gujarati Board | Std 1-10
+            GSEB | Std 1-10
           </p>
         </div>
       </div>
