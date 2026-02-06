@@ -1,9 +1,12 @@
+import { useState, useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap } from "lucide-react";
+import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { schoolLogo, heroAbout } from "@/lib/cloudinary-images";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const values = [
   {
@@ -79,6 +82,57 @@ const values = [
     color: "from-maroon/20 to-maroon/10",
   },
 ];
+
+function ValuesCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
+    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+  );
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  return (
+    <div className="relative px-2 md:px-4">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-4 md:gap-6">
+          {values.map((value, index) => (
+            <div
+              key={value.title}
+              className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] min-w-0"
+            >
+              <div className="h-full bg-card rounded-3xl p-5 md:p-6 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 group hover:border-secondary/50">
+                <AnimatedCardBackground index={index} />
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-secondary/40 transition-all shadow-md">
+                    <value.icon className="h-7 w-7 md:h-8 md:w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-2 leading-tight group-hover:text-secondary transition-colors">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">{value.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={scrollPrev}
+        aria-label="Previous values"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+      <button
+        type="button"
+        onClick={scrollNext}
+        aria-label="Next values"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300 border border-border/50"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+    </div>
+  );
+}
 
 const About = () => {
   return (
@@ -235,29 +289,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2">
-                  <AnimatedCardBackground index={index} />
-                  <div className="relative z-10 flex flex-col flex-1">
-                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md">
-                      <value.icon className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
-                    </div>
-                    <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 leading-tight group-hover:text-secondary transition-colors duration-300">{value.title}</h3>
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">{value.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ValuesCarousel />
         </div>
       </section>
 
@@ -332,6 +364,32 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Logo - Symbolism (Logo left, 4 symbols right) */}
+      <section id="our-logo" className="py-16 md:py-24 relative overflow-hidden">
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 md:mb-14"
+          >
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
+              Our Identity
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
+              Siddharth&apos;s Miracles Logo
+            </h2>
+            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Each symbol in our crest carries a deeper meaning
+            </p>
+          </motion.div>
+
+          <LogoCard />
+        </div>
+      </section>
+
       {/* Affiliation - aligned with Vision & Mission / other sections */}
       <section className="py-16 md:py-20 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
@@ -382,5 +440,107 @@ const About = () => {
     </Layout>
   );
 };
+
+function LogoCard() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const symbols = [
+    {
+      title: "Bodhi Tree",
+      image: "/tree.png",
+      description:
+        "Bodhi tree helps in achieving enlightenment as human beings' ultimate goal. Achieving enlightenment comes through meditating, developing self-discipline and exercising compassion for all.",
+    },
+    {
+      title: "Education Excellence",
+      image: "/educational.png",
+      description:
+        "This symbol stands for Education Excellence. The purpose of education is to promote student achievement and preparation for global competitiveness by fostering educational excellence and ensuring equal access.",
+    },
+    {
+      title: "Skill Based Learning",
+      image: "/system.png",
+      description:
+        "Skill based learning is utilized across an array of fields and subjects due to its malleability and proven benefit to the learner's proficiency in any workplace.",
+    },
+    {
+      title: "Unicorn",
+      image: "/unicorn.png",
+      description:
+        "A Unicorn has a myriad of semantic meanings. It is associated with wisdom, strong spirit, and purity. Also, the image of a Unicorn stands for magic, pure feelings, and integrity.",
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="max-w-6xl mx-auto rounded-3xl bg-card border-2 border-border/50 shadow-elevated p-6 md:p-8 lg:p-10"
+    >
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:place-items-center">
+        {/* Left: Heading above logo + motto */}
+        <div className="flex flex-col items-center w-full min-w-0">
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-maroon text-center mb-5">
+            About Our Logo
+          </h2>
+          <img
+            src={schoolLogo}
+            alt="Siddharth's Miracles School Logo"
+            className="w-full h-auto max-h-72 md:max-h-96 lg:max-h-[420px] object-contain"
+          />
+          <p className="font-heading text-maroon font-bold mt-5 text-center text-lg md:text-xl tracking-wide">
+            Where Each Day is a Miracle
+          </p>
+        </div>
+
+        {/* Right: 2x2 grid of symbol icons + labels */}
+        <div className="grid grid-cols-2 gap-4 md:gap-5">
+          {symbols.map((item, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={item.title}
+                role="button"
+                tabIndex={0}
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setOpenIndex(isOpen ? null : index);
+                  }
+                }}
+                className="flex flex-col items-center text-center p-4 rounded-xl bg-background/60 border border-border/40 hover:border-primary/20 transition-all duration-300 cursor-pointer"
+                aria-expanded={isOpen}
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex items-center justify-center bg-white border-2 border-border/50 mb-3">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-contain p-1"
+                  />
+                </div>
+                <h3 className="font-heading text-sm md:text-base font-bold text-maroon mb-2 leading-tight">
+                  {item.title}
+                </h3>
+                <p
+                  className={`text-xs text-muted-foreground leading-relaxed ${
+                    isOpen ? "" : "line-clamp-4"
+                  }`}
+                >
+                  {item.description}
+                </p>
+                <span className="mt-2 text-[11px] font-semibold text-primary/80">
+                  {isOpen ? "Tap to collapse" : "Tap to read full"}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default About;

@@ -25,7 +25,7 @@ const KEY_TO_PATH: Record<string, string> = {
   heroImage3: "herosection/IMG_3237.JPG",
   heroAcademics: "herosection/IMG_3237.JPG",
   heroFacilities: "herosection/IMG_3237.JPG",
-  schoolLogo: "school-logo.png",
+  schoolLogo: "__local__", // Use public/school-logo.png (see export below)
   heroCultural: "hero-cultural.jpg",
   heroPlayground: "hero-playground.jpg",
   activitiesArt: "activities-art.jpg",
@@ -87,7 +87,8 @@ export const heroActivities = getUrl(KEY_TO_PATH.heroActivities!);
 export const heroImage3 = getUrl(KEY_TO_PATH.heroImage3!);
 export const heroAcademics = getUrl(KEY_TO_PATH.heroAcademics!);
 export const heroFacilities = getUrl(KEY_TO_PATH.heroFacilities!);
-export const schoolLogo = getUrl(KEY_TO_PATH.schoolLogo!);
+/** Always use local updated logo from public folder */
+export const schoolLogo = "/school-logo.png";
 export const heroCultural = getUrl(KEY_TO_PATH.heroCultural!);
 export const heroPlayground = getUrl(KEY_TO_PATH.heroPlayground!);
 export const activitiesArt = getUrl(KEY_TO_PATH.activitiesArt!);

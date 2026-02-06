@@ -156,7 +156,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-lg opacity-80 mb-8"
             >
-              Gujarati Board | English Medium | Std 1–10 | Gandhinagar
+              GSEB | English Medium | Std 1–10 | Gandhinagar
             </motion.p>
 
             {/* CTA Button */}

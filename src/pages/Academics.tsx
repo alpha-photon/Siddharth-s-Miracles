@@ -149,7 +149,7 @@ function ClassesCarousel() {
       iconBg: "from-maroon/20 to-maroon/10",
       bulletColor: "text-maroon",
       features: [
-        "Intensive preparation for Gujarat Board examinations.",
+        "Intensive preparation for GSEB examinations.",
         "Regular practice tests and revision sessions.",
         "Advanced curriculum covering all board subjects.",
         "Expert guidance for achieving best results.",
@@ -275,7 +275,7 @@ const Academics = () => {
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Comprehensive education from Early Years to Secondary Classes following the Gujarat Board curriculum
+              Comprehensive education from Early Years to Secondary Classes following the GSEB curriculum
             </p>
           </motion.div>
 
@@ -432,7 +432,7 @@ const Academics = () => {
             <div className="w-16 h-1 mx-auto mb-5 bg-white/50 rounded-full" />
             <p className="text-xl opacity-90 mb-8 leading-relaxed">
               Special focus on Std 9 and 10 students with intensive preparation for
-              Gujarat Board examinations. Regular practice tests, revision sessions,
+              GSEB examinations. Regular practice tests, revision sessions,
               and guidance to help students achieve their best results.
             </p>
             <Button variant="hero" size="lg" className="shadow-elevated" asChild>

@@ -22,7 +22,7 @@ const primaryClassFeatures = [
 ];
 
 const secondaryClassFeatures = [
-  "Intensive preparation for Gujarat Board examinations.",
+  "Intensive preparation for GSEB examinations.",
   "Regular practice tests and revision sessions.",
   "Advanced curriculum covering all board subjects.",
   "Expert guidance for achieving best results.",
