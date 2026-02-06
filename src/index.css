@@ -6,76 +6,76 @@
 
 /* 
   Siddharth's Miracles School Design System
-  Warm, joyful, Indian school palette inspired by school logo
+  Vibrant, warm, joyful palette – rich colours, less dull
 */
 
 @layer base {
   :root {
-    /* Core Colors - Warm School Palette */
-    --background: 36 100% 97%;
-    --foreground: 0 50% 15%;
+    /* Core – warm cream, more saturated so it doesn’t feel flat */
+    --background: 38 72% 96%;
+    --foreground: 0 45% 12%;
     
-    /* Warm cream card surfaces */
-    --card: 40 100% 99%;
-    --card-foreground: 0 50% 15%;
+    /* Card – warm cream with a slight golden tint */
+    --card: 40 68% 98%;
+    --card-foreground: 0 45% 12%;
     
-    --popover: 40 100% 99%;
-    --popover-foreground: 0 50% 15%;
+    --popover: 40 68% 98%;
+    --popover-foreground: 0 45% 12%;
     
-    /* Deep Blue - Primary anchor from logo */
-    --primary: 214 55% 38%;
+    /* Primary – richer blue, more presence */
+    --primary: 214 72% 42%;
     --primary-foreground: 0 0% 100%;
     
-    /* Golden Saffron - Warmth and joy */
-    --secondary: 40 80% 55%;
-    --secondary-foreground: 0 50% 15%;
+    /* Secondary – vibrant golden saffron */
+    --secondary: 38 92% 52%;
+    --secondary-foreground: 0 40% 12%;
     
-    /* Soft cream for muted elements */
-    --muted: 36 60% 94%;
-    --muted-foreground: 0 20% 40%;
+    /* Muted – warmer, still soft */
+    --muted: 38 55% 93%;
+    --muted-foreground: 0 22% 38%;
     
-    /* Saffron accent for highlights */
-    --accent: 40 85% 60%;
-    --accent-foreground: 0 50% 15%;
+    /* Accent – bright saffron for highlights */
+    --accent: 36 98% 58%;
+    --accent-foreground: 0 40% 12%;
     
-    /* Maroon for trust elements */
-    --maroon: 0 50% 24%;
+    /* Maroon – richer, not muddy */
+    --maroon: 0 58% 26%;
     --maroon-foreground: 0 0% 100%;
     
-    /* Green for growth symbols */
-    --growth: 112 38% 30%;
+    /* Growth – fresher green */
+    --growth: 112 48% 32%;
     --growth-foreground: 0 0% 100%;
     
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 58%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 36 30% 88%;
-    --input: 36 30% 88%;
-    --ring: 214 55% 38%;
+    --border: 38 38% 88%;
+    --input: 38 38% 88%;
+    --ring: 214 72% 42%;
     
     --radius: 1rem;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(36 100% 97%) 0%, hsl(40 60% 92%) 50%, hsl(36 100% 97%) 100%);
-    --gradient-warm: linear-gradient(180deg, hsl(40 80% 55% / 0.1) 0%, hsl(36 100% 97%) 100%);
-    --gradient-blue: linear-gradient(135deg, hsl(214 55% 38%) 0%, hsl(214 55% 48%) 100%);
-    --gradient-saffron: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 85% 50%) 100%);
+    /* Gradients – warmer, more vibrant */
+    --gradient-hero: linear-gradient(135deg, hsl(38 72% 96%) 0%, hsl(40 65% 93%) 50%, hsl(38 72% 96%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(38 92% 52% / 0.14) 0%, hsl(38 72% 96%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(214 72% 42%) 0%, hsl(214 72% 50%) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(38 92% 52%) 0%, hsl(34 95% 48%) 100%);
     
-    /* Shadows - richer, layered for premium cards */
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
-    --shadow-card: 0 4px 6px -2px hsl(0 0% 0% / 0.05), 0 10px 25px -5px hsl(0 0% 0% / 0.08), 0 20px 45px -12px hsl(var(--maroon) / 0.08);
-    --shadow-elevated: 0 10px 15px -3px hsl(0 0% 0% / 0.06), 0 20px 40px -10px hsl(0 0% 0% / 0.1), 0 28px 55px -15px hsl(var(--maroon) / 0.12);
-    --shadow-card-hover: 0 20px 35px -10px hsl(var(--maroon) / 0.15), 0 12px 25px -8px hsl(var(--secondary) / 0.1);
+    /* Shadows – slightly stronger for depth */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 4px 8px -2px hsl(0 0% 0% / 0.06), 0 12px 28px -6px hsl(0 0% 0% / 0.1), 0 24px 48px -12px hsl(var(--maroon) / 0.1);
+    --shadow-elevated: 0 12px 20px -4px hsl(0 0% 0% / 0.08), 0 24px 44px -10px hsl(0 0% 0% / 0.12), 0 32px 60px -16px hsl(var(--maroon) / 0.14);
+    --shadow-card-hover: 0 24px 40px -12px hsl(var(--maroon) / 0.18), 0 14px 28px -8px hsl(var(--secondary) / 0.12);
     
     /* Sidebar */
-    --sidebar-background: 36 100% 97%;
-    --sidebar-foreground: 0 50% 15%;
-    --sidebar-primary: 214 55% 38%;
+    --sidebar-background: 38 72% 96%;
+    --sidebar-foreground: 0 45% 12%;
+    --sidebar-primary: 214 72% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 80% 55%;
-    --sidebar-accent-foreground: 0 50% 15%;
-    --sidebar-border: 36 30% 88%;
-    --sidebar-ring: 214 55% 38%;
+    --sidebar-accent: 38 92% 52%;
+    --sidebar-accent-foreground: 0 40% 12%;
+    --sidebar-border: 38 38% 88%;
+    --sidebar-ring: 214 72% 42%;
   }
 
   .dark {
@@ -128,9 +128,9 @@
 }
 
 @layer components {
-  /* Warm pattern backgrounds */
+  /* Warm pattern backgrounds – slightly stronger for less dull feel */
   .bg-pattern-dots {
-    background-image: radial-gradient(hsl(var(--secondary) / 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--secondary) / 0.2) 1px, transparent 1px);
     background-size: 20px 20px;
   }
   
@@ -216,7 +216,7 @@
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--maroon)));
-    opacity: 0.85;
+    opacity: 0.95;
     border-radius: calc(var(--radius) + 16px) calc(var(--radius) + 16px) 0 0;
     z-index: 1;
   }
