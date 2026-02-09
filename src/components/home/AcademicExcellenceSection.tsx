@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
-import { BookOpen, Sparkles, GraduationCap } from "lucide-react";
+import { Sparkles, GraduationCap } from "lucide-react";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { useCallback } from "react";
 
 const earlyYearFeatures = [
   "Nurturing curiosity and conceptual learning in young minds.",
@@ -29,91 +26,78 @@ const secondaryClassFeatures = [
   "Focus on academic excellence and character building.",
 ];
 
-function AcademicExcellenceCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
-  );
+const classCards = [
+  {
+    title: "Early Year Programme",
+    subtitle: "Nursery, Lower Kindergarten & Upper Kindergarten",
+    icon: Sparkles,
+    iconBg: "from-secondary/20 to-accent/20",
+    bulletColor: "text-secondary",
+    features: earlyYearFeatures,
+  },
+  {
+    title: "Primary Class",
+    subtitle: "Class I to VII",
+    icon: GraduationCap,
+    iconBg: "from-primary/20 to-primary/10",
+    bulletColor: "text-primary",
+    features: primaryClassFeatures,
+  },
+  {
+    title: "Secondary Class",
+    subtitle: "Class IX & X",
+    icon: GraduationCap,
+    iconBg: "from-maroon/20 to-maroon/10",
+    bulletColor: "text-maroon",
+    features: secondaryClassFeatures,
+  },
+];
 
-  const classCards = [
-    {
-      title: "Early Year Programme",
-      subtitle: "Nursery, Lower Kindergarten & Upper Kindergarten",
-      icon: Sparkles,
-      color: "from-secondary/5 to-accent/5",
-      iconBg: "from-secondary/20 to-accent/20",
-      bulletColor: "text-secondary",
-      features: earlyYearFeatures,
-    },
-    {
-      title: "Primary Class",
-      subtitle: "Class I to VII",
-      icon: GraduationCap,
-      color: "from-primary/5 to-primary/10",
-      iconBg: "from-primary/20 to-primary/10",
-      bulletColor: "text-primary",
-      features: primaryClassFeatures,
-    },
-    {
-      title: "Secondary Class",
-      subtitle: "Class IX & X",
-      icon: GraduationCap,
-      color: "from-maroon/5 to-maroon/10",
-      iconBg: "from-maroon/20 to-maroon/10",
-      bulletColor: "text-maroon",
-      features: secondaryClassFeatures,
-    },
-  ];
-
+function AcademicExcellenceCards() {
   return (
-    <div className="relative w-full">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6">
-          {classCards.map((card, index) => (
-            <div key={index} className="flex-[0_0_100%] lg:flex-[0_0_48%] min-w-0">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 border-b-0 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
-              >
-                <AnimatedCardBackground index={index} />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md`}>
-                      <card.icon className="h-8 w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-2xl font-bold text-maroon group-hover:text-secondary transition-colors duration-300">
-                        {card.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {card.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                  <ul className="space-y-3">
-                    {card.features.map((feature, idx) => (
-                      <motion.li
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        className="flex items-start gap-3"
-                      >
-                        <span className={`${card.bulletColor} font-bold mt-1 shrink-0`}>•</span>
-                        <span className="text-muted-foreground">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {classCards.map((card, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          className="h-full bg-card rounded-3xl p-8 md:p-10 relative overflow-hidden group border-2 border-border/50 border-b-0 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:border-secondary/50 group-hover:-translate-y-2"
+        >
+          <AnimatedCardBackground index={index} />
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center ring-2 ring-secondary/20 group-hover:scale-110 group-hover:rotate-3 group-hover:ring-secondary/40 transition-all duration-500 shadow-md`}>
+                <card.icon className="h-8 w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl font-bold text-maroon group-hover:text-secondary transition-colors duration-300">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {card.subtitle}
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+            <ul className="space-y-3">
+              {card.features.map((feature, idx) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <span className={`${card.bulletColor} font-bold mt-1 shrink-0`}>•</span>
+                  <span className="text-muted-foreground">{feature}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }
@@ -146,7 +130,7 @@ export function AcademicExcellenceSection() {
           </p>
         </motion.div>
 
-        <AcademicExcellenceCarousel />
+        <AcademicExcellenceCards />
       </div>
     </section>
   );

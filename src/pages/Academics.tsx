@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap, Dumbbell, Brain, Award } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap, Dumbbell, Brain, Award, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
@@ -160,7 +160,7 @@ function ClassesCarousel() {
 
   return (
     <div className="relative max-w-7xl mx-auto px-4">
-      <div className="overflow-hidden" ref={emblaRef}>
+      
         <div className="flex gap-4">
           {classCards.map((card, index) => (
             <div key={index} className="flex-[0_0_100%] md:flex-[0_0_48%] lg:flex-[0_0_32%] min-w-0">
@@ -205,7 +205,7 @@ function ClassesCarousel() {
             </div>
           ))}
         </div>
-      </div>
+      
     </div>
   );
 }
@@ -355,24 +355,6 @@ const Academics = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10 md:mb-12"
-          >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary max-w-3xl mx-auto">
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Since all children are unique and must have a stimulating educational environment where
-                they can grow physically, mentally, emotionally, and socially. We have created an atmosphere
-                where students can meet their full potential. We are building the leader of tomorrow
-                through an all new academic Philosophy, exclusively designed with an aim of providing 360
-                degree development to our students.
-              </p>
-            </div>
-          </motion.div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Award, title: "Discipline", color: "from-primary/20 to-primary/10" },
@@ -405,6 +387,25 @@ const Academics = () => {
             );
             })}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-10 md:mt-12"
+          >
+            <div className="relative rounded-2xl p-6 md:p-8 text-center overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-secondary/[0.06] border border-maroon/10 shadow-sm w-full">
+              <Quote className="absolute top-5 left-5 md:left-8 h-8 w-8 text-maroon/25 pointer-events-none" />
+              <p className="relative text-foreground/90 text-lg leading-relaxed font-body">
+                Since all children are unique and must have a stimulating educational environment where
+                they can grow physically, mentally, emotionally, and socially. We have created an atmosphere
+                where students can meet their full potential. We are building the leaders of tomorrow
+                through an all-new academic philosophy, exclusively designed with an aim of providing
+                <span className="font-semibold text-maroon"> 360° development</span> to our students.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

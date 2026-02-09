@@ -7,6 +7,9 @@ import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { schoolLogo, heroAbout } from "@/lib/cloudinary-images";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const values = [
   {
@@ -93,7 +96,7 @@ function ValuesCarousel() {
 
   return (
     <div className="relative">
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="w-full" ref={emblaRef}>
         <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
           {values.map((value, index) => (
             <div
@@ -205,58 +208,56 @@ const About = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="group"
+              className="h-full"
             >
-              <div className="card-3d card-premium bg-card rounded-2xl p-10 h-full relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    <Eye className="h-8 w-8 text-primary" />
+              <div className="h-full rounded-2xl overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-primary/[0.06] border border-maroon/10 shadow-sm transition-shadow hover:shadow-md">
+                <div className="h-1 w-full bg-gradient-to-r from-primary/30 to-maroon/20" />
+                <div className="p-6 md:p-8">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-maroon/15 flex items-center justify-center mb-5 ring-2 ring-primary/10">
+                    <Eye className="h-7 w-7 text-maroon" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-maroon mb-4">Our Vision</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    In this education arena, the vision of Siddharth's Miracles school takes the lead, 
-                    providing a special platform for students to follow their dreams. This initiative is 
-                    a trailblazer, moving away from usual methods to create an environment where each 
-                    student's unique talents are not just noticed but celebrated with focus on personalized 
-                    learning, modern technology, and a commitment to overall growth. "School Vision" aims 
-                    to shape individuals who not only do well academically but also become confident, 
-                    forward-thinking contributors to society. This effort is more than just an educational 
-                    approach; it's a transformative journey, setting the stage for a future where ambitions 
-                    become real accomplishment.
+                  <h3 className="font-heading text-2xl font-bold text-maroon mb-3">Our Vision</h3>
+                  <p className="text-foreground/90 text-base md:text-lg leading-relaxed">
+                    In this education arena, the vision of Siddharth&apos;s Miracles School takes the lead,
+                    providing a special platform for students to follow their dreams. This initiative is
+                    a trailblazer, moving away from usual methods to create an environment where each
+                    student&apos;s unique talents are not just noticed but celebrated—with focus on personalized
+                    learning, modern technology, and a commitment to overall growth. We aim to shape
+                    individuals who excel academically and become confident, forward-thinking contributors
+                    to society. It&apos;s a transformative journey where ambitions become real accomplishment.
                   </p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="group"
+              className="h-full"
             >
-              <div className="card-3d card-premium bg-card rounded-2xl p-10 h-full relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    <Target className="h-8 w-8 text-secondary-foreground" />
+              <div className="h-full rounded-2xl overflow-hidden bg-gradient-to-br from-secondary/[0.06] via-card to-maroon/[0.04] border border-maroon/10 shadow-sm transition-shadow hover:shadow-md">
+                <div className="h-1 w-full bg-gradient-to-r from-secondary/40 to-maroon/20" />
+                <div className="p-6 md:p-8">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/25 to-maroon/15 flex items-center justify-center mb-5 ring-2 ring-secondary/10">
+                    <Target className="h-7 w-7 text-maroon" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-maroon mb-4">Our Mission</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    We are committed to providing a safe and inclusive environment where every student can 
-                    thrive academically, socially, and emotionally. We believe in fostering creativity, 
-                    critical thinking, and collaborating to prepare our students for success in an ever-changing 
-                    world. We are dedicated to equipping our students with the knowledge, skills and values 
+                  <h3 className="font-heading text-2xl font-bold text-maroon mb-3">Our Mission</h3>
+                  <p className="text-foreground/90 text-base md:text-lg leading-relaxed">
+                    We are committed to providing a safe and inclusive environment where every student can
+                    thrive academically, socially, and emotionally. We believe in fostering creativity,
+                    critical thinking, and collaboration to prepare our students for success in an ever-changing
+                    world. We are dedicated to equipping our students with the knowledge, skills and values
                     they need to become compassionate global citizens.
                   </p>
                 </div>
@@ -365,7 +366,8 @@ const About = () => {
       </section>
 
       {/* Our Logo - Symbolism (Logo left, 4 symbols right) */}
-      <section id="our-logo" className="py-16 md:py-24 relative overflow-hidden">
+      <section id="our-logo" className="py-16 md:py-24 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -381,8 +383,8 @@ const About = () => {
               Siddharth&apos;s Miracles Logo
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Each symbol in our crest carries a deeper meaning
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+              Each symbol in our crest carries a deeper meaning.
             </p>
           </motion.div>
 
@@ -414,23 +416,77 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto"
+            className="w-full"
           >
-            <div className="card-3d card-premium bg-card rounded-2xl p-10 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 flex flex-col sm:flex-row items-center gap-8 text-center sm:text-left">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <GraduationCap className="h-8 w-8 text-primary" />
+            <div className="relative rounded-2xl p-6 md:p-8 lg:p-10 overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-secondary/[0.06] border border-maroon/10 shadow-sm w-full">
+              <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
+                <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-maroon/15 to-secondary/20 flex items-center justify-center ring-2 ring-maroon/10">
+                  <GraduationCap className="h-8 w-8 md:h-10 md:w-10 text-maroon" />
                 </div>
-                <div>
-                  <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-3">Official Recognition</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    We are proud to be affiliated with the Gujarat Secondary and Higher Secondary Education Board, following the standard curriculum while adding our unique approach to holistic development.
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-2">Official Recognition</h3>
+                  <p className="text-foreground/90 text-base md:text-lg leading-relaxed">
+                    We are proud to be affiliated with the <span className="font-semibold text-maroon">Gujarat Secondary and Higher Secondary Education Board</span>, following the standard curriculum while adding our unique approach to holistic development.
                   </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto group"
+          >
+            <div className="card-3d card-premium card-elevated bg-card rounded-3xl p-8 md:p-12 relative overflow-hidden border border-border/60 hover:border-primary/20 transition-all duration-500">
+              {/* Corner accents for depth */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/15 via-secondary/10 to-transparent rounded-bl-[2rem] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-maroon/10 to-transparent rounded-tr-[2rem] pointer-events-none" />
+              {/* Subtle hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                {/* Text Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold mb-4 bg-maroon/10 text-maroon border border-maroon/20 tracking-wide">
+                    Admissions Open 2026-27
+                  </span>
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-4 group-hover:text-primary/90 transition-colors duration-300">
+                    Ready to Begin Your Child's Journey?
+                  </h2>
+                  <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                    Admissions are open. We're here to guide you.
+                  </p>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+                  <Button variant="hero" size="lg" asChild className="group/btn min-w-[160px]">
+                    <a href="tel:+919925941082" className="inline-flex items-center">
+                      <Phone className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                      Call Now
+                    </a>
+                  </Button>
+                  <Button variant="whatsapp" size="lg" asChild className="group/btn min-w-[160px]">
+                    <a
+                      href="https://wa.me/919925941082?text=Hello! I'm interested in admission enquiry for my child."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center"
+                    >
+                      <MessageCircle className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                      WhatsApp
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -441,35 +497,39 @@ const About = () => {
   );
 };
 
+const logoSymbols = [
+  {
+    title: "Bodhi Tree",
+    image: "/tree.png",
+    description:
+      "Bodhi tree helps in achieving enlightenment as human beings' ultimate goal. Achieving enlightenment comes through meditating, developing self-discipline and exercising compassion for all.",
+    accent: "from-growth/20 to-growth/10",
+  },
+  {
+    title: "Education Excellence",
+    image: "/educational.png",
+    description:
+      "This symbol stands for Education Excellence. The purpose of education is to promote student achievement and preparation for global competitiveness by fostering educational excellence and ensuring equal access.",
+    accent: "from-primary/20 to-primary/10",
+  },
+  {
+    title: "Skill Based Learning",
+    image: "/system.png",
+    description:
+      "Skill based learning is utilized across an array of fields and subjects due to its malleability and proven benefit to the learner's proficiency in any workplace.",
+    accent: "from-secondary/20 to-accent/10",
+  },
+  {
+    title: "Unicorn",
+    image: "/unicorn.png",
+    description:
+      "A Unicorn has a myriad of semantic meanings. It is associated with wisdom, strong spirit, and purity. Also, the image of a Unicorn stands for magic, pure feelings, and integrity.",
+    accent: "from-maroon/20 to-maroon/10",
+  },
+];
+
 function LogoCard() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const symbols = [
-    {
-      title: "Bodhi Tree",
-      image: "/tree.png",
-      description:
-        "Bodhi tree helps in achieving enlightenment as human beings' ultimate goal. Achieving enlightenment comes through meditating, developing self-discipline and exercising compassion for all.",
-    },
-    {
-      title: "Education Excellence",
-      image: "/educational.png",
-      description:
-        "This symbol stands for Education Excellence. The purpose of education is to promote student achievement and preparation for global competitiveness by fostering educational excellence and ensuring equal access.",
-    },
-    {
-      title: "Skill Based Learning",
-      image: "/system.png",
-      description:
-        "Skill based learning is utilized across an array of fields and subjects due to its malleability and proven benefit to the learner's proficiency in any workplace.",
-    },
-    {
-      title: "Unicorn",
-      image: "/unicorn.png",
-      description:
-        "A Unicorn has a myriad of semantic meanings. It is associated with wisdom, strong spirit, and purity. Also, the image of a Unicorn stands for magic, pure feelings, and integrity.",
-    },
-  ];
 
   return (
     <motion.div
@@ -477,68 +537,80 @@ function LogoCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="max-w-6xl mx-auto rounded-3xl bg-card border-2 border-border/50 shadow-elevated p-6 md:p-8 lg:p-10"
+      className="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-maroon/[0.05] via-card to-secondary/[0.05] border border-maroon/10 shadow-sm"
     >
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:place-items-center">
-        {/* Left: Heading above logo + motto */}
-        <div className="flex flex-col items-center w-full min-w-0">
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-maroon text-center mb-5">
-            About Our Logo
-          </h2>
-          <img
-            src={schoolLogo}
-            alt="Siddharth's Miracles School Logo"
-            className="w-full h-auto max-h-72 md:max-h-96 lg:max-h-[420px] object-contain"
-          />
-          <p className="font-heading text-maroon font-bold mt-5 text-center text-lg md:text-xl tracking-wide">
-            Where Each Day is a Miracle
-          </p>
-        </div>
+      <div className="h-1 w-full bg-gradient-to-r from-maroon/20 via-primary/30 to-secondary/30" />
+      <div className="p-6 md:p-8 lg:p-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left: Logo + motto */}
+          <div className="flex flex-col items-center w-full min-w-0">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-maroon text-center mb-6">
+              About Our Logo
+            </h2>
+            <img
+              src={schoolLogo}
+              alt="Siddharth's Miracles School Logo"
+              className="w-full h-auto max-h-64 md:max-h-80 lg:max-h-[380px] object-contain"
+            />
+            <p className="font-heading text-maroon font-bold mt-6 text-center text-lg md:text-xl tracking-wide">
+              Where Each Day is a Miracle
+            </p>
+          </div>
 
-        {/* Right: 2x2 grid of symbol icons + labels */}
-        <div className="grid grid-cols-2 gap-4 md:gap-5">
-          {symbols.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={item.title}
-                role="button"
-                tabIndex={0}
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setOpenIndex(isOpen ? null : index);
-                  }
-                }}
-                className="flex flex-col items-center text-center p-4 rounded-xl bg-background/60 border border-border/40 hover:border-primary/20 transition-all duration-300 cursor-pointer"
-                aria-expanded={isOpen}
-              >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex items-center justify-center bg-white border-2 border-border/50 mb-3">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-contain p-1"
-                  />
-                </div>
-                <h3 className="font-heading text-sm md:text-base font-bold text-maroon mb-2 leading-tight">
-                  {item.title}
-                </h3>
-                <p
-                  className={`text-xs text-muted-foreground leading-relaxed ${
-                    isOpen ? "" : "line-clamp-4"
+          {/* Right: 2x2 grid of symbol cards */}
+          <div className="grid grid-cols-2 gap-4 md:gap-5">
+            {logoSymbols.map((item, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setOpenIndex(isOpen ? null : index);
+                    }
+                  }}
+                  className={`flex flex-col items-center text-center p-4 md:p-5 rounded-2xl border cursor-pointer transition-all duration-300 ${
+                    isOpen
+                      ? "bg-maroon/[0.06] border-maroon/20 shadow-sm"
+                      : "bg-card/80 border-border/50 hover:border-maroon/15 hover:shadow-sm"
                   }`}
+                  aria-expanded={isOpen}
                 >
-                  {item.description}
-                </p>
-                <span className="mt-2 text-[11px] font-semibold text-primary/80">
-                  {isOpen ? "Tap to collapse" : "Tap to read full"}
-                </span>
-              </div>
-            );
-          })}
+                  <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden flex items-center justify-center bg-gradient-to-br ${item.accent} ring-2 ring-white shadow-md mb-3 p-1.5`}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="font-heading text-sm md:text-base font-bold text-maroon mb-2 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p
+                    className={`text-xs md:text-sm text-foreground/85 leading-relaxed ${
+                      isOpen ? "" : "line-clamp-4"
+                    }`}
+                  >
+                    {item.description}
+                  </p>
+                  <span className="mt-2 text-xs font-medium text-maroon/90">
+                    {isOpen ? "Tap to collapse" : "Tap to read full"}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
+      
     </motion.div>
   );
 }

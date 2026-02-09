@@ -1,9 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck } from "lucide-react";
+import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck, Quote } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { heroFacilities } from "@/lib/cloudinary-images";
+import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const facilities = [
   {
@@ -80,14 +83,14 @@ const Facilities = () => {
             className="text-center mb-14 md:mb-20"
           >
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
-              Our Campus
+              What We Offer
             </span>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Facilities
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Comfortable, secure and student-friendly environment
+              Spacious classrooms, labs, library, playground and activity spaces—all under one roof.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -131,31 +134,15 @@ const Facilities = () => {
             className="text-center mb-14 md:mb-20"
           >
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
-              Our Campus
+              Built for Learning
             </span>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Infrastructure
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              World-class facilities for an enriching learning experience
+              A second home for students—spacious, comfortable and designed for growth.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10 md:mb-12"
-          >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary">
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                We, at SIDDHARTH'S MIRACLES SCHOOL, believe in nurturing the idea of school being the 'Second Home' to our students.
-                It is essential to provide them with a spacious and comfortable environment. We aim at giving an enriching classroom
-                experience to our children with our world-class infrastructure.
-              </p>
-            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -190,6 +177,23 @@ const Facilities = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-10 md:mt-12"
+          >
+            <div className="relative rounded-2xl p-6 md:p-8 text-center overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-secondary/[0.06] border border-maroon/10 shadow-sm">
+              <Quote className="absolute top-5 left-5 md:left-8 h-8 w-8 text-maroon/25 pointer-events-none" />
+              <p className="relative text-foreground/90 text-lg leading-relaxed max-w-3xl mx-auto font-body">
+                We, at <span className="font-semibold text-maroon">Siddharth&apos;s Miracles School</span>, believe in nurturing the idea of school being the <span className="font-heading italic text-maroon">&lsquo;Second Home&rsquo;</span> to our students.
+                It is essential to provide them with a spacious and comfortable environment. We aim at giving an enriching classroom
+                experience to our children with our world-class infrastructure.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -208,28 +212,12 @@ const Facilities = () => {
               Our Approach
             </span>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
-              Personal Attention and Affective Communication
+              Personal Attention & Effective Communication
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Every student is unique and deserves personalized support
+              Tailored support, small batches and open dialogue so every child can thrive.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10 md:mb-12"
-          >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary">
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                At Siddharth's Miracles school, we believe every student is unique and deserves personalized attention to thrive
-                academically, socially, and emotionally. Our dedicated teachers and staff are committed to understanding and
-                catering to the individual needs of each student.
-              </p>
-            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -266,6 +254,8 @@ const Facilities = () => {
             ))}
           </div>
 
+          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -273,9 +263,10 @@ const Facilities = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-10 md:mt-12"
           >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center bg-gradient-to-br from-secondary/5 to-accent/5 border border-secondary/20">
-              <p className="text-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                At Siddharth's Miracles School, we are dedicated to creating a nurturing and inclusive environment where every student
+            <div className="relative rounded-2xl p-6 md:p-8 text-center overflow-hidden bg-gradient-to-br from-secondary/[0.08] via-card to-maroon/[0.04] border border-secondary/20 shadow-sm">
+              <Quote className="absolute top-5 left-5 md:left-8 h-8 w-8 text-secondary/30 pointer-events-none" />
+              <p className="relative text-foreground/90 text-lg leading-relaxed max-w-3xl mx-auto font-body">
+                At <span className="font-semibold text-maroon">Siddharth&apos;s Miracles School</span>, we are dedicated to creating a nurturing and inclusive environment where every student
                 feels valued and supported. Our personalized attention and effective communication practices ensure that each child has
                 the opportunity to succeed and excel.
               </p>
@@ -296,31 +287,15 @@ const Facilities = () => {
             className="text-center mb-14 md:mb-20"
           >
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-maroon/10 text-maroon border border-maroon/20 shadow-sm tracking-wide">
-              Security
+              Safety First
             </span>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
               Safe Campus
             </h2>
             <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Every child's comfort, safety and security are our utmost priority
+              CCTV, controlled access, fire compliance and a caring environment—so children learn without fear.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10 md:mb-12"
-          >
-            <div className="card-premium bg-card rounded-2xl p-6 md:p-8 text-center border-l-4 border-primary">
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                Siddharth's Miracles School offers a space where every child's comfort, safety and security are an utmost priority.
-                We want our children to learn with love and enthusiasm, hence ensure a safe and sound learning environment
-                where they can broaden their mind, expand their imagination and master their skills without any stress or fear.
-              </p>
-            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -355,6 +330,79 @@ const Facilities = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-10 md:mt-12"
+          >
+            <div className="relative rounded-2xl p-6 md:p-8 text-center overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-secondary/[0.06] border border-maroon/10 shadow-sm">
+              <Quote className="absolute top-5 left-5 md:left-8 h-8 w-8 text-maroon/25 pointer-events-none" />
+              <p className="relative text-foreground/90 text-lg leading-relaxed max-w-3xl mx-auto font-body">
+                <span className="font-semibold text-maroon">Siddharth&apos;s Miracles School</span> offers a space where every child&apos;s comfort, safety and security are our utmost priority.
+                We want our children to learn with love and enthusiasm, and ensure a safe, sound learning environment
+                where they can broaden their mind, expand their imagination and master their skills without any stress or fear.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      {/* CTA Section */}
+<section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto group"
+          >
+            <div className="card-3d card-premium card-elevated bg-card rounded-3xl p-8 md:p-12 relative overflow-hidden border border-border/60 hover:border-primary/20 transition-all duration-500">
+              {/* Corner accents for depth */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/15 via-secondary/10 to-transparent rounded-bl-[2rem] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-maroon/10 to-transparent rounded-tr-[2rem] pointer-events-none" />
+              {/* Subtle hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                {/* Text Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold mb-4 bg-maroon/10 text-maroon border border-maroon/20 tracking-wide">
+                    Admissions Open 2026-27
+                  </span>
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-4 group-hover:text-primary/90 transition-colors duration-300">
+                    Ready to Begin Your Child's Journey?
+                  </h2>
+                  <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                    Admissions are open. We're here to guide you.
+                  </p>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+                  <Button variant="hero" size="lg" asChild className="group/btn min-w-[160px]">
+                    <a href="tel:+919925941082" className="inline-flex items-center">
+                      <Phone className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                      Call Now
+                    </a>
+                  </Button>
+                  <Button variant="whatsapp" size="lg" asChild className="group/btn min-w-[160px]">
+                    <a
+                      href="https://wa.me/919925941082?text=Hello! I'm interested in admission enquiry for my child."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center"
+                    >
+                      <MessageCircle className="h-5 w-5 mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                      WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

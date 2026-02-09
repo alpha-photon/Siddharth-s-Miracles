@@ -77,7 +77,7 @@ export function TestimonialsSection() {
         </motion.div>
 
         {/* Continuous Moving Carousel */}
-        <div className="relative overflow-hidden group">
+        <div className="relative w-full group">
           <div className="flex gap-6 animate-testimonial-scroll group-hover:[animation-play-state:paused]">
             {/* First set */}
             {duplicatedTestimonials.map((testimonial, index) => (
