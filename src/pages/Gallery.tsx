@@ -9,6 +9,12 @@ import {
   img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
   img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
   img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
+  img41, img42, img43, img44, img45, img46, img47, img48, img49, img50,
+  img51, img52, img53, img54, img55,
+  img56, img57, img58, img59, img60, img61, img63, img64, img65,
+  img66, img67, img68, img69, img70, img71, img72, img73, img74, img75,
+  img76, img77, img78, img79, img80, img81, img82, img83, img84, img85,
+  img86, img87, img88, img89, img90, img91, img92, img93, img94,
 } from "@/lib/cloudinary-images";
 
 // Image categories - Update categories based on actual image content
@@ -32,8 +38,54 @@ const allImages = [
   { src: img13, category: "activities" },   // IMG-20260108-WA0062
   { src: img14, category: "activities" },   // IMG-20260108-WA0081
   { src: img15, category: "activities" },   // IMG-20260108-WA0088
-  { src: img16, category: "activities" },   // IMG-20260108-WA0090
-  
+  { src: img16, category: "activities" },
+  { src: img33, category: "activities" },      // IMG_20260123_093527
+  { src: img34, category: "activities" },      // IMG_20260123_093831
+  { src: img35, category: "activities" },      // IMG_20260123_094046
+  { src: img36, category: "activities" },      // IMG_20260123_094053
+  { src: img37, category: "activities" },      // IMG_20260123_094113
+  { src: img38, category: "activities" },      // IMG_20260123_094126
+  { src: img39, category: "activities" },      // IMG_20260123_094200
+  { src: img40, category: "activities" },     // IMG-20260108-WA0090
+  { src: img56, category: "activities" },
+  { src: img57, category: "activities" },
+  { src: img58, category: "activities" },
+  { src: img59, category: "activities" },
+  { src: img60, category: "activities" },
+  { src: img61, category: "activities" },
+  { src: img63, category: "activities" },
+  { src: img64, category: "activities" },
+  { src: img65, category: "activities" },
+  { src: img66, category: "activities" },
+  { src: img67, category: "activities" },
+  { src: img68, category: "activities" },
+  { src: img69, category: "activities" },
+  { src: img70, category: "activities" },
+  { src: img71, category: "activities" },
+  { src: img72, category: "activities" },
+  { src: img73, category: "activities" },
+  { src: img74, category: "activities" },
+  { src: img75, category: "activities" },
+  { src: img76, category: "activities" },
+  { src: img77, category: "activities" },
+  { src: img78, category: "activities" },
+  { src: img79, category: "activities" },
+  { src: img80, category: "activities" },
+  { src: img81, category: "activities" },
+  { src: img82, category: "activities" },
+  { src: img83, category: "activities" },
+  { src: img84, category: "activities" },
+  { src: img85, category: "activities" },
+  { src: img86, category: "activities" },
+  { src: img87, category: "activities" },
+  { src: img88, category: "activities" },
+  { src: img89, category: "activities" },
+  { src: img90, category: "activities" },
+  { src: img91, category: "activities" },
+  { src: img92, category: "activities" },
+  { src: img93, category: "activities" },
+  { src: img94, category: "activities" },
+
   // Celebrations - Festivals, special days, cultural celebrations
   { src: img17, category: "celebrations" }, // IMG-20260120-WA0004
   { src: img18, category: "celebrations" }, // IMG-20260120-WA0020
@@ -51,18 +103,26 @@ const allImages = [
   { src: img28, category: "events" },       // IMG_20260121_110052
   { src: img29, category: "events" },       // IMG_20260121_110056
   { src: img30, category: "events" },       // IMG_20260121_112721
-  { src: img31, category: "events" },       // IMG_20260121_113304
+        // IMG_20260121_113304
   { src: img32, category: "events" },       // IMG_20260121_113321
   
   // Campus - School building, playground, infrastructure, outdoor areas
-  { src: img33, category: "campus" },      // IMG_20260123_093527
-  { src: img34, category: "campus" },      // IMG_20260123_093831
-  { src: img35, category: "campus" },      // IMG_20260123_094046
-  { src: img36, category: "campus" },      // IMG_20260123_094053
-  { src: img37, category: "campus" },      // IMG_20260123_094113
-  { src: img38, category: "campus" },      // IMG_20260123_094126
-  { src: img39, category: "campus" },      // IMG_20260123_094200
-  { src: img40, category: "campus" },      // IMG_20260123_095812
+  
+  { src: img41, category: "campus" },      // IMG_2517
+  { src: img42, category: "campus" },      // IMG_2562
+  { src: img43, category: "campus" },      // IMG_2570
+  { src: img44, category: "campus" },      // IMG_2571
+  { src: img45, category: "campus" },      // IMG_2575
+  { src: img46, category: "campus" },      // IMG_2582
+  { src: img47, category: "campus" },      // IMG_2583
+  { src: img48, category: "campus" },      // IMG_3668
+  { src: img49, category: "campus" },      // IMG_3674
+  { src: img50, category: "campus" },      // IMG_3691
+  { src: img51, category: "campus" },      // IMG_3693
+  { src: img52, category: "campus" },      // IMG_3697
+  { src: img53, category: "campus" },      // IMG_3703
+  { src: img54, category: "campus" },      // IMG_3704
+  { src: img55, category: "campus" },      // IMG_3712
 ];
 
 const galleryCategories = [

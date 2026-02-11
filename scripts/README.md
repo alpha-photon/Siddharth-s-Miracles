@@ -44,6 +44,22 @@ Commit `src/lib/cloudinary-urls.json` (it only contains public URLs, no secrets)
 4. Use the new key in your component: `import { newPhoto } from "@/lib/cloudinary-images";`
 5. Optionally delete the local file from `src/assets/` after upload (images are served from Cloudinary links).
 
+### Upload public/school photos (campus gallery)
+
+To upload the 15 photos in `public/school/` to Cloudinary and add them to the Gallery under the **Campus** category:
+
+```bash
+npm run upload:school
+```
+
+This reads existing `cloudinary-urls.json`, uploads each JPG from `public/school/`, merges the new URLs, and writes the file back. The Gallery already references these as `img41`–`img55` in the campus category.
+
+To also **remove the local files** after a successful upload:
+
+```bash
+npm run upload:school:delete
+```
+
 ---
 
 ## Image Conversion to WebP

@@ -12,7 +12,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "convert:webp": "node scripts/convert-to-webp.js",
-    "upload:cloudinary": "node --env-file=.env scripts/upload-to-cloudinary.js"
+    "upload:cloudinary": "node --env-file=.env scripts/upload-to-cloudinary.js",
+    "upload:school": "node --env-file=.env scripts/upload-school-to-cloudinary.js",
+    "upload:school:delete": "node --env-file=.env scripts/upload-school-to-cloudinary.js --delete",
+    "upload:activities": "node --env-file=.env scripts/upload-activities-to-cloudinary.js",
+    "upload:activities:delete": "node --env-file=.env scripts/upload-activities-to-cloudinary.js --delete"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, ChevronLeft, ChevronRight, GraduationCap, Dumbbell, Brain, Award, Quote } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, GraduationCap, Dumbbell, Brain, Award, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
@@ -8,14 +8,7 @@ import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
-import { heroAcademics, academicsLab, academicsLibrary, academicsComputer } from "@/lib/cloudinary-images";
-
-const academicImages = [
-  { src: heroAcademics, title: "Interactive Classrooms", desc: "Modern learning environment" },
-  { src: academicsLab, title: "Science Laboratory", desc: "Hands-on experiments" },
-  { src: academicsLibrary, title: "Well-stocked Library", desc: "World of knowledge" },
-  { src: academicsComputer, title: "Computer Lab", desc: "Digital literacy" },
-];
+import { heroAcademics } from "@/lib/cloudinary-images";
 
 const subjects = [
   { icon: Languages, name: "ગુજરાતી", nameEn: "Gujarati", color: "from-secondary/30 to-accent/20" },
@@ -50,56 +43,6 @@ const methodology = [
     icon: "📚",
   },
 ];
-
-function AcademicCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
-  );
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  return (
-    <div className="relative">
-      <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
-          {academicImages.map((image, index) => (
-            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0">
-              <div className="relative group overflow-hidden rounded-2xl shadow-card">
-                <div className="image-zoom aspect-[4/3]">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/90 via-maroon/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="font-heading text-xl font-bold drop-shadow-md">{image.title}</h3>
-                  <p className="text-sm opacity-95 mt-0.5">{image.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      <button
-        onClick={scrollPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-maroon hover:bg-secondary hover:text-white transition-all duration-300"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-    </div>
-  );
-}
 
 function ClassesCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -221,40 +164,6 @@ const Academics = () => {
         backgroundImage={heroAcademics}
         overlayOpacity="light"
       />
-
-      {/* Academic Facilities Carousel - aligned with Activities */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14 md:mb-20"
-          >
-            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
-              Facilities
-            </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
-              Our Learning Spaces
-            </h2>
-            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Modern facilities designed to enhance the learning experience
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <AcademicCarousel />
-          </motion.div>
-        </div>
-      </section>
 
       {/* Classes Section - aligned with Activities */}
       <section className="py-16 md:py-20 bg-pattern-dots relative overflow-hidden">

@@ -74,6 +74,59 @@ const KEY_TO_PATH: Record<string, string> = {
   img38: "school-image/IMG_20260123_094126.jpg",
   img39: "school-image/IMG_20260123_094200.jpg",
   img40: "school-image/IMG_20260123_095812.jpg",
+  img41: "school/IMG_2517.jpg",
+  img42: "school/IMG_2562.jpg",
+  img43: "school/IMG_2570.jpg",
+  img44: "school/IMG_2571.jpg",
+  img45: "school/IMG_2575.jpg",
+  img46: "school/IMG_2582.jpg",
+  img47: "school/IMG_2583.jpg",
+  img48: "school/IMG_3668.jpg",
+  img49: "school/IMG_3674.jpg",
+  img50: "school/IMG_3691.jpg",
+  img51: "school/IMG_3693.jpg",
+  img52: "school/IMG_3697.jpg",
+  img53: "school/IMG_3703.jpg",
+  img54: "school/IMG_3704.jpg",
+  img55: "school/IMG_3712.jpg",
+  img56: "activities/1.jpg",
+  img57: "activities/2.jpg",
+  img58: "activities/4.jpg",
+  img59: "activities/6.jpg",
+  img60: "activities/IMG_4001.jpg",
+  img61: "activities/IMG_4006.jpg",
+  img63: "activities/IMG_4044.jpg",
+  img64: "activities/IMG_4116.jpg",
+  img65: "activities/s1.jpg",
+  img66: "activities/s2.jpg",
+  img67: "activities/s3.jpg",
+  img68: "activities/s6.jpg",
+  img69: "activities/s7.jpg",
+  img70: "activities/s8.jpg",
+  img71: "activities/seed2.jpg",
+  img72: "activities/seed3.jpg",
+  img73: "activities/WhatsApp_Image_2025-05-21_at_12.29.04_PM_2.jpeg",
+  img74: "activities/WhatsApp_Image_2025-05-21_at_12.31.18_PM.jpeg",
+  img75: "activities/WhatsApp_Image_2025-05-22_at_9.13.32_AM_3.jpeg",
+  img76: "activities/WhatsApp_Image_2025-05-22_at_9.13.32_AM.jpeg",
+  img77: "activities/WhatsApp_Image_2026-02-05_at_11.14.18_AM.jpeg",
+  img78: "activities/WhatsApp_Image_2026-02-05_at_11.15.08_AM-1.jpeg",
+  img79: "activities/WhatsApp_Image_2026-02-05_at_11.15.08_AM.jpeg",
+  img80: "activities/WhatsApp_Image_2026-02-05_at_11.23.28_AM.jpeg",
+  img81: "activities/WhatsApp_Image_2026-02-05_at_11.23.30_AM.jpeg",
+  img82: "activities/WhatsApp_Image_2026-02-05_at_11.23.33_AM.jpeg",
+  img83: "activities/WhatsApp_Image_2026-02-05_at_11.23.37_AM.jpeg",
+  img84: "activities/WhatsApp_Image_2026-02-05_at_11.54.54_AM.jpeg",
+  img85: "activities/WhatsApp_Image_2026-02-05_at_11.55.02_AM.jpeg",
+  img86: "activities/WhatsApp_Image_2026-02-05_at_11.55.13_AM.jpeg",
+  img87: "activities/WhatsApp_Image_2026-02-10_at_12.37.42_PM-1.jpeg",
+  img88: "activities/WhatsApp_Image_2026-02-10_at_12.37.42_PM.jpeg",
+  img89: "activities/WhatsApp_Image_2026-02-10_at_12.37.43_PM.jpeg",
+  img90: "activities/WhatsApp_Image_2026-02-10_at_12.37.44_PM.jpeg",
+  img91: "activities/WhatsApp_Image_2026-02-10_at_12.37.45_PM.jpeg",
+  img92: "activities/WhatsApp_Image_2026-02-10_at_12.37.46_PM.jpeg",
+  img93: "activities/WhatsApp_Image_2026-02-10_at_12.37.48_PM.jpeg",
+  img94: "activities/WhatsApp_Image_2026-02-10_at_12.37.49_PM.jpeg",
 };
 
 export const heroAbout = getUrl(KEY_TO_PATH.heroAbout!);
@@ -137,6 +190,59 @@ export const img37 = getUrl(KEY_TO_PATH.img37!);
 export const img38 = getUrl(KEY_TO_PATH.img38!);
 export const img39 = getUrl(KEY_TO_PATH.img39!);
 export const img40 = getUrl(KEY_TO_PATH.img40!);
+export const img41 = getUrl(KEY_TO_PATH.img41!);
+export const img42 = getUrl(KEY_TO_PATH.img42!);
+export const img43 = getUrl(KEY_TO_PATH.img43!);
+export const img44 = getUrl(KEY_TO_PATH.img44!);
+export const img45 = getUrl(KEY_TO_PATH.img45!);
+export const img46 = getUrl(KEY_TO_PATH.img46!);
+export const img47 = getUrl(KEY_TO_PATH.img47!);
+export const img48 = getUrl(KEY_TO_PATH.img48!);
+export const img49 = getUrl(KEY_TO_PATH.img49!);
+export const img50 = getUrl(KEY_TO_PATH.img50!);
+export const img51 = getUrl(KEY_TO_PATH.img51!);
+export const img52 = getUrl(KEY_TO_PATH.img52!);
+export const img53 = getUrl(KEY_TO_PATH.img53!);
+export const img54 = getUrl(KEY_TO_PATH.img54!);
+export const img55 = getUrl(KEY_TO_PATH.img55!);
+export const img56 = getUrl(KEY_TO_PATH.img56!);
+export const img57 = getUrl(KEY_TO_PATH.img57!);
+export const img58 = getUrl(KEY_TO_PATH.img58!);
+export const img59 = getUrl(KEY_TO_PATH.img59!);
+export const img60 = getUrl(KEY_TO_PATH.img60!);
+export const img61 = getUrl(KEY_TO_PATH.img61!);
+export const img63 = getUrl(KEY_TO_PATH.img63!);
+export const img64 = getUrl(KEY_TO_PATH.img64!);
+export const img65 = getUrl(KEY_TO_PATH.img65!);
+export const img66 = getUrl(KEY_TO_PATH.img66!);
+export const img67 = getUrl(KEY_TO_PATH.img67!);
+export const img68 = getUrl(KEY_TO_PATH.img68!);
+export const img69 = getUrl(KEY_TO_PATH.img69!);
+export const img70 = getUrl(KEY_TO_PATH.img70!);
+export const img71 = getUrl(KEY_TO_PATH.img71!);
+export const img72 = getUrl(KEY_TO_PATH.img72!);
+export const img73 = getUrl(KEY_TO_PATH.img73!);
+export const img74 = getUrl(KEY_TO_PATH.img74!);
+export const img75 = getUrl(KEY_TO_PATH.img75!);
+export const img76 = getUrl(KEY_TO_PATH.img76!);
+export const img77 = getUrl(KEY_TO_PATH.img77!);
+export const img78 = getUrl(KEY_TO_PATH.img78!);
+export const img79 = getUrl(KEY_TO_PATH.img79!);
+export const img80 = getUrl(KEY_TO_PATH.img80!);
+export const img81 = getUrl(KEY_TO_PATH.img81!);
+export const img82 = getUrl(KEY_TO_PATH.img82!);
+export const img83 = getUrl(KEY_TO_PATH.img83!);
+export const img84 = getUrl(KEY_TO_PATH.img84!);
+export const img85 = getUrl(KEY_TO_PATH.img85!);
+export const img86 = getUrl(KEY_TO_PATH.img86!);
+export const img87 = getUrl(KEY_TO_PATH.img87!);
+export const img88 = getUrl(KEY_TO_PATH.img88!);
+export const img89 = getUrl(KEY_TO_PATH.img89!);
+export const img90 = getUrl(KEY_TO_PATH.img90!);
+export const img91 = getUrl(KEY_TO_PATH.img91!);
+export const img92 = getUrl(KEY_TO_PATH.img92!);
+export const img93 = getUrl(KEY_TO_PATH.img93!);
+export const img94 = getUrl(KEY_TO_PATH.img94!);
 
 /** Use for new images: add path to KEY_TO_PATH and export, then run upload script. */
 export function getCloudinaryUrl(path: string): string {
