@@ -40,10 +40,6 @@ function GalleryPreviewCarousel() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="font-heading text-xl font-bold drop-shadow-lg">{image.title}</h3>
-                </div>
               </div>
             </div>
           ))}

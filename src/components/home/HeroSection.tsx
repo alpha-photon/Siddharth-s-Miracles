@@ -16,13 +16,13 @@ const heroSlides = [
     tagline: "Where Each Day is a Miracle",
   },
   {
-    image: heroImage2,
+    image: "/HERO 3.jpeg",
     title: "Play & Learn",
     subtitle: "Together",
     tagline: "Building friendships and fitness through play",
   },
   {
-    image: heroImage3,
+    image: "/home4.jpeg",
     title: "Quality",
     subtitle: "Education",
     tagline: "Nurturing minds with dedicated teachers",

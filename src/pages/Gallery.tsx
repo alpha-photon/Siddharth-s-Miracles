@@ -16,85 +16,21 @@ import {
   img66, img67, img68, img69, img70, img71, img72, img73, img74, img75,
   img76, img77, img78, img79, img80, img81, img82, img83, img84, img85,
   img86, img87, img88, img89, img90, img91, img92, img93, img94,
+  img95, img96, img97, img98, img99, img100, img101, img102, img103, img104,
+  img105, img106, img107, img108, img109, img110, img111, img112, img113, img114,
+  img115, img116, img117, img118, img119, img120, img121, img122, img123, img124,
+  img125, img126, img127, img128, img129, img130, img131, img132,
+  img133, img134, img135, img136,
+  img137, img138, img139, img140, img141, img142, img143,
 } from "@/lib/cloudinary-images";
 
 // Image categories - Update categories based on actual image content
 // Categories: "classrooms", "activities", "celebrations", "events", "campus"
 const allImages = [
-  // Classrooms - Images showing classroom interiors, students in classrooms, teaching
-  { src: img1, category: "classrooms" },   // IMG-20251217-WA0016
-  { src: img2, category: "classrooms" },   // IMG-20260102-WA0001
-  { src: img3, category: "classrooms" },   // IMG-20260102-WA0002
-  { src: img4, category: "classrooms" },   // IMG-20260105-WA0010
-  { src: img5, category: "classrooms" },   // IMG-20260106-WA0004
-  { src: img6, category: "classrooms" },   // IMG-20260106-WA0009
-  { src: img7, category: "classrooms" },   // IMG-20260106-WA0015
-  { src: img8, category: "classrooms" },   // IMG-20260108-WA0004
   
-  // Activities - Sports, games, art, cultural activities, competitions
-  { src: img9, category: "activities" },    // IMG-20260108-WA0010
-  { src: img10, category: "activities" },   // IMG-20260108-WA0016
-  { src: img11, category: "activities" },   // IMG-20260108-WA0029
-  { src: img12, category: "activities" },   // IMG-20260108-WA0030
-  { src: img13, category: "activities" },   // IMG-20260108-WA0062
-  { src: img14, category: "activities" },   // IMG-20260108-WA0081
-  { src: img15, category: "activities" },   // IMG-20260108-WA0088
-  { src: img16, category: "activities" },
-  { src: img33, category: "activities" },      // IMG_20260123_093527
-  { src: img34, category: "activities" },      // IMG_20260123_093831
-  { src: img35, category: "activities" },      // IMG_20260123_094046
-  { src: img36, category: "activities" },      // IMG_20260123_094053
-  { src: img37, category: "activities" },      // IMG_20260123_094113
-  { src: img38, category: "activities" },      // IMG_20260123_094126
-  { src: img39, category: "activities" },      // IMG_20260123_094200
-  { src: img40, category: "activities" },     // IMG-20260108-WA0090
-  { src: img56, category: "activities" },
-  { src: img57, category: "activities" },
-  { src: img58, category: "activities" },
-  { src: img59, category: "activities" },
-  { src: img60, category: "activities" },
-  { src: img61, category: "activities" },
-  { src: img63, category: "activities" },
-  { src: img64, category: "activities" },
-  { src: img65, category: "activities" },
-  { src: img66, category: "activities" },
-  { src: img67, category: "activities" },
-  { src: img68, category: "activities" },
-  { src: img69, category: "activities" },
-  { src: img70, category: "activities" },
-  { src: img71, category: "activities" },
-  { src: img72, category: "activities" },
-  { src: img73, category: "activities" },
-  { src: img74, category: "activities" },
-  { src: img75, category: "activities" },
-  { src: img76, category: "activities" },
-  { src: img77, category: "activities" },
-  { src: img78, category: "activities" },
-  { src: img79, category: "activities" },
-  { src: img80, category: "activities" },
-  { src: img81, category: "activities" },
-  { src: img82, category: "activities" },
-  { src: img83, category: "activities" },
-  { src: img84, category: "activities" },
-  { src: img85, category: "activities" },
-  { src: img86, category: "activities" },
-  { src: img87, category: "activities" },
-  { src: img88, category: "activities" },
-  { src: img89, category: "activities" },
-  { src: img90, category: "activities" },
-  { src: img91, category: "activities" },
-  { src: img92, category: "activities" },
-  { src: img93, category: "activities" },
-  { src: img94, category: "activities" },
 
   // Celebrations - Festivals, special days, cultural celebrations
-  { src: img17, category: "celebrations" }, // IMG-20260120-WA0004
-  { src: img18, category: "celebrations" }, // IMG-20260120-WA0020
-  { src: img19, category: "celebrations" }, // IMG-20260120-WA0027
-  { src: img20, category: "celebrations" }, // IMG-20260120-WA0033
-  { src: img21, category: "celebrations" }, // IMG-20260120-WA0047
-  { src: img22, category: "celebrations" }, // IMG-20260120-WA0048
-  { src: img23, category: "celebrations" }, // IMG-20260120-WA0052
+  
   { src: img24, category: "celebrations" }, // IMG_20260101_104710
   
   // Events - Annual day, sports day, science fair, special programs
@@ -124,6 +60,60 @@ const allImages = [
   { src: img53, category: "campus" },      // IMG_3703
   { src: img54, category: "campus" },      // IMG_3704
   { src: img55, category: "campus" },      // IMG_3712
+  
+  // New Activities images from public/Activities
+  { src: img95, category: "activities" },
+  { src: img96, category: "activities" },
+  { src: img97, category: "activities" },
+  { src: img98, category: "activities" },
+  { src: img99, category: "activities" },
+  { src: img100, category: "activities" },
+  { src: img101, category: "activities" },
+  { src: img102, category: "activities" },
+  { src: img103, category: "activities" },
+  { src: img104, category: "activities" },
+  { src: img105, category: "activities" },
+  { src: img106, category: "activities" },
+  { src: img107, category: "activities" },
+  { src: img108, category: "activities" },
+  { src: img109, category: "activities" },
+  { src: img110, category: "activities" },
+  { src: img111, category: "activities" },
+  { src: img112, category: "activities" },
+  { src: img113, category: "activities" },
+ 
+  { src: img115, category: "activities" },
+  { src: img116, category: "activities" },
+  { src: img117, category: "activities" },
+  { src: img118, category: "activities" },
+  { src: img119, category: "activities" },
+  { src: img120, category: "activities" },
+  { src: img121, category: "activities" },
+  { src: img122, category: "activities" },
+  { src: img123, category: "activities" },
+  { src: img124, category: "activities" },
+  { src: img125, category: "activities" },
+  { src: img126, category: "activities" },
+  
+  { src: img129, category: "activities" },
+  { src: img130, category: "activities" },
+  { src: img131, category: "activities" },
+  { src: img132, category: "activities" },
+  
+  // Celebrations images from public/Celebrations
+  { src: img133, category: "celebrations" },
+  { src: img134, category: "celebrations" },
+  { src: img135, category: "celebrations" },
+  { src: img136, category: "celebrations" },
+  
+  // Classrooms images from public/Classrooms
+  { src: img137, category: "classrooms" },
+  { src: img138, category: "classrooms" },
+  { src: img139, category: "classrooms" },
+  { src: img140, category: "classrooms" },
+  { src: img141, category: "classrooms" },
+  { src: img142, category: "classrooms" },
+  { src: img143, category: "classrooms" },
 ];
 
 const galleryCategories = [
