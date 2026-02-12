@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
 import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
@@ -87,21 +88,24 @@ const benefitsData = [
 
 function BenefitsCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
-    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+    { loop: true, align: "start", slidesToScroll: 1, duration: 20 },
+    [Autoplay({ delay: 1300, stopOnInteraction: false })]
   );
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  // Duplicate slides for seamless infinite loop
+  const benefitsSlides = [...benefitsData, ...benefitsData];
+
   return (
     <div className="relative">
-      <div className="w-full" ref={emblaRef}>
-        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14">
-          {benefitsData.map((benefit, index) => {
+      <div className="w-full " ref={emblaRef}>
+        <div className="flex gap-6 pl-12 pr-12 md:pl-14 md:pr-14 touch-pan-y">
+          {benefitsSlides.map((benefit, index) => {
             const IconComp = benefit.icon;
             return (
             <div
-              key={benefit.title}
+              key={`${benefit.title}-${index}`}
               className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] min-w-0"
             >
               <div className="card-3d h-full card-premium bg-card rounded-2xl p-5 md:p-6 relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 group hover:border-secondary/50">
@@ -147,7 +151,7 @@ function BenefitsCarousel() {
 function ActivitiesCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
-    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+    [Autoplay({ delay: 1500, stopOnInteraction: false })]
   );
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -204,6 +208,12 @@ function ActivitiesCarousel() {
 const Activities = () => {
   return (
     <Layout>
+      <Seo
+        title="Activities & Development"
+        description="Holistic development through dance, sports, life skills, cultural programs, and extracurricular activities at Siddharth's Miracles School, Gandhinagar."
+        path="/activities"
+        breadcrumbLabels={["Home", "Activities"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="ACTIVITIES & DEVELOPMENT"

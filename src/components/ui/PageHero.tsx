@@ -35,23 +35,17 @@ export function PageHero({
         <div className="absolute inset-0">
           <motion.img
             src={backgroundImage}
-            alt={title}
+            alt=""
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-top sm:object-center"
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           />
-          {overlayOpacity === "light" ? (
-            <>
-              <div className="absolute inset-0 bg-gradient-to-b from-maroon/40 via-maroon/30 to-maroon/20" />
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon/35 via-transparent to-transparent" />
-            </>
-          ) : (
-            <>
-              <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent" />
-            </>
-          )}
+          {/* Reddish/maroon overlay – same as home page hero */}
+          <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-maroon/60 via-transparent to-transparent" />
         </div>
       )}
 
@@ -159,14 +153,14 @@ export function PageHero({
             {title}
           </motion.h1>
 
-          {/* Subtitle/Tagline - same as homepage: italic, text-secondary on image */}
+          {/* Subtitle – white text like home hero */}
           {subtitle && (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className={`font-heading text-xl md:text-2xl font-medium italic opacity-90 mb-2 ${
-                backgroundImage ? "text-secondary drop-shadow-lg" : "text-primary"
+              className={`font-heading text-xl md:text-2xl font-medium italic opacity-95 mb-2 ${
+                backgroundImage ? "text-white drop-shadow-lg" : "text-primary"
               }`}
               style={{
                 textShadow: backgroundImage ? "0 2px 12px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2)" : "none",

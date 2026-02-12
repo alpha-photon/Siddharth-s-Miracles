@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/ui/PageHero";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from "lucide-react";
@@ -310,6 +311,12 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <Seo
+        title="Gallery"
+        description="Photo gallery of Siddharth's Miracles School — campus, activities, events, and student life. Gandhinagar."
+        path="/gallery"
+        breadcrumbLabels={["Home", "Gallery"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="GALLERY"

@@ -86,7 +86,9 @@ export function HeroSection() {
             <div key={index} className="flex-[0_0_100%] min-w-0 relative">
               <img
                 src={slide.image}
-                alt={`${slide.title} ${slide.subtitle}`}
+                alt={`${slide.title} ${slide.subtitle} - Siddharth's Miracles School`}
+                fetchPriority={index === 0 ? "high" : undefined}
+                decoding="async"
                 className="w-full h-full object-cover object-top sm:object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
@@ -156,7 +158,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-lg opacity-80 mb-8"
             >
-              GSEB | English Medium | Std 1–10 | Gandhinagar
+              GSEB | English Medium | Nursery to Std 10 | Gandhinagar
             </motion.p>
 
             {/* CTA Button */}

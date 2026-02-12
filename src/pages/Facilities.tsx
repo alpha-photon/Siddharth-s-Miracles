@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
-import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Laptop, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck, Quote } from "lucide-react";
+import { Building2, Shield, TreePine, BookOpen, Palette, FlaskConical, Heart, Users, MessageSquare, Target, Dumbbell, Sparkles, DoorOpen, Video, Lock, Flame, AlertTriangle, UserCheck, Quote } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
 import { heroFacilities } from "@/lib/cloudinary-images";
@@ -62,6 +63,12 @@ const facilities = [
 const Facilities = () => {
   return (
     <Layout>
+      <Seo
+        title="Facilities"
+        description="School facilities: classrooms, playground, science lab, computer lab, library, indoor games, and safe environment at Siddharth's Miracles, Gandhinagar."
+        path="/facilities"
+        breadcrumbLabels={["Home", "Facilities"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="FACILITIES"
@@ -119,81 +126,6 @@ const Facilities = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Infrastructure Section */}
-      <section className="py-16 md:py-24 bg-pattern-dots relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14 md:mb-20"
-          >
-            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold mb-5 bg-primary/10 text-primary border border-primary/20 shadow-sm tracking-wide">
-              Built for Learning
-            </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-maroon mb-5 tracking-tight leading-tight max-w-4xl mx-auto">
-              Infrastructure
-            </h2>
-            <div className="w-16 h-1 mx-auto mb-5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              A second home for students—spacious, comfortable and designed for growth.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Building2, label: "Classrooms", color: "from-primary/20 to-primary/10" },
-              { icon: TreePine, label: "Playground", color: "from-growth/20 to-growth/10" },
-              { icon: FlaskConical, label: "Science lab", color: "from-secondary/20 to-accent/10" },
-              { icon: Laptop, label: "Computer lab", color: "from-maroon/20 to-maroon/10" },
-              { icon: Palette, label: "Art and Craft room", color: "from-primary/20 to-primary/10" },
-              { icon: Dumbbell, label: "Indoor games hall", color: "from-growth/20 to-growth/10" },
-              { icon: Sparkles, label: "Activity room", color: "from-secondary/20 to-accent/10" },
-              { icon: BookOpen, label: "Library", color: "from-maroon/20 to-maroon/10" },
-            ].map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="group"
-              >
-                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 relative overflow-hidden flex flex-col">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-20 rounded-bl-3xl pointer-events-none`} />
-                  <div className="relative z-10 flex flex-col flex-1">
-                    <div className="w-14 h-14 mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-primary/30 transition-all shadow-md">
-                      <item.icon className="h-7 w-7 text-maroon" />
-                    </div>
-                    <h3 className="font-heading text-lg font-bold text-maroon group-hover:text-primary transition-colors">{item.label}</h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-10 md:mt-12"
-          >
-            <div className="relative rounded-2xl p-6 md:p-8 text-center overflow-hidden bg-gradient-to-br from-maroon/[0.06] via-card to-secondary/[0.06] border border-maroon/10 shadow-sm">
-              <Quote className="absolute top-5 left-5 md:left-8 h-8 w-8 text-maroon/25 pointer-events-none" />
-              <p className="relative text-foreground/90 text-lg leading-relaxed max-w-3xl mx-auto font-body">
-                We, at <span className="font-semibold text-maroon">Siddharth&apos;s Miracles School</span>, believe in nurturing the idea of school being the <span className="font-heading italic text-maroon">&lsquo;Second Home&rsquo;</span> to our students.
-                It is essential to provide them with a spacious and comfortable environment. We aim at giving an enriching classroom
-                experience to our children with our world-class infrastructure.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 

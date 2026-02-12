@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -46,9 +47,15 @@ const requiredDocs = [
 const Admission = () => {
   return (
     <Layout>
+      <Seo
+        title="Admissions Open 2026-27"
+        description="Admission process, required documents, and enquiry for Siddharth's Miracles School. Nursery to Std 10, GSEB, Gandhinagar. Apply now."
+        path="/admission"
+        breadcrumbLabels={["Home", "Admission"]}
+      />
       {/* Hero Section */}
       <PageHero
-        title="ADMISSION OPENS FOR 2026-27"
+        title="ADMISSIONS OPEN FOR 2026-27"
         subtitle="Quality education, caring environment, and holistic growth"
         description=""
         backgroundImage={heroAdmission}

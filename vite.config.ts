@@ -6,6 +6,18 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   assetsInclude: ["**/*.JPG"],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-ui": ["framer-motion", "@radix-ui/react-slot"],
+          "vendor-embla": ["embla-carousel-react", "embla-carousel-autoplay"],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
   server: {
     host: "::",
     port: 8080,

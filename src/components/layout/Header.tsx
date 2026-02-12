@@ -21,25 +21,29 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border/50">
       <div className="container flex h-16 sm:h-20 items-center justify-between gap-2">
         {/* Logo + School name - visible on all screens including mobile */}
-        <Link to="/" className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 lg:flex-initial">
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 lg:flex-initial" aria-label="Siddharth's Miracles School - Home">
           <img 
             src={schoolLogo} 
-            alt="Siddharth's Miracles School" 
+            alt="" 
+            width={160}
+            height={56}
+            fetchPriority="high"
+            decoding="async"
             className="h-11 w-auto sm:h-14 flex-shrink-0 transition-transform duration-300 hover:scale-105"
           />
           <div className="min-w-0">
-            <h1 className="font-heading text-sm sm:text-lg font-bold text-maroon leading-tight truncate">
+            <p className="font-heading text-sm sm:text-lg font-bold text-maroon leading-tight truncate">
               Siddharth's Miracles
-            </h1>
+            </p>
             <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Where Each Day is a Miracle</p>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -86,8 +90,10 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden border-t border-border bg-background"
+            role="dialog"
+            aria-label="Mobile menu"
           >
-            <nav className="container py-4 flex flex-col gap-2">
+            <nav className="container py-4 flex flex-col gap-2" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
