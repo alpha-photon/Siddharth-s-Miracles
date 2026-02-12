@@ -125,8 +125,11 @@ const galleryCategories = [
   { name: "Campus", nameGuj: "કેમ્પસ", value: "campus" },
 ];
 
+const PHOTOS_PER_PAGE = 10;
+
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -141,6 +144,14 @@ const Gallery = () => {
   const filteredImages = selectedCategory === "all" 
     ? allImages 
     : allImages.filter(img => img.category === selectedCategory);
+
+  const totalPages = Math.ceil(filteredImages.length / PHOTOS_PER_PAGE) || 1;
+  const startIndex = (currentPage - 1) * PHOTOS_PER_PAGE;
+  const paginatedImages = filteredImages.slice(startIndex, startIndex + PHOTOS_PER_PAGE);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -312,7 +323,7 @@ const Gallery = () => {
         title="GALLERY"
         subtitle="Moments That Define Our School Life - Glimpses of Learning, Joy & Growth"
         description=""
-        backgroundImage={heroGallery}
+        backgroundImage="/aca.JPG"
         overlayOpacity="light"
       />
 
@@ -350,7 +361,7 @@ const Gallery = () => {
               {galleryCategories.map((category) => (
                 <button
                   key={category.value}
-                  onClick={() => setSelectedCategory(category.value)}
+                  onClick={() => { setSelectedCategory(category.value); setCurrentPage(1); }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                     selectedCategory === category.value
                       ? "bg-maroon text-white shadow-lg scale-105"
@@ -370,9 +381,11 @@ const Gallery = () => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
           >
-            {filteredImages.map((image, index) => (
+            {paginatedImages.map((image, index) => {
+              const globalIndex = startIndex + index;
+              return (
               <motion.div
-                key={index}
+                key={globalIndex}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -380,12 +393,12 @@ const Gallery = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group relative overflow-hidden rounded-xl shadow-card cursor-pointer"
-                onClick={() => openLightbox(index)}
+                onClick={() => openLightbox(globalIndex)}
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
                     src={image.src}
-                    alt={`School Image ${index + 1}`}
+                    alt={`School Image ${globalIndex + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     whileHover={{ scale: 1.1 }}
@@ -409,18 +422,50 @@ const Gallery = () => {
                   </div>
                 </motion.div>
               </motion.div>
-            ))}
+            );
+            })}
           </motion.div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-wrap items-center justify-center gap-3 mt-10"
+            >
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-muted text-muted-foreground hover:bg-muted/80 disabled:opacity-50 disabled:pointer-events-none transition-all"
+                aria-label="Previous page"
+              >
+                <ChevronLeft className="w-4 h-4" /> Previous
+              </button>
+              <span className="px-4 py-2 text-sm font-medium text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-muted text-muted-foreground hover:bg-muted/80 disabled:opacity-50 disabled:pointer-events-none transition-all"
+                aria-label="Next page"
+              >
+                Next <ChevronRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+          )}
 
           {/* Image Count */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12"
+            className="text-center mt-6"
           >
             <p className="text-muted-foreground">
-              Showing {filteredImages.length} photos
+              Showing {filteredImages.length === 0 ? 0 : startIndex + 1}–{Math.min(startIndex + PHOTOS_PER_PAGE, filteredImages.length)} of {filteredImages.length} photos
             </p>
           </motion.div>
         </div>

@@ -74,7 +74,7 @@ const Facilities = () => {
         title="FACILITIES"
         subtitle="Comfortable, Secure & Student-Friendly Environment"
         description=""
-        backgroundImage={heroFacilities}
+        backgroundImage="/facilities.png"
         overlayOpacity="light"
       />
 

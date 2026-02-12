@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
-import { heroActivities } from "@/lib/cloudinary-images";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
@@ -219,7 +218,7 @@ const Activities = () => {
         title="ACTIVITIES & DEVELOPMENT"
         subtitle="Beyond Books, Towards Holistic Growth"
         description=""
-        backgroundImage={heroActivities}
+        backgroundImage="/activites.png"
         overlayOpacity="light"
       />
 

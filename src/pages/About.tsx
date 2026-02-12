@@ -152,7 +152,7 @@ const About = () => {
         title="ABOUT SIDDHARTH'S MIRACLES"
         subtitle="Where Each Day is a Miracle"
         description=""
-        backgroundImage={heroAbout}
+        backgroundImage="/ab.png"
         overlayOpacity="light"
       />
 

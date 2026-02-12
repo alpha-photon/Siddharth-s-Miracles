@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
@@ -6,7 +7,42 @@ import { PageHero } from "@/components/ui/PageHero";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { heroContact } from "@/lib/cloudinary-images";
 
+const GOOGLE_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxW15i2ag6JGdBE_qer91IvY7sWHcJR3avNJNzox1yeo0C8MleW85jagLnz4295cYj5ag/exec";
+
 const Contact = () => {
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const now = new Date();
+    const inquiryDate = now.toLocaleDateString("en-IN", { day: "2-digit", month: "2-digit", year: "numeric" });
+    const inquiryTime = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true });
+    const data = {
+      name: formData.get("name") ?? "",
+      email: formData.get("email") ?? "",
+      phone: formData.get("phone") ?? "",
+      message: formData.get("message") ?? "",
+      class: formData.get("class") ?? "",
+      inquiry_date: inquiryDate,
+      inquiry_time: inquiryTime,
+    };
+    setSubmitStatus("sending");
+    try {
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as Record<string, string>).toString(),
+      });
+      setSubmitStatus("success");
+      form.reset();
+    } catch {
+      setSubmitStatus("error");
+    }
+  };
   return (
     <Layout>
       <Seo
@@ -126,7 +162,17 @@ const Contact = () => {
                   <h2 className="font-heading text-2xl md:text-3xl font-bold text-maroon mb-6 group-hover:text-primary/90 transition-colors duration-300">
                     Send us a Message
                   </h2>
-                  <form className="space-y-5">
+                  {submitStatus === "success" && (
+                    <p className="mb-4 p-4 rounded-xl bg-growth/15 text-growth border border-growth/30 text-sm font-medium">
+                      Thank you! Your message has been sent. We&apos;ll get back to you soon.
+                    </p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p className="mb-4 p-4 rounded-xl bg-destructive/15 text-destructive border border-destructive/30 text-sm font-medium">
+                      Something went wrong. Please try again or call us directly.
+                    </p>
+                  )}
+                  <form className="space-y-5" onSubmit={handleSubmit}>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -198,8 +244,14 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" variant="hero" size="lg" className="w-full shadow-md hover:scale-[1.02] hover:shadow-card-hover transition-all duration-300">
-                      Send Message
+                    <Button
+                      type="submit"
+                      variant="hero"
+                      size="lg"
+                      className="w-full shadow-md hover:scale-[1.02] hover:shadow-card-hover transition-all duration-300"
+                      disabled={submitStatus === "sending"}
+                    >
+                      {submitStatus === "sending" ? "Sending…" : "Send Message"}
                     </Button>
                   </form>
                 </div>

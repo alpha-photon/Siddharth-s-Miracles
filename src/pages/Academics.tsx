@@ -174,7 +174,7 @@ const Academics = () => {
         title="ACADEMICS"
         subtitle="Academic Excellence with a Modern Approach"
         description=""
-        backgroundImage="/IMG_3287.JPG"
+        backgroundImage="/gallery.png"
         overlayOpacity="light"
       />
 
