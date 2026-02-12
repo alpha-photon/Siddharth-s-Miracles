@@ -11,7 +11,7 @@ const stats = [
   },
   {
     icon: Users,
-    number: "Std 1-10",
+    number: "Nursery to Std 10",
     label: "Classes",
     description: "Complete education",
     color: "from-secondary/30 to-accent/20",

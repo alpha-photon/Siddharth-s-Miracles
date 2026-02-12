@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
 import { Heart, Target, Eye, BookOpen, Users, Award, Shield, Sparkles, GraduationCap, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
@@ -89,7 +90,7 @@ const values = [
 function ValuesCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", slidesToScroll: 1, duration: 25 },
-    [Autoplay({ delay: 4500, stopOnInteraction: false })]
+    [Autoplay({ delay: 1500, stopOnInteraction: false })]
   );
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -140,6 +141,12 @@ function ValuesCarousel() {
 const About = () => {
   return (
     <Layout>
+      <Seo
+        title="About Us"
+        description="Learn about Siddharth's Miracles School — our story, vision, mission, and commitment to holistic education in Gandhinagar. Where Each Day is a Miracle."
+        path="/about"
+        breadcrumbLabels={["Home", "About Us"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="ABOUT SIDDHARTH'S MIRACLES"
@@ -520,10 +527,10 @@ const logoSymbols = [
     accent: "from-secondary/20 to-accent/10",
   },
   {
-    title: "Unicorn",
-    image: "/unicorn.png",
-    description:
-      "A Unicorn has a myriad of semantic meanings. It is associated with wisdom, strong spirit, and purity. Also, the image of a Unicorn stands for magic, pure feelings, and integrity.",
+    title: "Pegasus",
+      image: "/unicorn.png",
+      description:
+        "Pegasus, the winged horse, symbolises wisdom, strength, and the power to rise above. It stands for inspiration, freedom, and the pursuit of higher goals—qualities we nurture in every student.",
     accent: "from-maroon/20 to-maroon/10",
   },
 ];
@@ -542,19 +549,13 @@ function LogoCard() {
       <div className="h-1 w-full bg-gradient-to-r from-maroon/20 via-primary/30 to-secondary/30" />
       <div className="p-6 md:p-8 lg:p-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left: Logo + motto */}
-          <div className="flex flex-col items-center w-full min-w-0">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-maroon text-center mb-6">
-              About Our Logo
-            </h2>
+          {/* Left: Logo */}
+          <div className="flex flex-col items-center justify-center w-full min-w-0">
             <img
               src={schoolLogo}
               alt="Siddharth's Miracles School Logo"
-              className="w-full h-auto max-h-64 md:max-h-80 lg:max-h-[380px] object-contain"
+              className="w-full h-auto max-h-80 md:max-h-[420px] lg:max-h-[520px] object-contain"
             />
-            <p className="font-heading text-maroon font-bold mt-6 text-center text-lg md:text-xl tracking-wide">
-              Where Each Day is a Miracle
-            </p>
           </div>
 
           {/* Right: 2x2 grid of symbol cards */}

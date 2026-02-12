@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
@@ -8,6 +9,12 @@ import { heroContact } from "@/lib/cloudinary-images";
 const Contact = () => {
   return (
     <Layout>
+      <Seo
+        title="Contact Us"
+        description="Get in touch with Siddharth's Miracles School, Gandhinagar. Address, phone, WhatsApp, and contact form for admission and enquiries."
+        path="/contact"
+        breadcrumbLabels={["Home", "Contact"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="CONTACT"

@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
+import { Seo } from "@/components/seo/Seo";
 import { motion } from "framer-motion";
-import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, GraduationCap, Dumbbell, Brain, Award, Quote } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, Globe, Languages, Palette, PenTool, Microscope, GraduationCap, Dumbbell, Brain, Award, Quote, Laptop, Home, Activity } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/PageHero";
@@ -14,11 +15,17 @@ const subjects = [
   { icon: Languages, name: "ગુજરાતી", nameEn: "Gujarati", color: "from-secondary/30 to-accent/20" },
   { icon: BookOpen, name: "હિન્દી", nameEn: "Hindi", color: "from-primary/20 to-primary/10" },
   { icon: PenTool, name: "અંગ્રેજી", nameEn: "English", color: "from-growth/20 to-growth/10" },
+  { icon: BookOpen, name: "સંસ્કૃત", nameEn: "Sanskrit", color: "from-maroon/20 to-maroon/10" },
   { icon: Calculator, name: "ગણિત", nameEn: "Mathematics", color: "from-maroon/20 to-maroon/10" },
   { icon: FlaskConical, name: "વિજ્ઞાન", nameEn: "Science", color: "from-secondary/30 to-accent/20" },
   { icon: Globe, name: "સામાજિક વિજ્ઞાન", nameEn: "Social Science", color: "from-primary/20 to-primary/10" },
+  { icon: Laptop, name: "કમ્પ્યુટર વિજ્ઞાન", nameEn: "Computer Science", color: "from-primary/20 to-primary/10" },
+
   { icon: Microscope, name: "પર્યાવરણ", nameEn: "Environment", color: "from-growth/20 to-growth/10" },
   { icon: Palette, name: "ચિત્રકામ", nameEn: "Drawing", color: "from-maroon/20 to-maroon/10" },
+  { icon: Home, name: "ગૃહ વિજ્ઞાન", nameEn: "Home Science", color: "from-secondary/30 to-accent/20" },
+ 
+  { icon: Activity, name: "યોગ", nameEn: "Yoga", color: "from-growth/20 to-growth/10" },
 ];
 
 const methodology = [
@@ -156,12 +163,18 @@ function ClassesCarousel() {
 const Academics = () => {
   return (
     <Layout>
+      <Seo
+        title="Academics"
+        description="Curriculum from Nursery to Std 10, GSEB. Early Year, Primary & Secondary programmes. Subjects, academic philosophy, and board exam preparation at Siddharth's Miracles School."
+        path="/academics"
+        breadcrumbLabels={["Home", "Academics"]}
+      />
       {/* Hero Section */}
       <PageHero
         title="ACADEMICS"
         subtitle="Academic Excellence with a Modern Approach"
         description=""
-        backgroundImage={heroAcademics}
+        backgroundImage="/IMG_3287.JPG"
         overlayOpacity="light"
       />
 

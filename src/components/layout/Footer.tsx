@@ -27,7 +27,11 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={schoolLogo} 
-                alt="Siddharth's Miracles School" 
+                alt="Siddharth's Miracles School logo" 
+                width={80}
+                height={80}
+                loading="lazy"
+                decoding="async"
                 className="h-16 w-auto bg-white rounded-lg p-1"
               />
             </div>
@@ -123,7 +127,7 @@ export function Footer() {
             © {new Date().getFullYear()} Siddharth's Miracles School. All rights reserved.
           </p>
           <p className="text-sm opacity-70">
-            GSEB | Std 1-10
+            GSEB | Nursery to Std 10
           </p>
         </div>
       </div>
