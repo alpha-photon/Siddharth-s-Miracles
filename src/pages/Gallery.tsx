@@ -6,6 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from "lucide-react";
 import {
   heroGallery,
+  getOptimizedImageUrl,
   img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
   img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
   img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
@@ -408,10 +409,11 @@ const Gallery = () => {
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
-                    src={image.src}
+                    src={getOptimizedImageUrl(image.src, "gallery")}
                     alt={`School Image ${globalIndex + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   />
@@ -618,7 +620,7 @@ const Gallery = () => {
                   <motion.img
                     key={selectedImage}
                     ref={imageRef}
-                    src={filteredImages[selectedImage].src}
+                    src={getOptimizedImageUrl(filteredImages[selectedImage].src, "galleryLarge")}
                     alt={`School Image ${selectedImage + 1}`}
                     className={`max-w-full max-h-[95vh] object-contain rounded-lg select-none ${
                       zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default"

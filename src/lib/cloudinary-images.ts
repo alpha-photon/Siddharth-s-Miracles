@@ -2,14 +2,65 @@
  * Central image URLs from Cloudinary. Images are served via links (no local copies).
  * Run upload script when adding new images: npm run upload:cloudinary
  * Then commit src/lib/cloudinary-urls.json (no secrets, only public URLs).
+ *
+ * Optimized URLs use Cloudinary transforms: responsive size, q_auto, f_auto (WebP/AVIF when supported).
  */
 
 import urlMap from "./cloudinary-urls.json";
 
 type UrlMap = Record<string, string>;
 
+/** Cloudinary transform presets for faster loading */
+const TRANSFORM_PRESETS = {
+  /** Hero / LCP: max width 1920, auto quality & format */
+  hero: "w_1920,q_auto,f_auto,dpr_auto",
+  /** Page hero (About, Contact, etc.): same as hero */
+  pageHero: "w_1920,q_auto,f_auto,dpr_auto",
+  /** Gallery grid thumbnails */
+  gallery: "w_800,q_auto,f_auto",
+  /** Gallery lightbox / larger view */
+  galleryLarge: "w_1600,q_auto,f_auto",
+  /** Small cards / sections */
+  card: "w_600,q_auto,f_auto",
+} as const;
+
+/**
+ * Insert Cloudinary transformation segment into a Cloudinary URL.
+ * e.g. .../upload/v123/... -> .../upload/w_1920,q_auto,f_auto/v123/...
+ */
+function insertTransforms(url: string, transforms: string): string {
+  if (!url || !url.includes("res.cloudinary.com") || !url.includes("/image/upload/")) return url;
+  const uploadIdx = url.indexOf("/image/upload/") + "/image/upload/".length;
+  return url.slice(0, uploadIdx) + transforms + "/" + url.slice(uploadIdx);
+}
+
 function getUrl(path: string): string {
   return (urlMap as UrlMap)[path] ?? "";
+}
+
+/** Returns optimized Cloudinary URL for faster loading (size + format + quality). Non-Cloudinary URLs returned as-is. */
+export function getOptimizedImageUrl(url: string, preset: keyof typeof TRANSFORM_PRESETS): string {
+  if (!url) return url;
+  return insertTransforms(url, TRANSFORM_PRESETS[preset]);
+}
+
+const PLACEHOLDER_TRANSFORM = "w_40,q_auto,f_auto";
+
+/** Returns a tiny Cloudinary URL for LQIP/blur placeholder. Non-Cloudinary or empty URL returned as-is. */
+export function getPlaceholderUrl(url: string): string {
+  if (!url || !url.includes("res.cloudinary.com") || !url.includes("/image/upload/")) return url;
+  const idx = url.indexOf("/image/upload/") + "/image/upload/".length;
+  const afterUpload = url.slice(idx);
+  const firstSlash = afterUpload.indexOf("/");
+  const rest = afterUpload.slice(firstSlash + 1);
+  return url.slice(0, idx) + PLACEHOLDER_TRANSFORM + "/" + rest;
+}
+
+/** Get URL with optional optimization preset (for internal use). */
+function getUrlWithPreset(path: string, preset?: keyof typeof TRANSFORM_PRESETS): string {
+  const raw = getUrl(path);
+  if (!preset) return raw;
+  return insertTransforms(raw, TRANSFORM_PRESETS[preset]);
 }
 
 // Paths used in the app (key -> path)
@@ -190,27 +241,27 @@ const KEY_TO_PATH: Record<string, string> = {
   img151: "sports/IMG_3650.jpg",
 };
 
-export const heroAbout = getUrl(KEY_TO_PATH.heroAbout!);
-export const heroContact = getUrl(KEY_TO_PATH.heroContact!);
-export const heroImage4 = getUrl(KEY_TO_PATH.heroImage4!);
-export const heroImage1 = getUrl(KEY_TO_PATH.heroImage1!);
-export const heroAdmission = getUrl(KEY_TO_PATH.heroAdmission!);
-export const heroImage2 = getUrl(KEY_TO_PATH.heroImage2!);
-export const heroGallery = getUrl(KEY_TO_PATH.heroGallery!);
-export const heroActivities = getUrl(KEY_TO_PATH.heroActivities!);
-export const heroImage3 = getUrl(KEY_TO_PATH.heroImage3!);
-export const heroAcademics = getUrl(KEY_TO_PATH.heroAcademics!);
-export const heroFacilities = getUrl(KEY_TO_PATH.heroFacilities!);
+export const heroAbout = getUrlWithPreset(KEY_TO_PATH.heroAbout!, "hero");
+export const heroContact = getUrlWithPreset(KEY_TO_PATH.heroContact!, "hero");
+export const heroImage4 = getUrlWithPreset(KEY_TO_PATH.heroImage4!, "hero");
+export const heroImage1 = getUrlWithPreset(KEY_TO_PATH.heroImage1!, "hero");
+export const heroAdmission = getUrlWithPreset(KEY_TO_PATH.heroAdmission!, "hero");
+export const heroImage2 = getUrlWithPreset(KEY_TO_PATH.heroImage2!, "hero");
+export const heroGallery = getUrlWithPreset(KEY_TO_PATH.heroGallery!, "hero");
+export const heroActivities = getUrlWithPreset(KEY_TO_PATH.heroActivities!, "hero");
+export const heroImage3 = getUrlWithPreset(KEY_TO_PATH.heroImage3!, "hero");
+export const heroAcademics = getUrlWithPreset(KEY_TO_PATH.heroAcademics!, "hero");
+export const heroFacilities = getUrlWithPreset(KEY_TO_PATH.heroFacilities!, "hero");
 /** Always use local updated logo from public folder */
 export const schoolLogo = "/school-logo.png";
-export const heroCultural = getUrl(KEY_TO_PATH.heroCultural!);
-export const heroPlayground = getUrl(KEY_TO_PATH.heroPlayground!);
-export const activitiesArt = getUrl(KEY_TO_PATH.activitiesArt!);
-export const activitiesSports = getUrl(KEY_TO_PATH.activitiesSports!);
-export const activitiesAssembly = getUrl(KEY_TO_PATH.activitiesAssembly!);
-export const academicsLab = getUrl(KEY_TO_PATH.academicsLab!);
-export const academicsLibrary = getUrl(KEY_TO_PATH.academicsLibrary!);
-export const academicsComputer = getUrl(KEY_TO_PATH.academicsComputer!);
+export const heroCultural = getUrlWithPreset(KEY_TO_PATH.heroCultural!, "hero");
+export const heroPlayground = getUrlWithPreset(KEY_TO_PATH.heroPlayground!, "hero");
+export const activitiesArt = getUrlWithPreset(KEY_TO_PATH.activitiesArt!, "card");
+export const activitiesSports = getUrlWithPreset(KEY_TO_PATH.activitiesSports!, "card");
+export const activitiesAssembly = getUrlWithPreset(KEY_TO_PATH.activitiesAssembly!, "card");
+export const academicsLab = getUrlWithPreset(KEY_TO_PATH.academicsLab!, "card");
+export const academicsLibrary = getUrlWithPreset(KEY_TO_PATH.academicsLibrary!, "card");
+export const academicsComputer = getUrlWithPreset(KEY_TO_PATH.academicsComputer!, "card");
 export const img1 = getUrl(KEY_TO_PATH.img1!);
 export const img2 = getUrl(KEY_TO_PATH.img2!);
 export const img3 = getUrl(KEY_TO_PATH.img3!);

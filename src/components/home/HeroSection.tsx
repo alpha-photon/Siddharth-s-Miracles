@@ -64,18 +64,30 @@ export function HeroSection() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     const onSelect = () => {
       setCurrentSlide(emblaApi.selectedScrollSnap());
     };
-    
+
     emblaApi.on("select", onSelect);
     onSelect();
-    
+
     return () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  // Preload LCP image (first hero slide) for faster first paint
+  useEffect(() => {
+    const firstSrc = heroSlides[0].image;
+    if (!firstSrc || firstSrc.startsWith("/")) return; // only preload Cloudinary
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = firstSrc;
+    document.head.appendChild(link);
+    return () => link.remove();
+  }, []);
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
