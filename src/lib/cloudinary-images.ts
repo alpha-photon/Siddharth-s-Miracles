@@ -179,6 +179,15 @@ const KEY_TO_PATH: Record<string, string> = {
   img141: "classrooms/IMG_3287.jpg",
   img142: "classrooms/WhatsApp_Image_2025_05_22_at_9.13.25_AM.jpeg",
   img143: "classrooms/WhatsApp_Image_2025_05_22_at_9.13.28_AM_1.jpeg",
+  // Sports images from public/sports
+  img144: "sports/IMG_2542.jpg",
+  img145: "sports/IMG_2553.jpg",
+  img146: "sports/IMG_2555.jpg",
+  img147: "sports/IMG_2558.jpg",
+  img148: "sports/IMG_2584.jpg",
+  img149: "sports/IMG_2585.jpg",
+  img150: "sports/IMG_2625.jpg",
+  img151: "sports/IMG_3650.jpg",
 };
 
 export const heroAbout = getUrl(KEY_TO_PATH.heroAbout!);
@@ -344,6 +353,14 @@ export const img140 = getUrl(KEY_TO_PATH.img140!);
 export const img141 = getUrl(KEY_TO_PATH.img141!);
 export const img142 = getUrl(KEY_TO_PATH.img142!);
 export const img143 = getUrl(KEY_TO_PATH.img143!);
+export const img144 = getUrl(KEY_TO_PATH.img144!);
+export const img145 = getUrl(KEY_TO_PATH.img145!);
+export const img146 = getUrl(KEY_TO_PATH.img146!);
+export const img147 = getUrl(KEY_TO_PATH.img147!);
+export const img148 = getUrl(KEY_TO_PATH.img148!);
+export const img149 = getUrl(KEY_TO_PATH.img149!);
+export const img150 = getUrl(KEY_TO_PATH.img150!);
+export const img151 = getUrl(KEY_TO_PATH.img151!);
 
 /** Use for new images: add path to KEY_TO_PATH and export, then run upload script. */
 export function getCloudinaryUrl(path: string): string {

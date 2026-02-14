@@ -22,6 +22,7 @@ import {
   img125, img126, img127, img128, img129, img130, img131, img132,
   img133, img134, img135, img136,
   img137, img138, img139, img140, img141, img142, img143,
+  img144, img145, img146, img147, img148, img149, img150, img151,
 } from "@/lib/cloudinary-images";
 
 // Image categories - Update categories based on actual image content
@@ -114,6 +115,15 @@ const allImages = [
   { src: img141, category: "classrooms" },
   { src: img142, category: "classrooms" },
   { src: img143, category: "classrooms" },
+  // Sports images from public/sports
+  { src: img144, category: "sports" },
+  { src: img145, category: "sports" },
+  { src: img146, category: "sports" },
+  { src: img147, category: "sports" },
+  { src: img148, category: "sports" },
+  { src: img149, category: "sports" },
+  { src: img150, category: "sports" },
+  { src: img151, category: "sports" },
 ];
 
 const galleryCategories = [
@@ -123,6 +133,7 @@ const galleryCategories = [
   { name: "Celebrations", nameGuj: "ઉજવણી", value: "celebrations" },
   { name: "Events", nameGuj: "કાર્યક્રમો", value: "events" },
   { name: "Campus", nameGuj: "કેમ્પસ", value: "campus" },
+  { name: "Sports", nameGuj: "રમત-ગમત", value: "sports" },
 ];
 
 const PHOTOS_PER_PAGE = 10;
