@@ -225,6 +225,9 @@ const Contact = () => {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background/80 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all"
                       >
                         <option value="">Select Class</option>
+                        <option value="Nursery">Nursery</option>
+                        <option value="LKG">LKG</option>
+                        <option value="UKG">UKG</option>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((std) => (
                           <option key={std} value={std}>Std {std}</option>
                         ))}
@@ -292,14 +295,14 @@ const Contact = () => {
             className="rounded-2xl overflow-hidden shadow-card"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117442.66483175564!2d72.5549865!3d23.2156354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a3c0c422e35%3A0x5cb7e5e6c5dc20c6!2sVavol%2C%20Gandhinagar%2C%20Gujarat%20382016!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.0!2d72.6092092!3d23.2238222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c29619bee5e61%3A0xb5351a48c0c254ba!2sSiddharth%27s%20Miracles%20School!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="School Location Map"
+              title="Siddharth's Miracles School - Location"
             />
           </motion.div>
         </div>

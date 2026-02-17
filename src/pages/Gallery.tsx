@@ -110,7 +110,7 @@ const allImages = [
   
   // Classrooms images from public/Classrooms
   { src: img137, category: "classrooms" },
-  { src: img138, category: "classrooms" },
+  { src: img138, category: "classrooms", rotation: -270 },
   { src: img139, category: "classrooms" },
   { src: img140, category: "classrooms" },
   { src: img141, category: "classrooms" },
@@ -124,17 +124,17 @@ const allImages = [
   { src: img148, category: "sports" },
   { src: img149, category: "sports" },
   { src: img150, category: "sports" },
-  { src: img151, category: "sports" },
+  { src: img151, category: "sports", rotation: -270 },
 ];
 
 const galleryCategories = [
-  { name: "All", nameGuj: "બધા", value: "all" },
-  { name: "Classrooms", nameGuj: "વર્ગખંડો", value: "classrooms" },
-  { name: "Activities", nameGuj: "પ્રવૃત્તિઓ", value: "activities" },
-  { name: "Celebrations", nameGuj: "ઉજવણી", value: "celebrations" },
-  { name: "Events", nameGuj: "કાર્યક્રમો", value: "events" },
-  { name: "Campus", nameGuj: "કેમ્પસ", value: "campus" },
-  { name: "Sports", nameGuj: "રમત-ગમત", value: "sports" },
+  { name: "All", value: "all" },
+  { name: "Classrooms", value: "classrooms" },
+  { name: "Activities", value: "activities" },
+  { name: "Celebrations", value: "celebrations" },
+  { name: "Events", value: "events" },
+  { name: "Campus", value: "campus" },
+  { name: "Sports", value: "sports" },
 ];
 
 const PHOTOS_PER_PAGE = 10;
@@ -380,7 +380,7 @@ const Gallery = () => {
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
-                  {category.name} ({category.nameGuj})
+                  {category.name}
                 </button>
               ))}
             </div>
@@ -409,7 +409,7 @@ const Gallery = () => {
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
-                    src={getOptimizedImageUrl(image.src, "gallery")}
+                    src={getOptimizedImageUrl(image.src, "gallery", "rotation" in image ? { rotation: image.rotation } : undefined)}
                     alt={`School Image ${globalIndex + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -620,7 +620,7 @@ const Gallery = () => {
                   <motion.img
                     key={selectedImage}
                     ref={imageRef}
-                    src={getOptimizedImageUrl(filteredImages[selectedImage].src, "galleryLarge")}
+                    src={getOptimizedImageUrl(filteredImages[selectedImage].src, "galleryLarge", "rotation" in filteredImages[selectedImage] ? { rotation: filteredImages[selectedImage].rotation } : undefined)}
                     alt={`School Image ${selectedImage + 1}`}
                     className={`max-w-full max-h-[95vh] object-contain rounded-lg select-none ${
                       zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react";
 import { schoolLogo } from "@/lib/cloudinary-images";
 
 const quickLinks = [
@@ -113,6 +113,28 @@ export function Footer() {
                 <Clock className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
                 <span className="opacity-80">
                   Mon - Sat: 8:00 AM - 4:00 PM
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <span className="flex gap-3">
+                  <a
+                    href="https://www.instagram.com/siddharthsmiraclesschool"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="opacity-80 hover:opacity-100 hover:text-secondary transition-all"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/siddharthsmiraclesschool"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="opacity-80 hover:opacity-100 hover:text-secondary transition-all"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
                 </span>
               </li>
             </ul>

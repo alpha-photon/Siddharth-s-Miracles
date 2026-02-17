@@ -38,10 +38,22 @@ function getUrl(path: string): string {
   return (urlMap as UrlMap)[path] ?? "";
 }
 
+/** Options for getOptimizedImageUrl (e.g. rotation to fix wrong orientation). */
+export type GetOptimizedImageUrlOptions = { rotation?: number };
+
 /** Returns optimized Cloudinary URL for faster loading (size + format + quality). Non-Cloudinary URLs returned as-is. */
-export function getOptimizedImageUrl(url: string, preset: keyof typeof TRANSFORM_PRESETS): string {
+export function getOptimizedImageUrl(
+  url: string,
+  preset: keyof typeof TRANSFORM_PRESETS,
+  options?: GetOptimizedImageUrlOptions
+): string {
   if (!url) return url;
-  return insertTransforms(url, TRANSFORM_PRESETS[preset]);
+  const baseTransforms = TRANSFORM_PRESETS[preset];
+  const transforms =
+    options?.rotation != null && url.includes("res.cloudinary.com")
+      ? `a_${options.rotation},${baseTransforms}`
+      : baseTransforms;
+  return insertTransforms(url, transforms);
 }
 
 const PLACEHOLDER_TRANSFORM = "w_40,q_auto,f_auto";
