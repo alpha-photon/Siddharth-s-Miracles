@@ -212,8 +212,8 @@ export function HeroSection() {
 const highlights = [
   {
     icon: GraduationCap,
-    title: "Gujarati Medium",
-    description: "Quality education in mother tongue with strong foundation",
+    title: "English Medium",
+    description: "Quality education in English with strong foundation",
     color: "from-secondary/30 to-accent/20",
   },
   {
