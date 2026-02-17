@@ -85,7 +85,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                 {[
-                  { icon: MapPin, title: "Address", content: "SIDDHARTH'S MIRACLES SCHOOL, VAVOL-UVARSAD ROAD, VAVOL, GANDHINAGAR, GUJARAT - 382016", color: "from-primary/20 to-primary/10", link: null },
+                  { icon: MapPin, title: "Address", content: "SIDDHARTH'S MIRACLES SCHOOL, VAVOL-UVARSAD ROAD, VAVOL, GANDHINAGAR, GUJARAT - 382016", color: "from-primary/20 to-primary/10", link: "https://www.google.com/maps/place/Siddharth%27s+Miracles+School/@23.2238222,72.6066343,17z", openInNewTab: true },
                   { icon: Phone, title: "Phone", content: "+91 99259 41082", color: "from-secondary/20 to-accent/10", link: "tel:+919925941082" },
                   { icon: Mail, title: "Email", content: "siddharthsmiraclesvavol@yahoo.com", color: "from-maroon/20 to-maroon/10", link: "mailto:siddharthsmiraclesvavol@yahoo.com" },
                   { icon: Clock, title: "Office Hours", content: "Monday - Saturday: 8:00 AM - 4:00 PM. Sunday: Closed", color: "from-primary/20 to-primary/10", link: null },
@@ -107,7 +107,11 @@ const Contact = () => {
                         </div>
                         <h3 className="font-heading text-base font-bold text-maroon mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
                         {item.link ? (
-                          <a href={item.link} className="text-sm text-muted-foreground hover:text-primary transition-colors leading-snug flex-1">
+                          <a
+                            href={item.link}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors leading-snug flex-1 block"
+                            {...(item.openInNewTab && { target: "_blank", rel: "noopener noreferrer" })}
+                          >
                             {item.content}
                           </a>
                         ) : (
