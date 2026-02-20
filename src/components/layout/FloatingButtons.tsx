@@ -11,7 +11,7 @@ export function FloatingButtons() {
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-4 md:right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-xl bg-maroon text-maroon-foreground font-semibold border-2 border-maroon/80 shadow-elevated hover:shadow-[0_12px_28px_-4px_hsl(var(--maroon)/0.35)] hover:bg-maroon/95 transition-all duration-300"
+        className="fixed bottom-6 right-4 md:right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-xl bg-amber-500 text-white font-semibold border-2 border-amber-600/80 shadow-elevated hover:shadow-[0_12px_28px_-4px_rgba(245,158,11,0.35)] hover:bg-amber-400 transition-all duration-300"
         initial={{ opacity: 0, x: 20 }}
         animate={{
           opacity: 1,

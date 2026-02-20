@@ -1,61 +1,46 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, ChevronRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+const PREVIEW_LENGTH = 130;
 
 const testimonials = [
   {
-    name: "Priya Patel",
-    role: "Parent of Std 5 Student",
-    quote: "My child has grown not just academically but as a confident and disciplined person. The teachers here truly care about each student's development.",
-    nameGuj: "પ્રિયા પટેલ",
+    name: "Kalpana Singh",
+    role: "Parent",
+    quote:
+      "I am thoroughly delighted with the exceptional education and care that my child has received at Siddharth's Miracles School. The school's emphasis on overall development, not just academically but also in extracurricular activities, has been truly impressive. The good culture of the school, caring teachers, and supporting staff provide a warm and welcoming environment that fosters growth and learning. The quality education provided by the school is of a very high standard, with knowledgeable and experienced teachers who are passionate about their work. Overall, I highly recommend Siddharth's Miracles School to any parent seeking a nurturing and stimulating environment for their child to thrive.",
     rating: 5,
   },
   {
-    name: "Rajesh Shah",
-    role: "Parent of Std 8 Student",
-    quote: "The school's focus on values and sanskar along with academics is exactly what we wanted for our children. Highly recommended!",
-    nameGuj: "રાજેશ શાહ",
-    rating: 5,
-  },
-  {
-    name: "Meena Desai",
-    role: "Parent of Std 3 Student",
-    quote: "Safe environment, caring teachers, and excellent results. Siddharth's Miracles has been a blessing for our family.",
-    nameGuj: "મીના દેસાઈ",
-    rating: 5,
-  },
-  {
-    name: "Amit Kumar",
-    role: "Parent of Std 7 Student",
-    quote: "The holistic approach to education here is amazing. My child participates in sports, cultural activities, and academics with equal enthusiasm.",
-    nameGuj: "અમિત કુમાર",
-    rating: 5,
-  },
-  {
-    name: "Sunita Mehta",
-    role: "Parent of Std 4 Student",
-    quote: "The personal attention given to each child is remarkable. Teachers know every student individually and guide them accordingly.",
-    nameGuj: "સુનીતા મેહતા",
-    rating: 5,
-  },
-  {
-    name: "Vikram Joshi",
-    role: "Parent of Std 6 Student",
-    quote: "Best decision we made for our child's education. The infrastructure, teaching methods, and values all align perfectly with our expectations.",
-    nameGuj: "વિક્રમ જોશી",
+    name: "Maila Paramesh & G. Nirmala",
+    role: "Parents of Master Maila Ritwik (UKG)",
+    quote:
+      "We are delighted to share our positive experience with Siddharth Miracle School, where our son is thriving in UKG. The teachers create a nurturing and engaging environment tailored for young learners—their play-based curriculum sparks curiosity and builds foundational skills in reading, numbers, and social interaction effectively. We've seen remarkable growth in his confidence and love for learning since he joined. The school's caring staff goes above and beyond, providing personalized attention that makes each child feel valued. The clean, colorful classrooms and outdoor play areas are perfect for UKG kids, promoting both fun and safety. Parent-teacher communication is frequent and helpful. Choosing Siddharth Miracle School has been one of the best decisions for our family—our son looks forward to school every day. It's a true miracle for early childhood education, fostering creativity and discipline hand-in-hand.",
     rating: 5,
   },
 ];
 
+function getPreview(quote: string) {
+  if (quote.length <= PREVIEW_LENGTH) return quote;
+  return quote.slice(0, PREVIEW_LENGTH).trim() + "...";
+}
+
 export function TestimonialsSection() {
-  // Duplicate testimonials for seamless loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const selected = modalIndex !== null ? testimonials[modalIndex] : null;
 
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-secondary/10 via-background to-background relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-secondary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-      
+
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -76,79 +61,94 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Continuous Moving Carousel */}
-        <div className="relative w-full group">
-          <div className="flex gap-6 animate-testimonial-scroll group-hover:[animation-play-state:paused]">
-            {/* First set */}
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-              >
-                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-300 group">
-                  {/* Decorative quote icon */}
-                  <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
-                  
-                  {/* Star rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                    ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="flex-shrink-0"
+            >
+              <div className="card-3d h-full card-premium bg-card rounded-2xl p-5 md:p-6 relative overflow-hidden transition-all duration-300 group flex flex-col">
+                <Quote className="absolute top-3 right-3 h-10 w-10 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
+
+                <div className="flex gap-1 mb-3">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-secondary text-secondary"
+                    />
+                  ))}
+                </div>
+
+                <p className="text-foreground/80 leading-relaxed mb-4 italic text-sm md:text-base line-clamp-4 min-h-[4.5rem]">
+                  "{getPreview(testimonial.quote)}"
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setModalIndex(index)}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-maroon hover:text-maroon/80 transition-colors mt-auto"
+                >
+                  Read more
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+
+                <div className="flex items-center gap-3 pt-4 mt-4 border-t border-border/50">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-sm shadow-lg flex-shrink-0">
+                    {testimonial.name.charAt(0)}
                   </div>
-                  
-                  <p className="text-foreground/80 leading-relaxed mb-6 italic text-base md:text-lg">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
-                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
-                    </div>
+                  <div className="min-w-0">
+                    <p className="font-bold text-foreground text-sm md:text-base truncate">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-xs text-muted-foreground truncate">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
-            {/* Second set for seamless loop */}
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-              >
-                <div className="card-3d h-full card-premium bg-card rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-300 group">
-                  {/* Decorative quote icon */}
-                  <Quote className="absolute top-4 right-4 h-12 w-12 text-secondary/20 group-hover:text-secondary/40 transition-colors duration-500" />
-                  
-                  {/* Star rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-foreground/80 leading-relaxed mb-6 italic text-base md:text-lg">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
-                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
+      <Dialog open={modalIndex !== null} onOpenChange={(open) => !open && setModalIndex(null)}>
+        <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl border-border/50 bg-card">
+          {selected && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-3 pr-8">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-maroon flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                    {selected.name.charAt(0)}
+                  </div>
+                  <div>
+                    <DialogTitle className="text-xl text-left">
+                      {selected.name}
+                    </DialogTitle>
+                    <p className="text-sm text-muted-foreground font-normal">
+                      {selected.role}
+                    </p>
+                  </div>
+                </div>
+              </DialogHeader>
+              <div className="flex gap-1 mb-4">
+                {[...Array(selected.rating)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-4 w-4 fill-secondary text-secondary"
+                  />
+                ))}
+              </div>
+              <p className="text-foreground/90 leading-relaxed italic text-base md:text-lg">
+                "{selected.quote}"
+              </p>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
