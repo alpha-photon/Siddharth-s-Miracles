@@ -11,26 +11,22 @@ import { heroAdmission } from "@/lib/cloudinary-images";
 const admissionSteps = [
   {
     step: 1,
-    title: "પૂછપરછ",
-    titleEn: "Enquiry",
+    title: "Enquiry",
     description: "Contact us via phone, WhatsApp, or visit the school for initial enquiry.",
   },
   {
     step: 2,
-    title: "શાળા મુલાકાત",
-    titleEn: "School Visit",
+    title: "School Visit",
     description: "Schedule a visit to see our campus, facilities, and meet our teachers.",
   },
   {
     step: 3,
-    title: "ફોર્મ ભરો",
-    titleEn: "Fill Application",
+    title: "Fill Application",
     description: "Complete the admission form with all required documents.",
   },
   {
     step: 4,
-    title: "પ્રવેશ",
-    titleEn: "Admission",
+    title: "Admission",
     description: "Upon approval, complete fee payment and secure your child's admission.",
   },
 ];
@@ -103,8 +99,7 @@ const Admission = () => {
                     <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center group-hover:scale-110 transition-all duration-500">
                       <span className="text-lg font-bold text-secondary-foreground">{item.step}</span>
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-maroon mb-1 group-hover:text-secondary transition-colors duration-300">{item.titleEn}</h3>
-                    <p className="text-sm font-medium text-primary mb-2">{item.title}</p>
+                    <h3 className="font-heading text-lg font-bold text-maroon mb-1 group-hover:text-secondary transition-colors duration-300">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>

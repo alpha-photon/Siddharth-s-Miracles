@@ -64,18 +64,30 @@ export function HeroSection() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     const onSelect = () => {
       setCurrentSlide(emblaApi.selectedScrollSnap());
     };
-    
+
     emblaApi.on("select", onSelect);
     onSelect();
-    
+
     return () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  // Preload LCP image (first hero slide) for faster first paint
+  useEffect(() => {
+    const firstSrc = heroSlides[0].image;
+    if (!firstSrc || firstSrc.startsWith("/")) return; // only preload Cloudinary
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = firstSrc;
+    document.head.appendChild(link);
+    return () => link.remove();
+  }, []);
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -200,29 +212,25 @@ export function HeroSection() {
 const highlights = [
   {
     icon: GraduationCap,
-    title: "ગુજરાતી માધ્યમ",
-    titleEn: "Gujarati Medium",
-    description: "Quality education in mother tongue with strong foundation",
+    title: "English Medium",
+    description: "Quality education in English with strong foundation",
     color: "from-secondary/30 to-accent/20",
   },
   {
     icon: Users,
-    title: "અનુભવી શિક્ષકો",
-    titleEn: "Experienced Teachers",
+    title: "Experienced Teachers",
     description: "Dedicated faculty with years of teaching excellence",
     color: "from-primary/20 to-primary/10",
   },
   {
     icon: Award,
-    title: "શિસ્ત અને સંસ્કાર",
-    titleEn: "Discipline & Values",
+    title: "Discipline & Values",
     description: "Building character along with academic excellence",
     color: "from-maroon/20 to-maroon/10",
   },
   {
     icon: Palette,
-    title: "સહ-અભ્યાસિક પ્રવૃત્તિઓ",
-    titleEn: "Co-curricular Activities",
+    title: "Co-curricular Activities",
     description: "Holistic development through sports, arts & culture",
     color: "from-growth/20 to-growth/10",
   },
@@ -256,7 +264,7 @@ export function HighlightsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, index) => (
             <motion.div
-              key={item.titleEn}
+              key={item.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -388,12 +396,9 @@ export function HighlightsSection() {
                   
                   {/* Title with decorative underline - mustard yellow */}
                   <h3 className="font-heading text-xl md:text-2xl font-bold text-maroon mb-3 group-hover:text-secondary transition-colors duration-300 leading-tight relative inline-block">
-                    {item.titleEn}
+                    {item.title}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-secondary/70 group-hover:w-full transition-all duration-500" />
                   </h3>
-                  
-                  {/* Gujarati subtitle */}
-                  <p className="text-sm font-semibold text-primary mb-4 tracking-wide">{item.title}</p>
                   
                   {/* Description */}
                   <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1 group-hover:text-foreground/80 transition-colors duration-300">

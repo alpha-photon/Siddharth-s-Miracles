@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
 
 // Actual school photos from gallery (img1–img40 are real school images)
-import { img1, img2, img3, img4, img5 } from "@/lib/cloudinary-images";
+import { img1, img2, img3, img4, img5, getOptimizedImageUrl } from "@/lib/cloudinary-images";
 
 const galleryImages = [
   { src: img1, title: "Annual Day Celebrations" },
@@ -35,9 +35,11 @@ function GalleryPreviewCarousel() {
               <div className="relative group overflow-hidden rounded-2xl shadow-elevated">
                 <div className="image-zoom aspect-[3/2]">
                   <img
-                    src={image.src}
+                    src={getOptimizedImageUrl(image.src, "card")}
                     alt={image.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

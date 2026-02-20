@@ -37,7 +37,7 @@ const classCards = [
   },
   {
     title: "Primary Class",
-    subtitle: "Class I to VII",
+    subtitle: "Class I to VIII",
     icon: GraduationCap,
     iconBg: "from-primary/20 to-primary/10",
     bulletColor: "text-primary",

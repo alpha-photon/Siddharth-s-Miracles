@@ -12,50 +12,42 @@ import { MessageCircle } from "lucide-react";
 const facilities = [
   {
     icon: Building2,
-    title: "વર્ગખંડો",
-    titleEn: "Classrooms",
+    title: "Classrooms",
     description: "Spacious and comfortable classrooms designed for effective learning.",
   },
   {
     icon: TreePine,
-    title: "રમતનું મેદાન",
-    titleEn: "Playground",
+    title: "Playground",
     description: "Dedicated outdoor play area for sports, games, and physical activities.",
   },
   {
     icon: FlaskConical,
-    title: "વિજ્ઞાન પ્રયોગશાળા",
-    titleEn: "Science Lab",
+    title: "Science Lab",
     description: "Well-equipped science laboratory for hands-on experiments and learning.",
   },
   {
     icon: BookOpen,
-    title: "કમ્પ્યુટર લેબ",
-    titleEn: "Computer Lab",
+    title: "Computer Lab",
     description: "Modern computer lab with latest technology for digital learning.",
   },
   {
     icon: Palette,
-    title: "કલા અને હસ્તકલા રૂમ",
-    titleEn: "Art and Craft Room",
+    title: "Art and Craft Room",
     description: "Dedicated space for creative expression through art and craft activities.",
   },
   {
     icon: Building2,
-    title: "ઇન્ડોર ગેમ્સ હોલ",
-    titleEn: "Indoor Games Hall",
+    title: "Indoor Games Hall",
     description: "Indoor sports facility for various games and activities.",
   },
   {
     icon: Building2,
-    title: "પ્રવૃત્તિ રૂમ",
-    titleEn: "Activity Room",
+    title: "Activity Room",
     description: "Multi-purpose activity room for various co-curricular activities.",
   },
   {
     icon: BookOpen,
-    title: "પુસ્તકાલય",
-    titleEn: "Library",
+    title: "Library",
     description: "Well-stocked library with books, magazines, and educational resources.",
   },
 ];
@@ -74,7 +66,7 @@ const Facilities = () => {
         title="FACILITIES"
         subtitle="Comfortable, Secure & Student-Friendly Environment"
         description=""
-        backgroundImage={heroFacilities}
+        backgroundImage="/facilities.png"
         overlayOpacity="light"
       />
 
@@ -103,7 +95,7 @@ const Facilities = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {facilities.map((facility, index) => (
               <motion.div
-                key={facility.titleEn}
+                key={facility.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -117,9 +109,8 @@ const Facilities = () => {
                       <facility.icon className="h-7 w-7 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
                     <h3 className="font-heading text-lg font-bold text-maroon mb-1 group-hover:text-secondary transition-colors duration-300">
-                      {facility.titleEn}
+                      {facility.title}
                     </h3>
-                    <p className="text-sm font-medium text-primary mb-3">{facility.title}</p>
                     <p className="text-sm text-muted-foreground">{facility.description}</p>
                   </div>
                 </div>

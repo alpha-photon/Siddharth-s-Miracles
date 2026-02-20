@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { LucideIcon, ArrowRight, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { getPlaceholderUrl } from "@/lib/cloudinary-images";
 
 interface PageHeroProps {
   badge?: string;
@@ -28,20 +30,38 @@ export function PageHero({
   iconSubtext,
   overlayOpacity = "default",
 }: PageHeroProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const isCloudinary = backgroundImage?.includes("res.cloudinary.com");
+  const placeholderUrl = isCloudinary ? getPlaceholderUrl(backgroundImage!) : undefined;
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Image - same overlay as homepage hero */}
       {backgroundImage && (
         <div className="absolute inset-0">
+          {/* Tiny blur placeholder (LQIP) – shows instantly while main image loads */}
+          {placeholderUrl && (
+            <img
+              src={placeholderUrl}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover object-top sm:object-center scale-105 blur-md"
+              style={{ filter: "blur(12px)" }}
+            />
+          )}
           <motion.img
             src={backgroundImage}
             alt=""
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover object-top sm:object-center"
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            onLoad={() => setImageLoaded(true)}
+            className="absolute inset-0 w-full h-full object-cover object-top sm:object-center"
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: imageLoaded ? 1 : 0,
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           />
           {/* Reddish/maroon overlay – same as home page hero */}
           <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />

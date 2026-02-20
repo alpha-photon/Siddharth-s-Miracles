@@ -51,7 +51,10 @@ export function getOrganizationSchema() {
     },
     telephone: "+919925941082",
     areaServed: { "@type": "City", name: "Gandhinagar" },
-    sameAs: [],
+    sameAs: [
+      "https://www.instagram.com/siddharthsmiraclesschool",
+      "https://www.facebook.com/siddharthsmiraclesschool",
+    ],
   };
 }
 

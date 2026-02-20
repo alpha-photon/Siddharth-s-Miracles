@@ -12,20 +12,18 @@ import { useCallback } from "react";
 import { heroAcademics } from "@/lib/cloudinary-images";
 
 const subjects = [
-  { icon: Languages, name: "ગુજરાતી", nameEn: "Gujarati", color: "from-secondary/30 to-accent/20" },
-  { icon: BookOpen, name: "હિન્દી", nameEn: "Hindi", color: "from-primary/20 to-primary/10" },
-  { icon: PenTool, name: "અંગ્રેજી", nameEn: "English", color: "from-growth/20 to-growth/10" },
-  { icon: BookOpen, name: "સંસ્કૃત", nameEn: "Sanskrit", color: "from-maroon/20 to-maroon/10" },
-  { icon: Calculator, name: "ગણિત", nameEn: "Mathematics", color: "from-maroon/20 to-maroon/10" },
-  { icon: FlaskConical, name: "વિજ્ઞાન", nameEn: "Science", color: "from-secondary/30 to-accent/20" },
-  { icon: Globe, name: "સામાજિક વિજ્ઞાન", nameEn: "Social Science", color: "from-primary/20 to-primary/10" },
-  { icon: Laptop, name: "કમ્પ્યુટર વિજ્ઞાન", nameEn: "Computer Science", color: "from-primary/20 to-primary/10" },
-
-  { icon: Microscope, name: "પર્યાવરણ", nameEn: "Environment", color: "from-growth/20 to-growth/10" },
-  { icon: Palette, name: "ચિત્રકામ", nameEn: "Drawing", color: "from-maroon/20 to-maroon/10" },
-  { icon: Home, name: "ગૃહ વિજ્ઞાન", nameEn: "Home Science", color: "from-secondary/30 to-accent/20" },
- 
-  { icon: Activity, name: "યોગ", nameEn: "Yoga", color: "from-growth/20 to-growth/10" },
+  { icon: Languages, name: "Gujarati", color: "from-secondary/30 to-accent/20" },
+  { icon: BookOpen, name: "Hindi", color: "from-primary/20 to-primary/10" },
+  { icon: PenTool, name: "English", color: "from-growth/20 to-growth/10" },
+  { icon: BookOpen, name: "Sanskrit", color: "from-maroon/20 to-maroon/10" },
+  { icon: Calculator, name: "Mathematics", color: "from-maroon/20 to-maroon/10" },
+  { icon: FlaskConical, name: "Science", color: "from-secondary/30 to-accent/20" },
+  { icon: Globe, name: "Social Science", color: "from-primary/20 to-primary/10" },
+  { icon: Laptop, name: "Computer Science", color: "from-primary/20 to-primary/10" },
+  { icon: Microscope, name: "Environment", color: "from-growth/20 to-growth/10" },
+  { icon: Palette, name: "Drawing", color: "from-maroon/20 to-maroon/10" },
+  { icon: Home, name: "Home Science", color: "from-secondary/30 to-accent/20" },
+  { icon: Activity, name: "Yoga", color: "from-growth/20 to-growth/10" },
 ];
 
 const methodology = [
@@ -174,7 +172,7 @@ const Academics = () => {
         title="ACADEMICS"
         subtitle="Academic Excellence with a Modern Approach"
         description=""
-        backgroundImage="/IMG_3287.JPG"
+        backgroundImage="/gallery.png"
         overlayOpacity="light"
       />
 
@@ -231,7 +229,7 @@ const Academics = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {subjects.map((subject, index) => (
               <motion.div
-                key={subject.nameEn}
+                key={subject.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,8 +242,7 @@ const Academics = () => {
                     <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary/25 to-accent/25 flex items-center justify-center ring-2 ring-secondary/20 group-hover:ring-secondary/40 group-hover:scale-110 transition-all duration-500 shadow-md">
                       <subject.icon className="h-7 w-7 md:h-8 md:w-8 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
-                    <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-1 leading-tight group-hover:text-secondary transition-colors duration-300">{subject.nameEn}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{subject.name}</p>
+                    <h3 className="font-heading text-base md:text-lg font-bold text-maroon mb-1 leading-tight group-hover:text-secondary transition-colors duration-300">{subject.name}</h3>
                   </div>
                 </div>
               </motion.div>

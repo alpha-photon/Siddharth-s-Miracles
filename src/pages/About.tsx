@@ -152,7 +152,7 @@ const About = () => {
         title="ABOUT SIDDHARTH'S MIRACLES"
         subtitle="Where Each Day is a Miracle"
         description=""
-        backgroundImage={heroAbout}
+        backgroundImage="/ab.png"
         overlayOpacity="light"
       />
 
@@ -341,10 +341,10 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { icon: BookOpen, title: "Forms of Education", description: "Education is the transmission of knowledge, skills, and character traits and manifests in various forms. Formal education occurs within a structured institutional framework, such as schools, following a curriculum. Non-formal education also follows a structured approach but occurs outside the formal schooling system, while informal education entails unstructured learning through daily experiences.", color: "from-primary/20 to-primary/10", author: "Geetha Satish Pisharody" },
-              { icon: Heart, title: "Welcome", description: "It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have created an environment where students feel safe, valued and respected, and where they can thrive academically, socially, physically, and emotionally. We believe that every child is endowed with a unique set of attributes and abilities, which need to be nurtured so that they bloom.", color: "from-maroon/20 to-maroon/10", author: "Suresh Keshavlal Jain" },
-              { icon: Sparkles, title: "Our Goal", description: "At Siddharth's Miracles, we provide a learning environment that inspires and motivates children, and encourages them to explore limitless possibilities in their quest for knowledge. Our goal is to make Siddharth's Miracles a happy school, WHERE EACH DAY WILL BE A MIRACLE, where teaching is pleasure and learning is fun. Our caring and committed teaching and non-teaching staff are our pillars of strength.", color: "from-secondary/20 to-accent/10", author: "Geetha Satish Pisharody" },
-              { icon: Users, title: "Invitation", description: "We warmly invite you to explore Siddharth's Miracles. We aim to create an environment where students can thrive and reach their full potential.", color: "from-primary/20 to-primary/10", author: "Suresh Keshavlal Jain" },
+              { icon: BookOpen, title: "Forms of Education", description: "Education is the transmission of knowledge, skills, and character traits and manifests in various forms. Formal education occurs within a structured institutional framework, such as schools, following a curriculum. Non-formal education also follows a structured approach but occurs outside the formal schooling system, while informal education entails unstructured learning through daily experiences.", color: "from-primary/20 to-primary/10", author: "Suresh Keshavlal Jain" },
+              { icon: Heart, title: "Welcome", description: "It gives me great pleasure to welcome you to SIDDHARTH'S MIRACLES SCHOOL, where we have created an environment where students feel safe, valued and respected, and where they can thrive academically, socially, physically, and emotionally. We believe that every child is endowed with a unique set of attributes and abilities, which need to be nurtured so that they bloom.", color: "from-maroon/20 to-maroon/10", author: "Geetha Satish Pisharody" },
+              { icon: Sparkles, title: "Our Goal", description: "At Siddharth's Miracles, we provide a learning environment that inspires and motivates children, and encourages them to explore limitless possibilities in their quest for knowledge. Our goal is to make Siddharth's Miracles a happy school, WHERE EACH DAY WILL BE A MIRACLE, where teaching is pleasure and learning is fun. Our caring and committed teaching and non-teaching staff are our pillars of strength.", color: "from-secondary/20 to-accent/10", author: "Suresh Keshavlal Jain" },
+              { icon: Users, title: "Invitation", description: "We warmly invite you to explore Siddharth's Miracles. We aim to create an environment where students can thrive and reach their full potential.", color: "from-primary/20 to-primary/10", author: "Geetha Satish Pisharody" },
             ].map((item, index) => (
               <motion.div
                 key={item.title}

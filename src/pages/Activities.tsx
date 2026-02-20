@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Palette, Music, Trophy, PartyPopper, Heart, Users, Award, Sparkles, Brain, Dumbbell, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { AnimatedCardBackground } from "@/components/ui/AnimatedCardBackground";
-import { heroActivities } from "@/lib/cloudinary-images";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
@@ -14,64 +13,56 @@ import { MessageCircle } from "lucide-react";
 const activities = [
   {
     icon: Palette,
-    title: "ચિત્રકામ અને હસ્તકલા",
-    titleEn: "Drawing & Craft",
+    title: "Drawing & Craft",
     description: "Creative expression through art, painting, and handcraft activities.",
     color: "from-secondary/30 to-accent/20",
     iconBg: "from-secondary/25 to-accent/25",
   },
   {
     icon: Trophy,
-    title: "રમત-ગમત",
-    titleEn: "Sports & Games",
+    title: "Sports & Games",
     description: "Physical activities including indoor games, outdoor sports, and yoga.",
     color: "from-growth/20 to-growth/10",
     iconBg: "from-growth/25 to-growth/15",
   },
   {
     icon: Music,
-    title: "સાંસ્કૃતિક કાર્યક્રમો",
-    titleEn: "Cultural Programs",
+    title: "Cultural Programs",
     description: "Music, dance, drama, and cultural performances throughout the year.",
     color: "from-primary/20 to-primary/10",
     iconBg: "from-primary/25 to-primary/15",
   },
   {
     icon: PartyPopper,
-    title: "તહેવાર ઉજવણી",
-    titleEn: "Festival Celebrations",
+    title: "Festival Celebrations",
     description: "Celebrating Indian festivals with joy and teaching cultural values.",
     color: "from-maroon/20 to-maroon/10",
     iconBg: "from-maroon/25 to-maroon/15",
   },
   {
     icon: Heart,
-    title: "નૈતિક શિક્ષણ",
-    titleEn: "Moral Education",
+    title: "Moral Education",
     description: "Character building through stories, values, and ethical teaching.",
     color: "from-secondary/30 to-accent/20",
     iconBg: "from-secondary/25 to-accent/25",
   },
   {
     icon: Users,
-    title: "વ્યક્તિત્વ વિકાસ",
-    titleEn: "Personality Development",
+    title: "Personality Development",
     description: "Building confidence, communication skills, and leadership qualities.",
     color: "from-growth/20 to-growth/10",
     iconBg: "from-growth/25 to-growth/15",
   },
   {
     icon: Award,
-    title: "સ્પર્ધાઓ",
-    titleEn: "Competitions",
+    title: "Competitions",
     description: "Inter-class and external competitions in academics and extracurriculars.",
     color: "from-primary/20 to-primary/10",
     iconBg: "from-primary/25 to-primary/15",
   },
   {
     icon: Sparkles,
-    title: "વિશેષ કાર્યક્રમો",
-    titleEn: "Special Events",
+    title: "Special Events",
     description: "Annual day, sports day, science fair, and other memorable events.",
     color: "from-maroon/20 to-maroon/10",
     iconBg: "from-maroon/25 to-maroon/15",
@@ -164,7 +155,7 @@ function ActivitiesCarousel() {
             const IconComp = activity.icon;
             return (
               <div
-                key={activity.titleEn}
+                key={activity.title}
                 className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_32%] lg:flex-[0_0_24%] min-w-0"
               >
                 <div className="group h-full bg-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden flex flex-col border-2 border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-secondary/50 hover:-translate-y-2">
@@ -174,9 +165,8 @@ function ActivitiesCarousel() {
                       <IconComp className="h-8 w-8 md:h-10 md:w-10 text-maroon group-hover:text-secondary transition-colors duration-300" />
                     </div>
                     <h3 className="font-heading text-lg md:text-xl font-bold text-maroon mb-2 group-hover:text-secondary transition-colors duration-300 leading-tight">
-                      {activity.titleEn}
+                      {activity.title}
                     </h3>
-                    <p className="text-sm font-semibold text-primary mb-3 tracking-wide">{activity.title}</p>
                     <p className="text-sm md:text-base text-muted-foreground leading-relaxed flex-1">{activity.description}</p>
                   </div>
                 </div>
@@ -219,7 +209,7 @@ const Activities = () => {
         title="ACTIVITIES & DEVELOPMENT"
         subtitle="Beyond Books, Towards Holistic Growth"
         description=""
-        backgroundImage={heroActivities}
+        backgroundImage="/activites.png"
         overlayOpacity="light"
       />
 

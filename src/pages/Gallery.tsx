@@ -6,6 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCw } from "lucide-react";
 import {
   heroGallery,
+  getOptimizedImageUrl,
   img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
   img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
   img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
@@ -22,6 +23,7 @@ import {
   img125, img126, img127, img128, img129, img130, img131, img132,
   img133, img134, img135, img136,
   img137, img138, img139, img140, img141, img142, img143,
+  img144, img145, img146, img147, img148, img149, img150, img151,
 } from "@/lib/cloudinary-images";
 
 // Image categories - Update categories based on actual image content
@@ -108,25 +110,38 @@ const allImages = [
   
   // Classrooms images from public/Classrooms
   { src: img137, category: "classrooms" },
-  { src: img138, category: "classrooms" },
+  { src: img138, category: "classrooms", rotation: -270 },
   { src: img139, category: "classrooms" },
   { src: img140, category: "classrooms" },
   { src: img141, category: "classrooms" },
   { src: img142, category: "classrooms" },
   { src: img143, category: "classrooms" },
+  // Sports images from public/sports
+  { src: img144, category: "sports" },
+  { src: img145, category: "sports" },
+  { src: img146, category: "sports" },
+  { src: img147, category: "sports" },
+  { src: img148, category: "sports" },
+  { src: img149, category: "sports" },
+  { src: img150, category: "sports" },
+  { src: img151, category: "sports", rotation: -270 },
 ];
 
 const galleryCategories = [
-  { name: "All", nameGuj: "બધા", value: "all" },
-  { name: "Classrooms", nameGuj: "વર્ગખંડો", value: "classrooms" },
-  { name: "Activities", nameGuj: "પ્રવૃત્તિઓ", value: "activities" },
-  { name: "Celebrations", nameGuj: "ઉજવણી", value: "celebrations" },
-  { name: "Events", nameGuj: "કાર્યક્રમો", value: "events" },
-  { name: "Campus", nameGuj: "કેમ્પસ", value: "campus" },
+  { name: "All", value: "all" },
+  { name: "Classrooms", value: "classrooms" },
+  { name: "Activities", value: "activities" },
+  { name: "Celebrations", value: "celebrations" },
+  { name: "Events", value: "events" },
+  { name: "Campus", value: "campus" },
+  { name: "Sports", value: "sports" },
 ];
+
+const PHOTOS_PER_PAGE = 10;
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -141,6 +156,14 @@ const Gallery = () => {
   const filteredImages = selectedCategory === "all" 
     ? allImages 
     : allImages.filter(img => img.category === selectedCategory);
+
+  const totalPages = Math.ceil(filteredImages.length / PHOTOS_PER_PAGE) || 1;
+  const startIndex = (currentPage - 1) * PHOTOS_PER_PAGE;
+  const paginatedImages = filteredImages.slice(startIndex, startIndex + PHOTOS_PER_PAGE);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -312,7 +335,7 @@ const Gallery = () => {
         title="GALLERY"
         subtitle="Moments That Define Our School Life - Glimpses of Learning, Joy & Growth"
         description=""
-        backgroundImage={heroGallery}
+        backgroundImage="/aca.JPG"
         overlayOpacity="light"
       />
 
@@ -350,14 +373,14 @@ const Gallery = () => {
               {galleryCategories.map((category) => (
                 <button
                   key={category.value}
-                  onClick={() => setSelectedCategory(category.value)}
+                  onClick={() => { setSelectedCategory(category.value); setCurrentPage(1); }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                     selectedCategory === category.value
                       ? "bg-maroon text-white shadow-lg scale-105"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
-                  {category.name} ({category.nameGuj})
+                  {category.name}
                 </button>
               ))}
             </div>
@@ -370,9 +393,11 @@ const Gallery = () => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
           >
-            {filteredImages.map((image, index) => (
+            {paginatedImages.map((image, index) => {
+              const globalIndex = startIndex + index;
+              return (
               <motion.div
-                key={index}
+                key={globalIndex}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -380,14 +405,15 @@ const Gallery = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group relative overflow-hidden rounded-xl shadow-card cursor-pointer"
-                onClick={() => openLightbox(index)}
+                onClick={() => openLightbox(globalIndex)}
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
-                    src={image.src}
-                    alt={`School Image ${index + 1}`}
+                    src={getOptimizedImageUrl(image.src, "gallery", "rotation" in image ? { rotation: image.rotation } : undefined)}
+                    alt={`School Image ${globalIndex + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   />
@@ -409,18 +435,50 @@ const Gallery = () => {
                   </div>
                 </motion.div>
               </motion.div>
-            ))}
+            );
+            })}
           </motion.div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-wrap items-center justify-center gap-3 mt-10"
+            >
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-muted text-muted-foreground hover:bg-muted/80 disabled:opacity-50 disabled:pointer-events-none transition-all"
+                aria-label="Previous page"
+              >
+                <ChevronLeft className="w-4 h-4" /> Previous
+              </button>
+              <span className="px-4 py-2 text-sm font-medium text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                type="button"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-muted text-muted-foreground hover:bg-muted/80 disabled:opacity-50 disabled:pointer-events-none transition-all"
+                aria-label="Next page"
+              >
+                Next <ChevronRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+          )}
 
           {/* Image Count */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12"
+            className="text-center mt-6"
           >
             <p className="text-muted-foreground">
-              Showing {filteredImages.length} photos
+              Showing {filteredImages.length === 0 ? 0 : startIndex + 1}–{Math.min(startIndex + PHOTOS_PER_PAGE, filteredImages.length)} of {filteredImages.length} photos
             </p>
           </motion.div>
         </div>
@@ -562,7 +620,7 @@ const Gallery = () => {
                   <motion.img
                     key={selectedImage}
                     ref={imageRef}
-                    src={filteredImages[selectedImage].src}
+                    src={getOptimizedImageUrl(filteredImages[selectedImage].src, "galleryLarge", "rotation" in filteredImages[selectedImage] ? { rotation: filteredImages[selectedImage].rotation } : undefined)}
                     alt={`School Image ${selectedImage + 1}`}
                     className={`max-w-full max-h-[95vh] object-contain rounded-lg select-none ${
                       zoom > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default"

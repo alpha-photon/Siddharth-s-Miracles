@@ -12,17 +12,39 @@ const PREVIEW_LENGTH = 130;
 
 const testimonials = [
   {
-    name: "Kalpana Singh",
-    role: "Parent",
-    quote:
-      "I am thoroughly delighted with the exceptional education and care that my child has received at Siddharth's Miracles School. The school's emphasis on overall development, not just academically but also in extracurricular activities, has been truly impressive. The good culture of the school, caring teachers, and supporting staff provide a warm and welcoming environment that fosters growth and learning. The quality education provided by the school is of a very high standard, with knowledgeable and experienced teachers who are passionate about their work. Overall, I highly recommend Siddharth's Miracles School to any parent seeking a nurturing and stimulating environment for their child to thrive.",
+    name: "Priya Patel",
+    role: "Parent of Std 5 Student",
+    quote: "My child has grown not just academically but as a confident and disciplined person. The teachers here truly care about each student's development.",
     rating: 5,
   },
   {
-    name: "Maila Paramesh & G. Nirmala",
-    role: "Parents of Master Maila Ritwik (UKG)",
-    quote:
-      "We are delighted to share our positive experience with Siddharth Miracle School, where our son is thriving in UKG. The teachers create a nurturing and engaging environment tailored for young learners—their play-based curriculum sparks curiosity and builds foundational skills in reading, numbers, and social interaction effectively. We've seen remarkable growth in his confidence and love for learning since he joined. The school's caring staff goes above and beyond, providing personalized attention that makes each child feel valued. The clean, colorful classrooms and outdoor play areas are perfect for UKG kids, promoting both fun and safety. Parent-teacher communication is frequent and helpful. Choosing Siddharth Miracle School has been one of the best decisions for our family—our son looks forward to school every day. It's a true miracle for early childhood education, fostering creativity and discipline hand-in-hand.",
+    name: "Rajesh Shah",
+    role: "Parent of Std 8 Student",
+    quote: "The school's focus on values and sanskar along with academics is exactly what we wanted for our children. Highly recommended!",
+    rating: 5,
+  },
+  {
+    name: "Meena Desai",
+    role: "Parent of Std 3 Student",
+    quote: "Safe environment, caring teachers, and excellent results. Siddharth's Miracles has been a blessing for our family.",
+    rating: 5,
+  },
+  {
+    name: "Amit Kumar",
+    role: "Parent of Std 7 Student",
+    quote: "The holistic approach to education here is amazing. My child participates in sports, cultural activities, and academics with equal enthusiasm.",
+    rating: 5,
+  },
+  {
+    name: "Sunita Mehta",
+    role: "Parent of Std 4 Student",
+    quote: "The personal attention given to each child is remarkable. Teachers know every student individually and guide them accordingly.",
+    rating: 5,
+  },
+  {
+    name: "Vikram Joshi",
+    role: "Parent of Std 6 Student",
+    quote: "Best decision we made for our child's education. The infrastructure, teaching methods, and values all align perfectly with our expectations.",
     rating: 5,
   },
 ];
