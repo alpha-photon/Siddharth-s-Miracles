@@ -16,7 +16,7 @@ const testimonials = [
     name: "Kalpana Singh",
     role: "Parent",
     quote:
-      "I am thoroughly delighted with the exceptional education and care that my child has received at Siddharth's Miracles School. The school's emphasis on overall development, not just academically but also in extracurricular activities, has been truly impressive. The good culture of the school, caring teachers, and supporting staff provide a warm and welcoming environment that fosters growth and learning. The quality education provided by the school is of a very high standard, with knowledgeable and experienced teachers who are passionate about their work. Overall, I highly recommend Siddharth's Miracles School to any parent seeking a nurturing and stimulating environment for their child to thrive.",
+      "I am thoroughly delighted with the exceptional education and care that my child has received at Siddharth's Miracles School. The school emphasis on overall development, not just academically but also in extracurricular activities, has been truly impressive. The good culture of the school, caring teachers, and supporting staff provide a warm and welcoming environment that fosters growth and learning. The quality education provided by the school is of a very high standard, with knowledgeable and experienced teachers who are passionate about their work. Overall, I highly recommend Siddharth's Miracles School to any parent seeking a nurturing and stimulating environment for their child to thrive.",
     rating: 5,
   },
   {
